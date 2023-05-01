@@ -1,4 +1,5 @@
 import { Player } from './player.js';
+import { Sprite } from './sprite.js';
 
 const canvas =  document.querySelector('canvas') as HTMLCanvasElement;
 const context = canvas.getContext('2d') as CanvasRenderingContext2D;
@@ -6,8 +7,21 @@ const context = canvas.getContext('2d') as CanvasRenderingContext2D;
 canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
+const scaledCanvas = {
+	width: canvas.width / 4,
+	height: canvas.height / 4
+};
+
 const player = new Player({ canvas , position: { x:0, y: 0 }});
 const player2 = new Player({ canvas , position: { x: 300, y: 100 }});
+const background = new Sprite({
+	canvas,
+	src: './assets/background.png',
+	position: {
+		x: 0,
+		y: 0
+	}
+});
 
 const keys = {
 	right: {
@@ -27,6 +41,12 @@ function animate() {
 	context.fillStyle = 'white';
 	context.fillRect(0, 0, canvas.width, canvas.height);
 
+	context.save();
+	context.scale(4, 4);
+	context.translate(0, -background.image.height + scaledCanvas.height);
+	background.update();
+	context.restore();
+	
 	player.update();
 	player2.update();
 
