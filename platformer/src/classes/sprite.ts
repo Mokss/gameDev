@@ -1,23 +1,15 @@
-import type { Position } from './types';
-
-export interface ISprite {
-    position: Position;
-    canvas: HTMLCanvasElement;
-	context: CanvasRenderingContext2D;
-    image: HTMLImageElement
-}
-
+import type { Position } from '../types';
 export interface SpiteProps{
 	canvas: HTMLCanvasElement;
     position: Position;
     src: string;
 }
 
-export class Sprite implements ISprite {
-	canvas: ISprite['canvas'];
-	context: ISprite['context'];
-	position: ISprite['position'];
-	image: ISprite['image'];
+export class Sprite {
+	canvas: HTMLCanvasElement;
+	context: CanvasRenderingContext2D;
+	position: Position;
+	image: HTMLImageElement;
 
 	constructor(props: SpiteProps) {
 		this.canvas = props.canvas;
