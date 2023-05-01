@@ -1,12 +1,5 @@
-import type { Position } from './types';
-
-export interface IPlayer {
-	canvas: HTMLCanvasElement;
-	context: CanvasRenderingContext2D;
-    position: Position;
-	velocity: Position;
-	height: number;
-}
+import { gravity } from '../constants.js';
+import type { Position } from '../types';
 
 export interface PlayerProps{
 	canvas: HTMLCanvasElement;
@@ -14,14 +7,13 @@ export interface PlayerProps{
 	velocity?: Position;
 }
 
-const gravity = 0.5;
-
-export class Player implements IPlayer {
-	canvas: IPlayer['canvas'];
-	context: IPlayer['context'];
-	position: IPlayer['position'];
-	velocity: IPlayer['velocity'];
+export class Player {
+	canvas:  HTMLCanvasElement;
+	context: CanvasRenderingContext2D;
+	position: Position;
+	velocity: Position;
 	height = 100;
+	width = 100;
 
 	constructor(props: PlayerProps) {
 		this.canvas = props.canvas;
@@ -35,7 +27,7 @@ export class Player implements IPlayer {
 
 	draw() {
 		this.context.fillStyle = 'red';
-		this.context.fillRect(this.position.x, this.position.y, 100, this.height);
+		this.context.fillRect(this.position.x, this.position.y, this.width, this.height);
 	}
 
 	update() {
