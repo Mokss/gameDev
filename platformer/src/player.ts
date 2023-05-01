@@ -1,8 +1,6 @@
-type Position = {
-	x: number;
-	y: number;
-}
-interface IPlayer {
+import type { Position } from './types';
+
+export interface IPlayer {
 	canvas: HTMLCanvasElement;
 	context: CanvasRenderingContext2D;
     position: Position;
@@ -10,7 +8,7 @@ interface IPlayer {
 	height: number;
 }
 
-interface IPlayerProps{
+export interface PlayerProps{
 	canvas: HTMLCanvasElement;
     position: Position;
 	velocity?: Position;
@@ -19,13 +17,13 @@ interface IPlayerProps{
 const gravity = 0.5;
 
 export class Player implements IPlayer {
-	canvas: HTMLCanvasElement;
+	canvas: IPlayer['canvas'];
 	context: IPlayer['context'];
 	position: IPlayer['position'];
 	velocity: IPlayer['velocity'];
 	height = 100;
 
-	constructor(props: IPlayerProps) {
+	constructor(props: PlayerProps) {
 		this.canvas = props.canvas;
 		this.context = props.canvas.getContext('2d') as CanvasRenderingContext2D;
 		this.position = props.position;
