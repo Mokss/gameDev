@@ -57,8 +57,12 @@ platformCollisions2D.forEach((row, y) => {
 
 
 
-const player = new Player({ canvas , position: { x:0, y: 0 }});
-const player2 = new Player({ canvas , position: { x: 300, y: 100 }});
+const player = new Player({ 
+	canvas, 
+	position: { x:0, y: 0 },
+	collisionBlocks,
+});
+
 const background = new Sprite({
 	canvas,
 	src: './assets/background.png',
@@ -92,14 +96,14 @@ function animate() {
 	background.update();
 	collisionBlocks.forEach(block => block.update());
 	platformCollisionBlocks.forEach(block => block.update());
-	context.restore();
-	
+
 	player.update();
-	player2.update();
 
 	player.velocity.x = 0;
 	if (keys.right.pressed) player.velocity.x = 5;
 	else if (keys.left.pressed) player.velocity.x = -5;
+
+	context.restore();
 }
 
 animate();
@@ -117,7 +121,7 @@ window.addEventListener('keydown', (event) => {
 			break;
 		case 'KeyW':
 		case 'ArrowUp':
-			player.velocity.y = -15;
+			player.velocity.y = -8;
 			break;
 		default:
 			break;
@@ -136,9 +140,6 @@ window.addEventListener('keyup', (event) => {
 			keys.left.pressed = false;
 			break;
 		case 'KeyW':
-		case 'ArrowUp':
-			player.velocity.y = -15;
-			break;
 		default:
 			break;
 	}
