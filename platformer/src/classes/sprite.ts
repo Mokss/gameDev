@@ -42,7 +42,7 @@ export class Sprite {
 				x: this.currentFrame * this.image.width / this.frameRate ,
 				y: 0,
 			},
-			width: this.image.width / this.frameRate ,
+			width: this.image.width / this.frameRate,
 			height: this.image.height,
 		};
 
