@@ -2,27 +2,19 @@ import { gravity } from '../constants.js';
 import type { Position } from '../types';
 import { CollisionBlock } from './collisionBlock.js';
 import { isCollision } from '../utils.js';
+import { SpriteProps, Sprite } from './sprite.js';
 
-export interface PlayerProps{
-	canvas: HTMLCanvasElement;
-    position: Position;
+export interface PlayerProps extends SpriteProps {
 	velocity?: Position;
 	collisionBlocks: CollisionBlock[]
 }
 
-export class Player {
-	canvas:  HTMLCanvasElement;
-	context: CanvasRenderingContext2D;
-	position: Position;
+export class Player extends Sprite {
 	velocity: Position;
 	collisionBlocks: CollisionBlock[] = [];
-	height = 25;
-	width = 25;
 
 	constructor(props: PlayerProps) {
-		this.canvas = props.canvas;
-		this.context = props.canvas.getContext('2d') as CanvasRenderingContext2D;
-		this.position = props.position;
+		super({ ...props, scale: 0.5 });
 		this.velocity = props.velocity || {
 			x: 0,
 			y: 1,
@@ -30,12 +22,10 @@ export class Player {
 		this.collisionBlocks = props.collisionBlocks;
 	}
 
-	draw() {
-		this.context.fillStyle = 'red';
-		this.context.fillRect(this.position.x, this.position.y, this.width, this.height);
-	}
-
 	update() {
+		this.updateFrames();
+		this.context.fillStyle = 'rgba(0, 255, 0, 0.3)';
+		this.context.fillRect(this.position.x, this.position.y, this.width, this.height);
 		this.draw();
 
 		this.position.x += this.velocity.x;
