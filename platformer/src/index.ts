@@ -58,13 +58,16 @@ platformCollisions2D.forEach((row, y) => {
 
 
 const player = new Player({ 
-	canvas, 
-	position: { x:0, y: 0 },
+	context,
+	src: './assets/warrior/Idle.png',
+	position: { x: 0, y: 0 },
 	collisionBlocks,
+	frameRate: 8,
+	frameBuffer: 6,
 });
 
 const background = new Sprite({
-	canvas,
+	context,
 	src: './assets/background.png',
 	position: {
 		x: 0,
@@ -87,9 +90,6 @@ const keys = {
 function animate() {
 	window.requestAnimationFrame(animate); 
 
-	context.fillStyle = 'blue';
-	context.fillRect(0, 0, canvas.width, canvas.height);
-
 	context.save();
 	context.scale(4, 4);
 	context.translate(0, -background.image.height + scaledCanvas.height);
@@ -109,7 +109,6 @@ function animate() {
 animate();
 
 window.addEventListener('keydown', (event) => {
-	console.log('keydown', event.code);
 	switch (event.code) {
 		case 'KeyD':
 		case 'ArrowRight':
@@ -129,7 +128,6 @@ window.addEventListener('keydown', (event) => {
 });
 
 window.addEventListener('keyup', (event) => {
-	console.log('keyup', event.code);
 	switch (event.code) {
 		case 'KeyD':
 		case 'ArrowRight':
