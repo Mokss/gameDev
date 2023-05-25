@@ -9,5 +9,12 @@ export type Size = {
 }
 
 export type Block = {
-	position: Position,
+	position: Position;
 } & Size
+
+export type Animations<T> = Record<keyof T, {
+	src: string;
+	frameRate: number;
+	frameBuffer: number;
+	img?: HTMLImageElement;
+}>
