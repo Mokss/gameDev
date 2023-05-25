@@ -57,13 +57,55 @@ platformCollisions2D.forEach((row, y) => {
 
 
 
-const player = new Player({ 
+const player = new Player({
 	context,
 	src: './assets/warrior/Idle.png',
 	position: { x: 0, y: 0 },
 	collisionBlocks,
 	frameRate: 8,
-	frameBuffer: 6,
+	frameBuffer: 5,
+	animations: {
+		Idle: {
+			src: './assets/warrior/Idle.png',
+			frameRate: 8,
+			frameBuffer: 5,
+		},
+		IdleLeft: {
+			src: './assets/warrior/IdleLeft.png',
+			frameRate: 8,
+			frameBuffer: 5,
+		},
+		Run: {
+			src: './assets/warrior/Run.png',
+			frameRate: 8,
+			frameBuffer: 5,
+		},
+		RunLeft: {
+			src: './assets/warrior/RunLeft.png',
+			frameRate: 8,
+			frameBuffer: 5,
+		},
+		Jump: {
+			src: './assets/warrior/Jump.png',
+			frameRate: 2,
+			frameBuffer: 3,
+		},
+		JumpLeft: {
+			src: './assets/warrior/JumpLeft.png',
+			frameRate: 2,
+			frameBuffer: 3,
+		},
+		Fall: {
+			src: './assets/warrior/Fall.png',
+			frameRate: 2,
+			frameBuffer: 3,
+		},
+		FallLeft: {
+			src: './assets/warrior/FallLeft.png',
+			frameRate: 2,
+			frameBuffer: 3,
+		},
+	}
 });
 
 const background = new Sprite({
@@ -100,8 +142,23 @@ function animate() {
 	player.update();
 
 	player.velocity.x = 0;
-	if (keys.right.pressed) player.velocity.x = 5;
-	else if (keys.left.pressed) player.velocity.x = -5;
+	if (keys.right.pressed) { 
+		player.lastDirection = 'right';
+		player.switchSprite('Run');
+		player.velocity.x = 2;
+	} else if (keys.left.pressed) { 
+		player.lastDirection = 'left';
+		player.switchSprite('RunLeft');
+		player.velocity.x = -2;
+	} else if (player.velocity.y === 0) {
+		player.lastDirection === 'right' ? player.switchSprite('Idle') : player.switchSprite('IdleLeft');
+	}
+
+	if (player.velocity.y < 0) {
+		player.lastDirection === 'right' ? player.switchSprite('Jump') : player.switchSprite('JumpLeft');
+	} else if (player.velocity.y > 0) {
+		player.lastDirection === 'right' ? player.switchSprite('Fall') : player.switchSprite('FallLeft');
+	}
 
 	context.restore();
 }
