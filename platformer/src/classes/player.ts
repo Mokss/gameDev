@@ -1,61 +1,61 @@
 import { gravity } from '../constants.js';
-import type { Block, Position } from '../types';
+import type { Animations, Block, Position } from '../types';
 import { CollisionBlock } from './collisionBlock.js';
 import { isCollision } from '../utils.js';
 import { SpriteProps, Sprite } from './sprite.js';
 
-export interface PlayerProps extends SpriteProps {
+export interface PlayerProps<T> extends SpriteProps {
 	velocity?: Position;
 	collisionBlocks: CollisionBlock[]
+	animations: Animations<T>
 }
 
-export class Player extends Sprite {
+export class Player<T> extends Sprite {
 	velocity: Position;
 	collisionBlocks: CollisionBlock[] = [];
-	hitbox: Block;
+	animations: Animations<T>;
+	lastDirection: 'right' | 'left' = 'right';
 
-	constructor(props: PlayerProps) {
+	constructor(props: PlayerProps<T>) {
 		super({ ...props, scale: 0.5 });
 		this.velocity = props.velocity || {
 			x: 0,
 			y: 1,
 		};
 		this.collisionBlocks = props.collisionBlocks;
-		this.hitbox = {
+		this.animations = props.animations;
+
+		for (const key in props.animations) {
+			const img = new Image();
+			img.src = props.animations[key].src;
+			this.animations[key].img = img;
+		}
+	}
+
+	get hitbox(): Block {
+		return {
 			position: {
-				x: this.position.x,
-				y: this.position.y,
+				x: this.position.x + 34,
+				y: this.position.y + 26,
 			},
-			width: 10,
-			height: 10
+			width: 15,
+			height: 27
 		};
 	}
 
 	update() {
 		this.updateFrames();
-		// this.updateHitbox();
-		
-		// NOTE: img borders
-		this.context.fillStyle = 'rgba(0, 255, 0, 0.2)';
-		this.context.fillRect(this.position.x, this.position.y, this.width, this.height);
-
-		// NOTE: hitbox borders
-		this.context.fillStyle = 'rgba(255, 0, 0, 0.2)';
-		this.context.fillRect(this.hitbox.position.x, this.hitbox.position.y, this.hitbox.width, this.hitbox.height);
-
 		this.draw();
 
 		this.position.x += this.velocity.x;
-		this.updateHitbox();
 		this.checkHorizontalCollision();
 		this.applyGravity();
-		this.updateHitbox();
 		this.checkVerticalCollision();
 	}
 
 	applyGravity() {
-		this.position.y += this.velocity.y;
 		this.velocity.y += gravity;
+		this.position.y += this.velocity.y;
 	}
 
 
@@ -85,10 +85,18 @@ export class Player extends Sprite {
 		}
 	}
 
+	switchSprite(sprite: keyof T) {
+		const animation = this.animations[sprite];
+		if (!animation.img || this.image === animation.img || !this.loaded) return;
+	
+		this.image = animation.img;
+		this.frameBuffer = animation.frameBuffer;
+		this.frameRate = animation.frameRate;
+	}
+
 	checkVerticalCollision() {
 		for (let i = 0; i < this.collisionBlocks.length; i++) {
 			const collisionBLock = this.collisionBlocks[i];
-
 
 			if (isCollision(this.hitbox, collisionBLock)) {
 				if (this.velocity.y > 0) { 
@@ -110,16 +118,5 @@ export class Player extends Sprite {
 				}
 			}
 		}
-	}
-
-	updateHitbox() {
-		this.hitbox = {
-			position: {
-				x: this.position.x + 34,
-				y: this.position.y + 26,
-			},
-			width: 15,
-			height: 27
-		};
 	}
 }

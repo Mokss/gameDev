@@ -19,6 +19,7 @@ export class Sprite {
 	scale: number;
 	currentFrame = 0;
 	elapsedFrames = 0;
+	loaded = false;
 	
 	constructor(props: SpriteProps) {
 		this.context = props.context;
@@ -28,6 +29,7 @@ export class Sprite {
 		this.image.onload = () => {
 			this.width = Number(this.image.width / this.frameRate) * this.scale;
 			this.height = Number(this.image.height) * this.scale;
+			this.loaded = true;
 		};
 		this.image.src = props.src; 
 		this.frameRate = props.frameRate || 1;
