@@ -1,1 +1,2 @@
-export const gravity = 0.5;
+export const GRAVITY = 0.2;
+export const SCALE = 4;

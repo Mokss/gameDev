@@ -1,18 +1,20 @@
-import { gravity } from '../constants.js';
+import { GRAVITY } from '../constants.js';
 import type { Animations, Block, Position } from '../types';
 import { CollisionBlock } from './collisionBlock.js';
-import { isCollision } from '../utils.js';
+import { isCollision, isPlatformCollision } from '../utils.js';
 import { SpriteProps, Sprite } from './sprite.js';
 
 export interface PlayerProps<T> extends SpriteProps {
 	velocity?: Position;
-	collisionBlocks: CollisionBlock[]
-	animations: Animations<T>
+	collisionBlocks: CollisionBlock[];
+	platformCollisionBlocks: CollisionBlock[];
+	animations: Animations<T>;
 }
 
 export class Player<T> extends Sprite {
 	velocity: Position;
 	collisionBlocks: CollisionBlock[] = [];
+	platformCollisionBlocks: CollisionBlock[] = [];
 	animations: Animations<T>;
 	lastDirection: 'right' | 'left' = 'right';
 
@@ -23,6 +25,7 @@ export class Player<T> extends Sprite {
 			y: 1,
 		};
 		this.collisionBlocks = props.collisionBlocks;
+		this.platformCollisionBlocks = props.platformCollisionBlocks;
 		this.animations = props.animations;
 
 		for (const key in props.animations) {
@@ -54,10 +57,19 @@ export class Player<T> extends Sprite {
 	}
 
 	applyGravity() {
-		this.velocity.y += gravity;
+		this.velocity.y += GRAVITY;
 		this.position.y += this.velocity.y;
 	}
 
+	switchSprite(sprite: keyof T) {
+		const animation = this.animations[sprite];
+		if (!animation.img || this.image === animation.img || !this.loaded) return;
+	
+		this.currentFrame = 0;
+		this.image = animation.img;
+		this.frameBuffer = animation.frameBuffer;
+		this.frameRate = animation.frameRate;
+	}
 
 	checkHorizontalCollision() {
 		for (let i = 0; i < this.collisionBlocks.length; i++) {
@@ -85,35 +97,33 @@ export class Player<T> extends Sprite {
 		}
 	}
 
-	switchSprite(sprite: keyof T) {
-		const animation = this.animations[sprite];
-		if (!animation.img || this.image === animation.img || !this.loaded) return;
-	
-		this.image = animation.img;
-		this.frameBuffer = animation.frameBuffer;
-		this.frameRate = animation.frameRate;
-	}
 
 	checkVerticalCollision() {
 		for (let i = 0; i < this.collisionBlocks.length; i++) {
-			const collisionBLock = this.collisionBlocks[i];
+			const collisionBlock = this.collisionBlocks[i];
 
-			if (isCollision(this.hitbox, collisionBLock)) {
+			if (isCollision(this.hitbox, collisionBlock)) {
+				if (this.velocity.y > 0) { 
+					this.velocity.y = 0;
+
+					const offset = this.hitbox.position.y - this.position.y + this.hitbox.height;
+
+					this.position.y = collisionBlock.position.y - offset - 0.01;
+					break;
+				}
+			}
+		}
+
+		for (let i = 0; i < this.platformCollisionBlocks.length; i++) {
+			const collisionBLock = this.platformCollisionBlocks[i];
+
+			if (isPlatformCollision(this.hitbox, collisionBLock)) {
 				if (this.velocity.y > 0) { 
 					this.velocity.y = 0;
 
 					const offset = this.hitbox.position.y - this.position.y + this.hitbox.height;
 
 					this.position.y = collisionBLock.position.y - offset - 0.01;
-					break;
-				}
-
-				if (this.velocity.y < 0) { 
-					this.velocity.y = 0;
-
-					const offset = this.hitbox.position.y - this.position.y;
-
-					this.position.y = collisionBLock.position.y + collisionBLock.height - offset + 0.01;
 					break;
 				}
 			}

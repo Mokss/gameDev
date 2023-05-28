@@ -1,17 +1,18 @@
 import { CollisionBlock } from './classes/collisionBlock.js';
 import { Player } from './classes/player.js';
 import { Sprite } from './classes/sprite.js';
+import { SCALE } from './constants.js';
 import { floorCollisions, platformCollisions } from './data/collisions.js';
 
 const canvas =  document.querySelector('canvas') as HTMLCanvasElement;
 const context = canvas.getContext('2d') as CanvasRenderingContext2D;
 
-canvas.width = 1024;
-canvas.height = 576;
+canvas.width = document.body.clientWidth;
+canvas.height = document.body.clientHeight;
 
 const scaledCanvas = {
-	width: canvas.width / 4,
-	height: canvas.height / 4
+	width: canvas.width / SCALE,
+	height: canvas.height / SCALE
 };
 
 const floorCollisions2D = [];
@@ -48,7 +49,8 @@ platformCollisions2D.forEach((row, y) => {
 				position: {
 					x: x * 16,
 					y: y * 16,
-				}
+				},
+				height: 4
 			}));
 		}
 	}); 
@@ -60,8 +62,9 @@ platformCollisions2D.forEach((row, y) => {
 const player = new Player({
 	context,
 	src: './assets/warrior/Idle.png',
-	position: { x: 0, y: 0 },
+	position: { x: 100, y: 340 },
 	collisionBlocks,
+	platformCollisionBlocks,
 	frameRate: 8,
 	frameBuffer: 5,
 	animations: {
@@ -133,7 +136,7 @@ function animate() {
 	window.requestAnimationFrame(animate); 
 
 	context.save();
-	context.scale(4, 4);
+	context.scale(SCALE, SCALE);
 	context.translate(0, -background.image.height + scaledCanvas.height);
 	background.update();
 	collisionBlocks.forEach(block => block.update());
@@ -177,7 +180,7 @@ window.addEventListener('keydown', (event) => {
 			break;
 		case 'KeyW':
 		case 'ArrowUp':
-			player.velocity.y = -8;
+			player.velocity.y = -5;
 			break;
 		default:
 			break;
