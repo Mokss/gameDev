@@ -1,4 +1,4 @@
-import { GRAVITY } from '../constants.js';
+import { GRAVITY, SCALE } from '../constants.js';
 import type { Animations, Block, Position } from '../types';
 import { CollisionBlock } from './collisionBlock.js';
 import { isCollision, isPlatformCollision } from '../utils.js';
@@ -35,6 +35,17 @@ export class Player<T> extends Sprite {
 		}
 	}
 
+	get camerabox(): Block {
+		return  {
+			position: {
+				x: this.position.x - 60,
+				y: this.position.y
+			},
+			width: 200,
+			height: 150,
+		};
+	}
+
 	get hitbox(): Block {
 		return {
 			position: {
@@ -46,8 +57,51 @@ export class Player<T> extends Sprite {
 		};
 	}
 
+	shouldPanCameraLeft(canvas: HTMLCanvasElement, camera: {position: Position }) {
+		const cameraboxRightSide = this.camerabox.position.x + this.camerabox.width;
+
+		if (cameraboxRightSide >= 576) return;
+
+		if (cameraboxRightSide >= canvas.width / SCALE + Math.abs(camera.position.x)) {
+			camera.position.x -= this.velocity.x;
+		}
+	}
+
+	shouldPanCameraRight(camera: {position: Position }) {
+		if(this.camerabox.position.x <= 0) return;
+
+		if (this.camerabox.position.x <= Math.abs(camera.position.x)) {
+			camera.position.x -= this.velocity.x;
+		}
+	}
+
+	shouldPanCameraDown(camera: {position: Position }) {
+		if(this.camerabox.position.y + this.velocity.y <= 0) return;
+
+		if (this.camerabox.position.y <= Math.abs(camera.position.y)) {
+			camera.position.y -= this.velocity.y;
+		}
+	}
+
+	shouldPanCameraUp(canvas: HTMLCanvasElement, camera: {position: Position }) {
+		if(this.camerabox.position.y + this.camerabox.height + this.velocity.y >= 432) return;
+
+		if (this.camerabox.position.y + this.camerabox.height >= Math.abs(camera.position.y) + canvas.height / SCALE) {
+			camera.position.y -= this.velocity.y;
+		}
+	}
+
 	update() {
 		this.updateFrames();
+
+		// this.context.fillStyle = 'rgba(0, 0, 255, 0.2)';
+		// this.context.fillRect(
+		// 	this.camerabox.position.x,
+		// 	this.camerabox.position.y,
+		// 	this.camerabox.width,
+		// 	this.camerabox.height
+		// );
+
 		this.draw();
 
 		this.position.x += this.velocity.x;
@@ -69,6 +123,15 @@ export class Player<T> extends Sprite {
 		this.image = animation.img;
 		this.frameBuffer = animation.frameBuffer;
 		this.frameRate = animation.frameRate;
+	}
+
+	checkHorizontalCanvasCollision() {
+		if (
+			this.hitbox.position.x + this.hitbox.width + this.velocity.x >= 576 ||
+			this.hitbox.position.x + this.velocity.x <= 0	
+		) {
+			this.velocity.x = 0;
+		}
 	}
 
 	checkHorizontalCollision() {
