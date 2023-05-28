@@ -10,11 +10,6 @@ const context = canvas.getContext('2d') as CanvasRenderingContext2D;
 canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
-const scaledCanvas = {
-	width: canvas.width / SCALE,
-	height: canvas.height / SCALE
-};
-
 const floorCollisions2D = [];
 for (let i = 0; i < floorCollisions.length; i += 36) {
 	floorCollisions2D.push(floorCollisions.slice(i));
@@ -132,16 +127,24 @@ const keys = {
 	}
 };
 
+const camera = {
+	position: {
+		x: 0,
+		y: -background.image.height + canvas.height / SCALE,
+	}
+};
+
 function animate() {
 	window.requestAnimationFrame(animate); 
 
 	context.save();
 	context.scale(SCALE, SCALE);
-	context.translate(0, -background.image.height + scaledCanvas.height);
+	context.translate(camera.position.x, camera.position.y);
 	background.update();
 	collisionBlocks.forEach(block => block.update());
 	platformCollisionBlocks.forEach(block => block.update());
 
+	player.checkHorizontalCanvasCollision();
 	player.update();
 
 	player.velocity.x = 0;
@@ -149,17 +152,21 @@ function animate() {
 		player.lastDirection = 'right';
 		player.switchSprite('Run');
 		player.velocity.x = 2;
+		player.shouldPanCameraLeft(canvas, camera);
 	} else if (keys.left.pressed) { 
 		player.lastDirection = 'left';
 		player.switchSprite('RunLeft');
 		player.velocity.x = -2;
+		player.shouldPanCameraRight(camera);
 	} else if (player.velocity.y === 0) {
 		player.lastDirection === 'right' ? player.switchSprite('Idle') : player.switchSprite('IdleLeft');
 	}
 
 	if (player.velocity.y < 0) {
+		player.shouldPanCameraDown(camera);
 		player.lastDirection === 'right' ? player.switchSprite('Jump') : player.switchSprite('JumpLeft');
 	} else if (player.velocity.y > 0) {
+		player.shouldPanCameraUp(canvas, camera);
 		player.lastDirection === 'right' ? player.switchSprite('Fall') : player.switchSprite('FallLeft');
 	}
 
