@@ -42,7 +42,7 @@ export class Player<T> extends Sprite {
 				y: this.position.y
 			},
 			width: 200,
-			height: 80
+			height: 150,
 		};
 	}
 
@@ -94,13 +94,13 @@ export class Player<T> extends Sprite {
 	update() {
 		this.updateFrames();
 
-		this.context.fillStyle = 'rgba(0, 0, 255, 0.2)';
-		this.context.fillRect(
-			this.camerabox.position.x,
-			this.camerabox.position.y,
-			this.camerabox.width,
-			this.camerabox.height
-		);
+		// this.context.fillStyle = 'rgba(0, 0, 255, 0.2)';
+		// this.context.fillRect(
+		// 	this.camerabox.position.x,
+		// 	this.camerabox.position.y,
+		// 	this.camerabox.width,
+		// 	this.camerabox.height
+		// );
 
 		this.draw();
 

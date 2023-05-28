@@ -141,8 +141,9 @@ function animate() {
 	context.scale(SCALE, SCALE);
 	context.translate(camera.position.x, camera.position.y);
 	background.update();
-	collisionBlocks.forEach(block => block.update());
-	platformCollisionBlocks.forEach(block => block.update());
+
+	// collisionBlocks.forEach(block => block.update());
+	// platformCollisionBlocks.forEach(block => block.update());
 
 	player.checkHorizontalCanvasCollision();
 	player.update();
