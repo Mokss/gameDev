@@ -1,0 +1,10 @@
+res://Main.tscn
+res://Spirte2D.gd
+res://Sprite2D.tscn
+res://Sprite.tscn
+res://Ball.tscn
+res://GodotIcon.tscn
+res://components/Ball.tscn
+res://components/GodotIcon.tscn
+res://components/GodotIcon.gd
+res://components/Sprite2D.gd
