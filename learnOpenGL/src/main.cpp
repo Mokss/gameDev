@@ -7,7 +7,6 @@
 const unsigned int WIDTH = 800;
 const unsigned int HEIGHT = 600;
 
-//  ���������� ������������
 const float firstTriangle[] = {
 	-0.5f, 0.0f, 0.0f, // Left  
 	 0.5f, 0.0f, 0.0f, // Right 
