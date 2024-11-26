@@ -103,15 +103,13 @@ stretch_mode = 5
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 298.0
-offset_top = 35.0
-offset_right = -304.0
-offset_bottom = -562.0
+offset_left = 323.0
+offset_top = 9.0
+offset_right = -337.0
+offset_bottom = 40.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_b6ogb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fwmin")
 max_value = 3.0
