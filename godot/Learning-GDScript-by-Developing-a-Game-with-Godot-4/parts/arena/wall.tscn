@@ -1,5 +1,25 @@
-[gd_scene format=3 uid="uid://c3npgprfx7dy3"]
+[gd_scene load_steps=3 format=3 uid="uid://c3npgprfx7dy3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujl3p"]
+size = Vector2(488, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bs4kw"]
+size = Vector2(64, 162)
 
 [node name="Wall" type="Polygon2D"]
 color = Color(0.176471, 0.172549, 0.180392, 1)
 polygon = PackedVector2Array(16, -40, 504, -40, 504, 192, 440, 192, 440, 32, 16, 32)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(260, -4)
+shape = SubResource("RectangleShape2D_ujl3p")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(472, 111)
+shape = SubResource("RectangleShape2D_bs4kw")
+metadata/_edit_lock_ = true
