@@ -1,6 +1,5 @@
 extends Collectible
 
-
 func _on_area_2d_body_entered(body: Player) -> void:
-	body.health += 5
+	body.gold += 5
 	queue_free()

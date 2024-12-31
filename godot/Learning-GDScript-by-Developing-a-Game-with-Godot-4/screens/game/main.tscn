@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck2g1dbq0ftuw"]
+[gd_scene load_steps=6 format=3 uid="uid://ck2g1dbq0ftuw"]
 
 [ext_resource type="PackedScene" uid="uid://c3npgprfx7dy3" path="res://parts/arena/wall.tscn" id="1_73ib7"]
 [ext_resource type="PackedScene" uid="uid://bqbuyddr8dux6" path="res://parts/arena/boulder.tscn" id="2_csnvk"]
 [ext_resource type="PackedScene" uid="uid://l60o3t7ei60w" path="res://parts/collectible/health_potion.tscn" id="4_3tii7"]
 [ext_resource type="PackedScene" uid="uid://d1pysshjlneof" path="res://parts/player/player.tscn" id="4_njsao"]
+[ext_resource type="PackedScene" uid="uid://xctex1jvydxl" path="res://parts/collectible/gold_coin.tscn" id="4_wtsbf"]
 
 [node name="Main" type="Node"]
 
@@ -32,6 +33,7 @@ color = Color(0.176471, 0.172549, 0.180392, 1)
 invert_enabled = true
 invert_border = 880.2
 polygon = PackedVector2Array(-207, -229, 589, -296, 1395, -254, 1637, -17, 1655, 701, 1491, 956, 1113, 1072, 178, 1029, -248, 956, -379, 276)
+metadata/_edit_lock_ = true
 
 [node name="Boulder" parent="Arena" instance=ExtResource("2_csnvk")]
 position = Vector2(-154, -32)
@@ -56,9 +58,15 @@ rotation = 1.19687
 [node name="Boulder7" parent="Arena" instance=ExtResource("2_csnvk")]
 position = Vector2(53, 366)
 
+[node name="HealthPotion" parent="Arena" instance=ExtResource("4_3tii7")]
+position = Vector2(647, 289)
+
+[node name="Gold_coin" parent="Arena" instance=ExtResource("4_wtsbf")]
+position = Vector2(646, 447)
+
+[node name="Gold_coin2" parent="Arena" instance=ExtResource("4_wtsbf")]
+position = Vector2(643, 122)
+
 [node name="Player" parent="." instance=ExtResource("4_njsao")]
 position = Vector2(296, 182)
 health = 3
-
-[node name="Сollectible" parent="." instance=ExtResource("4_3tii7")]
-position = Vector2(629, 336)
