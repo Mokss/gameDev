@@ -8,7 +8,7 @@
 radius = 24.0
 height = 50.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 script = ExtResource("1_8ab1t")
 metadata/_edit_lock_ = true

@@ -1,14 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck2g1dbq0ftuw"]
+[gd_scene load_steps=8 format=3 uid="uid://ck2g1dbq0ftuw"]
 
 [ext_resource type="PackedScene" uid="uid://c3npgprfx7dy3" path="res://parts/arena/wall.tscn" id="1_73ib7"]
 [ext_resource type="PackedScene" uid="uid://bqbuyddr8dux6" path="res://parts/arena/boulder.tscn" id="2_csnvk"]
 [ext_resource type="PackedScene" uid="uid://l60o3t7ei60w" path="res://parts/collectible/health_potion.tscn" id="4_3tii7"]
 [ext_resource type="PackedScene" uid="uid://d1pysshjlneof" path="res://parts/player/player.tscn" id="4_njsao"]
 [ext_resource type="PackedScene" uid="uid://xctex1jvydxl" path="res://parts/collectible/gold_coin.tscn" id="4_wtsbf"]
+[ext_resource type="PackedScene" uid="uid://w7tbxnjrq6d8" path="res://parts/enemy/enemy.tscn" id="6_ska3y"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_w1r1x"]
+vertices = PackedVector2Array(1476.78, 931.867, 1112.72, 1045.82, 994.031, 975.328, 1058.4, 895.023, 1312, 762, 1628.83, 692, 866, 222, 1042.7, 355.938, 943.672, 418.477, 128.938, 373.203, 752, 222, 1489.4, 168.023, 1612.25, -7.24219, 1425.03, 248.328, 1093.94, 445.203, 1365.6, 238.656, 1312, 640, 1063.25, 497, 1384.26, -230.523, 1395.03, 98.6719, 1290, 62, 1290, -60, 736.938, -148.797, 685.703, -238.063, 752, -60, 706.25, -97, 184.719, 1003.1, 934.602, 965.656, -9, -65, -9, 57, -78.0625, -24.7969, -129.297, -114.063, -21.3281, 346.477, -108.75, 27, 77.7031, 283.938, 906.867, 894.961, 371.25, 930, 888, 640, 987.289, 497, 888, 480, 774, 480, 500, 475, 1337.87, 167.961, 529, 217, 529, -65, 630.289, -97, -190.531, -207.438, 586.672, -175.523, 866, 62, 500, 757, 774, 762, 401.938, 878.203, 386, 475, 98.25, 425, 415, 57, 415, 217, 386, 635, -38, 635, 22.2891, 425, -353.203, 277.703, -184.711, 27, -226.727, 933.25, 587.32, -271.938, -228.328, -51.5234, -38, 757, 251.672, 851.477, 295.289, 930, 964.031, 825.672, 350.703, 788.938)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10), PackedInt32Array(11, 12, 5), PackedInt32Array(13, 11, 5), PackedInt32Array(14, 15, 13, 5, 16, 17), PackedInt32Array(18, 12, 19, 20, 21), PackedInt32Array(18, 21, 22, 23), PackedInt32Array(22, 21, 24, 25), PackedInt32Array(2, 1, 26, 27), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(32, 33, 30, 29, 34), PackedInt32Array(35, 27, 26, 36), PackedInt32Array(5, 4, 16), PackedInt32Array(17, 16, 37, 38), PackedInt32Array(38, 37, 39, 8), PackedInt32Array(9, 8, 39, 40, 41), PackedInt32Array(15, 14, 7, 42), PackedInt32Array(25, 24, 10, 43, 44, 45), PackedInt32Array(46, 47, 45, 44, 28, 31), PackedInt32Array(12, 11, 19), PackedInt32Array(20, 19, 42, 7, 6, 48), PackedInt32Array(49, 40, 50, 51), PackedInt32Array(40, 49, 41), PackedInt32Array(9, 41, 52, 53), PackedInt32Array(29, 54, 55, 9, 34), PackedInt32Array(53, 52, 56, 57, 58), PackedInt32Array(43, 10, 9, 55), PackedInt32Array(59, 60, 33, 32, 61), PackedInt32Array(62, 18, 23), PackedInt32Array(62, 23, 47, 46), PackedInt32Array(46, 31, 63), PackedInt32Array(59, 46, 63), PackedInt32Array(59, 63, 60), PackedInt32Array(61, 32, 58, 57), PackedInt32Array(61, 57, 64), PackedInt32Array(26, 61, 64, 65, 66), PackedInt32Array(4, 3, 67), PackedInt32Array(50, 4, 67), PackedInt32Array(51, 50, 67, 35, 36), PackedInt32Array(49, 51, 68), PackedInt32Array(64, 49, 68), PackedInt32Array(64, 68, 65), PackedInt32Array(26, 66, 36)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-209, -231, 587, -297, 1395, -255, 1637, -18, 1654, 699, 1493, 953, 1116, 1071, 182, 1028, -248, 955, -379, 276)])
+parsed_geometry_type = 1
+source_geometry_mode = 1
+agent_radius = 25.0
 
 [node name="Main" type="Node"]
 
-[node name="Arena" type="Node2D" parent="."]
+[node name="Arena" type="Node2D" parent="." groups=["navigation_polygon_source_geometry_group"]]
 metadata/_edit_lock_ = true
 
 [node name="Wall" parent="Arena" instance=ExtResource("1_73ib7")]
@@ -67,6 +76,13 @@ position = Vector2(646, 447)
 [node name="Gold_coin2" parent="Arena" instance=ExtResource("4_wtsbf")]
 position = Vector2(643, 122)
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_w1r1x")
+metadata/_edit_lock_ = true
+
 [node name="Player" parent="." instance=ExtResource("4_njsao")]
 position = Vector2(296, 182)
 health = 3
+
+[node name="Enemy" parent="." instance=ExtResource("6_ska3y")]
+position = Vector2(1068, 279)
