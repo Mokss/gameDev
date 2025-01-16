@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck2g1dbq0ftuw"]
+[gd_scene load_steps=9 format=3 uid="uid://ck2g1dbq0ftuw"]
 
 [ext_resource type="PackedScene" uid="uid://c3npgprfx7dy3" path="res://parts/arena/wall.tscn" id="1_73ib7"]
 [ext_resource type="PackedScene" uid="uid://bqbuyddr8dux6" path="res://parts/arena/boulder.tscn" id="2_csnvk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d1pysshjlneof" path="res://parts/player/player.tscn" id="4_njsao"]
 [ext_resource type="PackedScene" uid="uid://xctex1jvydxl" path="res://parts/collectible/gold_coin.tscn" id="4_wtsbf"]
 [ext_resource type="PackedScene" uid="uid://w7tbxnjrq6d8" path="res://parts/enemy/enemy.tscn" id="6_ska3y"]
+[ext_resource type="PackedScene" uid="uid://c07xh2l35xwer" path="res://parts/entity_spawner/entity_spawner.tscn" id="7_3yemm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w1r1x"]
 vertices = PackedVector2Array(1476.78, 931.867, 1112.72, 1045.82, 994.031, 975.328, 1058.4, 895.023, 1312, 762, 1628.83, 692, 866, 222, 1042.7, 355.938, 943.672, 418.477, 128.938, 373.203, 752, 222, 1489.4, 168.023, 1612.25, -7.24219, 1425.03, 248.328, 1093.94, 445.203, 1365.6, 238.656, 1312, 640, 1063.25, 497, 1384.26, -230.523, 1395.03, 98.6719, 1290, 62, 1290, -60, 736.938, -148.797, 685.703, -238.063, 752, -60, 706.25, -97, 184.719, 1003.1, 934.602, 965.656, -9, -65, -9, 57, -78.0625, -24.7969, -129.297, -114.063, -21.3281, 346.477, -108.75, 27, 77.7031, 283.938, 906.867, 894.961, 371.25, 930, 888, 640, 987.289, 497, 888, 480, 774, 480, 500, 475, 1337.87, 167.961, 529, 217, 529, -65, 630.289, -97, -190.531, -207.438, 586.672, -175.523, 866, 62, 500, 757, 774, 762, 401.938, 878.203, 386, 475, 98.25, 425, 415, 57, 415, 217, 386, 635, -38, 635, 22.2891, 425, -353.203, 277.703, -184.711, 27, -226.727, 933.25, 587.32, -271.938, -228.328, -51.5234, -38, 757, 251.672, 851.477, 295.289, 930, 964.031, 825.672, 350.703, 788.938)
@@ -67,22 +68,95 @@ rotation = 1.19687
 [node name="Boulder7" parent="Arena" instance=ExtResource("2_csnvk")]
 position = Vector2(53, 366)
 
-[node name="HealthPotion" parent="Arena" instance=ExtResource("4_3tii7")]
-position = Vector2(647, 289)
-
-[node name="Gold_coin" parent="Arena" instance=ExtResource("4_wtsbf")]
-position = Vector2(646, 447)
-
-[node name="Gold_coin2" parent="Arena" instance=ExtResource("4_wtsbf")]
-position = Vector2(643, 122)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_w1r1x")
 metadata/_edit_lock_ = true
+
+[node name="HealthPotion" parent="." instance=ExtResource("4_3tii7")]
+position = Vector2(647, 289)
+
+[node name="Gold_coin" parent="." instance=ExtResource("4_wtsbf")]
+position = Vector2(646, 447)
+
+[node name="Gold_coin2" parent="." instance=ExtResource("4_wtsbf")]
+position = Vector2(643, 122)
 
 [node name="Player" parent="." instance=ExtResource("4_njsao")]
 position = Vector2(296, 182)
 health = 3
 
-[node name="Enemy" parent="." instance=ExtResource("6_ska3y")]
+[node name="EnemySpawner" parent="." instance=ExtResource("7_3yemm")]
 position = Vector2(1068, 279)
+entity_scene = ExtResource("6_ska3y")
+
+[node name="Positions" parent="EnemySpawner" index="0"]
+visible = false
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawner/Positions" index="0"]
+position = Vector2(-8, -2)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawner/Positions" index="1"]
+position = Vector2(194, 656)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawner/Positions" index="2"]
+position = Vector2(-460, 668)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawner/Positions" index="3"]
+position = Vector2(-934, 648)
+
+[node name="Marker2D5" type="Marker2D" parent="EnemySpawner/Positions" index="4"]
+position = Vector2(-426, 70)
+
+[node name="Marker2D6" type="Marker2D" parent="EnemySpawner/Positions" index="5"]
+position = Vector2(224, 286)
+
+[node name="Marker2D7" type="Marker2D" parent="EnemySpawner/Positions" index="6"]
+position = Vector2(-836, 68)
+
+[node name="Marker2D8" type="Marker2D" parent="EnemySpawner/Positions" index="7"]
+position = Vector2(-20, -412)
+
+[node name="Marker2D9" type="Marker2D" parent="EnemySpawner/Positions" index="8"]
+position = Vector2(-890, -452)
+
+[node name="Marker2D10" type="Marker2D" parent="EnemySpawner/Positions" index="9"]
+position = Vector2(-1282, 156)
+
+[node name="Marker2D11" type="Marker2D" parent="EnemySpawner/Positions" index="10"]
+position = Vector2(420, 90)
+
+[node name="Marker2D12" type="Marker2D" parent="EnemySpawner/Positions" index="11"]
+position = Vector2(-1270, -76)
+
+[node name="HealtSpawner" parent="." instance=ExtResource("7_3yemm")]
+position = Vector2(1068, 279)
+entity_scene = ExtResource("4_3tii7")
+spawn_interval = 2.0
+
+[node name="Marker2D" type="Marker2D" parent="HealtSpawner/Positions" index="0"]
+position = Vector2(-1228, 202)
+
+[node name="Marker2D2" type="Marker2D" parent="HealtSpawner/Positions" index="1"]
+position = Vector2(298, 194)
+
+[node name="Marker2D3" type="Marker2D" parent="HealtSpawner/Positions" index="2"]
+position = Vector2(114, -444)
+
+[node name="Marker2D4" type="Marker2D" parent="HealtSpawner/Positions" index="3"]
+position = Vector2(-968, 614)
+
+[node name="Marker2D5" type="Marker2D" parent="HealtSpawner/Positions" index="4"]
+position = Vector2(-408, 290)
+
+[node name="Marker2D6" type="Marker2D" parent="HealtSpawner/Positions" index="5"]
+position = Vector2(-660, -414)
+
+[node name="Marker2D7" type="Marker2D" parent="HealtSpawner/Positions" index="6"]
+position = Vector2(-424, -156)
+
+[node name="Marker2D8" type="Marker2D" parent="HealtSpawner/Positions" index="7"]
+position = Vector2(-326, 608)
+
+[editable path="EnemySpawner"]
+[editable path="HealtSpawner"]

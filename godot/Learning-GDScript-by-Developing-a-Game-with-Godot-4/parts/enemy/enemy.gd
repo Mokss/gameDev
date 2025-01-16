@@ -22,3 +22,10 @@ func _ready():
 	var player_nodes: Array = get_tree().get_nodes_in_group("player")
 	if not player_nodes.is_empty():
 		player = player_nodes[0]
+
+
+func _on_player_detection_area_body_entered(body: Node2D) -> void:
+	if not body.is_in_group("player"):
+		return
+	body.get_hit()
+	queue_free()

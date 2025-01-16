@@ -42,7 +42,6 @@ func update_gold_label():
 func add_health_points(difference: int):
 	health += difference
 
-
 func _physics_process(delta: float):
 	var input_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
@@ -52,3 +51,7 @@ func _physics_process(delta: float):
 		velocity = velocity.move_toward(Vector2.ZERO, deceleration * delta)
 
 	move_and_slide()
+
+func get_hit() -> void: 
+	health -= 1
+	
