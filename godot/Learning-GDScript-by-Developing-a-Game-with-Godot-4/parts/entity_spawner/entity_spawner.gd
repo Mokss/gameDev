@@ -1,4 +1,4 @@
-extends Node2D
+class_name EntitySpawner extends Node2D
 
 @export var entity_scene: PackedScene
 @export var spawn_interval: float = 1.5

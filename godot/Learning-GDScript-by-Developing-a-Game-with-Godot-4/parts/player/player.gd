@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+signal died
+
 const MAX_HEALTH: int = 10
 
 @onready var _health_label: Label = $HealthLabel
@@ -9,7 +11,11 @@ const MAX_HEALTH: int = 10
 	get:
 		return health
 	set(new_value):
-		health = clamp(new_value, 0, MAX_HEALTH)
+		var new_health: int = clamp(new_value, 0, MAX_HEALTH)
+		if health > 0 and new_health == 0:
+			died.emit()
+			set_physics_process(false)
+		health = new_health
 		update_health_label()
 @export var gold: int = 0:
 	get:
