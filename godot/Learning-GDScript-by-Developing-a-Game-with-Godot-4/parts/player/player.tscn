@@ -53,3 +53,9 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_doipt")
 metadata/_edit_lock_ = true
+
+[node name="ShootTimer" type="Timer" parent="." groups=["player"]]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

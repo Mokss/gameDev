@@ -29,3 +29,6 @@ func _on_player_detection_area_body_entered(body: Node2D) -> void:
 		return
 	body.get_hit()
 	queue_free()
+	
+func get_hit():
+	queue_free()
