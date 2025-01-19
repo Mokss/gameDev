@@ -162,6 +162,20 @@ position = Vector2(-326, 608)
 [node name="GameOverMenu" parent="CanvasLayer" instance=ExtResource("8_5qe6h")]
 visible = false
 
+[node name="TimerUI" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -25.5
+offset_right = -25.5
+offset_bottom = 42.0
+grow_horizontal = 2
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/TimerUI"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "123
+"
+
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 
 [editable path="EnemySpawner"]

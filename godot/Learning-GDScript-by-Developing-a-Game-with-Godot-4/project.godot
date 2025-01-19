@@ -16,6 +16,10 @@ run/main_scene="res://screens/ui/menu.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
 
+[autoload]
+
+HighscoreManager="*res://parts/autoloads/highscore_manager.gd"
+
 [input]
 
 move_left={

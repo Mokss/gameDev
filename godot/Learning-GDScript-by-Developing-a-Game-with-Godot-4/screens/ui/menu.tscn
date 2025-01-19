@@ -65,6 +65,10 @@ text = "Play"
 layout_mode = 2
 text = "Exit"
 
+[node name="HighscoreLabel" type="Label" parent="CenterContainer/MainUiContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "123"
+
 [node name="CreditLabel" type="Label" parent="CenterContainer/MainUiContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Made by Mokss"
