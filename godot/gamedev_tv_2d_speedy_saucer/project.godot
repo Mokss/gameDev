@@ -10,6 +10,7 @@ config_version=5
 
 [application]
 
-config/name="gamedev_tv_2d_games"
+config/name="speedy_saucer"
+run/main_scene="res://level_1.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"

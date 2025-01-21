@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnfiavoa4oq2f"]
+
+[ext_resource type="Texture2D" uid="uid://c05mk0pdmgmli" path="res://speedy_saucer_assets/purple.png" id="1_ogolp"]
+[ext_resource type="PackedScene" uid="uid://c3cbo8qrt4hc3" path="res://player.tscn" id="2_fc73s"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_ogolp")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("2_fc73s")]
+position = Vector2(560, 262)
+motion_mode = 0
