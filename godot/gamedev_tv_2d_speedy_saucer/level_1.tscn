@@ -15,4 +15,3 @@ stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_fc73s")]
 position = Vector2(560, 262)
-motion_mode = 0
