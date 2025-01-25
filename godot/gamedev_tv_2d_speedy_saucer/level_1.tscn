@@ -8,8 +8,10 @@
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_e3lu5")
 
-[node name="background" type="TextureRect" parent="."]
-z_index = -100
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="background" type="TextureRect" parent="CanvasLayer"]
 offset_left = -2.0
 offset_top = -2.0
 offset_right = 1152.0
@@ -17,13 +19,29 @@ offset_bottom = 648.0
 texture = ExtResource("1_ogolp")
 stretch_mode = 1
 
-[node name="Player" parent="." instance=ExtResource("2_fc73s")]
-position = Vector2(122, 116)
-
 [node name="Muzy" parent="." instance=ExtResource("3_sy31s")]
 z_index = -50
 position = Vector2(211, 216)
 scale = Vector2(0.1, 0.1)
 
-[connection signal="area_exited" from="Muzy" to="." method="_on_muzy_area_exited"]
+[node name="Player" parent="." instance=ExtResource("2_fc73s")]
+position = Vector2(125, 149)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 90.0
+offset_top = 55.0
+offset_right = 160.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 521.0
+offset_top = -278.0
+offset_right = 575.0
+offset_bottom = -236.0
+theme_override_font_sizes/font_size = 30
+text = "End
+"
+
 [connection signal="body_exited" from="Muzy" to="." method="_on_muzy_body_exited"]
