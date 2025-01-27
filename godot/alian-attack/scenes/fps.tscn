@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfbf5wwf35bti"]
+
+[ext_resource type="Script" path="res://scripts/fps.gd" id="1_v63mg"]
+
+[node name="Fps" type="Label"]
+theme_override_colors/font_color = Color(2.64719e-07, 0.634143, 0.230475, 1)
+text = "FPS: 0"
+script = ExtResource("1_v63mg")
