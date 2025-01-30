@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8b4b06pdchev"]
+
+[ext_resource type="FontFile" uid="uid://buvf6pu4rtvrf" path="res://assets/font/Kenney Blocks.ttf" id="1_j168k"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_m0ixu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_onvfe"]
+font = ExtResource("1_j168k")
+font_size = 48
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m0ixu")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 1.0
+offset_right = 372.0
+offset_bottom = 73.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_onvfe")
+metadata/_edit_lock_ = true

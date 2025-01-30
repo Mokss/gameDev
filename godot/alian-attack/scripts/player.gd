@@ -1,4 +1,6 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
+
+signal took_damage
 
 @export var speed: int = 300;
 
@@ -46,3 +48,6 @@ func shoot() -> void:
 	rocket_instance.global_position = global_position
 	rocket_instance.global_position.x += 80
 	rocketContainer.add_child(rocket_instance)
+
+func take_damage() -> void:
+	emit_signal("took_damage")

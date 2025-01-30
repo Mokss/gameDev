@@ -1,26 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcd4um2tgwdes"]
+[gd_scene load_steps=8 format=3 uid="uid://bcd4um2tgwdes"]
 
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_swdcb"]
 [ext_resource type="Texture2D" uid="uid://b33cf1prruail" path="res://assets/textures/bg.png" id="1_x7bvv"]
 [ext_resource type="PackedScene" uid="uid://cki0lwrm0nyyu" path="res://scenes/player.tscn" id="2_ak8c5"]
 [ext_resource type="PackedScene" uid="uid://bfbf5wwf35bti" path="res://scenes/fps.tscn" id="3_hci7q"]
-[ext_resource type="PackedScene" uid="uid://785gq4xcpale" path="res://scenes/enemy.tscn" id="4_mpnc5"]
+[ext_resource type="PackedScene" uid="uid://c8b4b06pdchev" path="res://scenes/hud.tscn" id="3_v6u6r"]
+[ext_resource type="PackedScene" uid="uid://c7ki5s8nkthky" path="res://scenes/enemy_spawner.tscn" id="4_5tmlj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72e5q"]
+size = Vector2(71, 750)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_swdcb")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="FPS" parent="UI" instance=ExtResource("3_hci7q")]
+offset_left = 1205.0
+offset_top = 17.0
+offset_right = 1250.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="HUD" parent="UI" instance=ExtResource("3_v6u6r")]
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1325.0
 offset_bottom = 750.0
 texture = ExtResource("1_x7bvv")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_ak8c5")]
 position = Vector2(63, 342)
 
-[node name="Fps" parent="." instance=ExtResource("3_hci7q")]
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 48.0
-offset_bottom = 26.0
+[node name="EnemySpawner" parent="." instance=ExtResource("4_5tmlj")]
+metadata/_edit_lock_ = true
 
-[node name="Enemy" parent="." instance=ExtResource("4_mpnc5")]
-position = Vector2(775, 297)
+[node name="DeathEnemyZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathEnemyZone"]
+position = Vector2(-139.5, 375)
+shape = SubResource("RectangleShape2D_72e5q")
+
+[connection signal="took_damage" from="Player" to="." method="_on_player_took_damage"]
+[connection signal="enem_spawned" from="EnemySpawner" to="." method="_on_enemy_spawner_enem_spawned"]
+[connection signal="area_entered" from="DeathEnemyZone" to="." method="_on_death_enemy_zone_area_entered"]
