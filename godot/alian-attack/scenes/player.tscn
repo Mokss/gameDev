@@ -1,7 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://cki0lwrm0nyyu"]
+[gd_scene load_steps=10 format=3 uid="uid://cki0lwrm0nyyu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7kak8"]
 [ext_resource type="Texture2D" uid="uid://t51q0pqctj3n" path="res://assets/textures/player_ship.png" id="1_fw15m"]
+[ext_resource type="AudioStream" uid="uid://c3hkwsiqpqotw" path="res://assets/audio/sfx_laser2.wav" id="3_hhsaa"]
+
+[sub_resource type="Gradient" id="Gradient_qqnji"]
+colors = PackedColorArray(0.784314, 0.203922, 0.231373, 1, 1, 0.716834, 0.110139, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e1870"]
+gradient = SubResource("Gradient_qqnji")
+
+[sub_resource type="Curve" id="Curve_nhjho"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dcjgr"]
+curve = SubResource("Curve_nhjho")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iqm1k"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 15, 1)
+direction = Vector3(0, 0, 0)
+spread = 15.0
+initial_velocity_min = -200.0
+initial_velocity_max = -200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 10.0
+scale_max = 10.12
+scale_curve = SubResource("CurveTexture_dcjgr")
+color_ramp = SubResource("GradientTexture1D_e1870")
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 10.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ygx4"]
 radius = 37.0
@@ -10,6 +42,12 @@ height = 106.0
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 0
 script = ExtResource("1_7kak8")
+
+[node name="FlameParticleEffect" type="GPUParticles2D" parent="."]
+position = Vector2(-36, 0)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_iqm1k")
+lifetime = 0.3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -21,3 +59,6 @@ position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_0ygx4")
 
 [node name="RocketContainer" type="Node" parent="."]
+
+[node name="RocketShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hhsaa")

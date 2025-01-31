@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8b4b06pdchev"]
+[gd_scene load_steps=7 format=3 uid="uid://c8b4b06pdchev"]
 
 [ext_resource type="FontFile" uid="uid://buvf6pu4rtvrf" path="res://assets/font/Kenney Blocks.ttf" id="1_j168k"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_m0ixu"]
+[ext_resource type="Texture2D" uid="uid://fipu4cqwgfku" path="res://assets/textures/orb.png" id="3_vnj51"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_onvfe"]
 font = ExtResource("1_j168k")
 font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_iykny"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_5gxgp"]
+font_size = 52
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -25,3 +32,33 @@ offset_bottom = 73.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_onvfe")
 metadata/_edit_lock_ = true
+
+[node name="LiveTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 72.0
+offset_right = 146.0
+offset_bottom = 190.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_vnj51")
+
+[node name="X" type="Label" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 71.0
+offset_right = 112.0
+offset_bottom = 131.0
+text = "X
+"
+label_settings = SubResource("LabelSettings_iykny")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="Label" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 64.0
+offset_right = 156.0
+offset_bottom = 136.0
+text = "3"
+label_settings = SubResource("LabelSettings_5gxgp")

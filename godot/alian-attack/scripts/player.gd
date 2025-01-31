@@ -7,6 +7,7 @@ signal took_damage
 @onready var collisionShape: CollisionShape2D = $CollisionShape2D
 @onready var rocketContainer: Node = $RocketContainer
 @onready var screen_size: Vector2 = get_viewport_rect().size
+@onready var rocketShootSound: AudioStreamPlayer = $RocketShootSound
 
 var rocket_scene: PackedScene = load("res://scenes/rocket.tscn")
 var charter_height: float = 0
@@ -44,6 +45,7 @@ func _physics_process(_delta: float) -> void:
 	global_position.y = clampf(global_position.y, charter_height, screen_size.y - charter_height)
 
 func shoot() -> void:
+	rocketShootSound.play()
 	var rocket_instance = rocket_scene.instantiate()
 	rocket_instance.global_position = global_position
 	rocket_instance.global_position.x += 80
@@ -51,3 +53,6 @@ func shoot() -> void:
 
 func take_damage() -> void:
 	emit_signal("took_damage")
+	
+func die() -> void:
+	queue_free()

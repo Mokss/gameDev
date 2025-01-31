@@ -8,6 +8,8 @@ signal died
 func _physics_process(delta: float) -> void:
 	global_position.x -= speed * delta
 
+func silenceDie() -> void:
+	queue_free()
 
 func die() -> void:
 	emit_signal("died")
@@ -16,4 +18,4 @@ func die() -> void:
 
 func _on_body_entered(body: Player) -> void:
 	body.take_damage()
-	die()
+	silenceDie()
