@@ -55,6 +55,9 @@ collision_layer = 2
 [node name="Saw" parent="Traps" instance=ExtResource("3_ntss6")]
 position = Vector2(176, 225)
 
+[node name="Saw2" parent="Traps" instance=ExtResource("3_ntss6")]
+position = Vector2(177, 178)
+
 [node name="SpikeBall" parent="Traps" instance=ExtResource("4_3ed3t")]
 position = Vector2(387, 228)
 
@@ -67,6 +70,7 @@ position = Vector2(319, 245)
 position = Vector2(294, 245)
 jump_velocity = 550
 
+[node name="SpikeBall" parent="." instance=ExtResource("4_3ed3t")]
+position = Vector2(387, 228)
+
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
-[connection signal="touched_player" from="Traps/Saw" to="." method="_on_trap_touched_player"]
-[connection signal="touched_player" from="Traps/SpikeBall" to="." method="_on_trap_touched_player"]
