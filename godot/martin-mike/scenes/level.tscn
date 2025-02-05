@@ -1,20 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjk5o8egpla13"]
+[gd_scene load_steps=8 format=4 uid="uid://bjk5o8egpla13"]
 
 [ext_resource type="Script" path="res://script/level.gd" id="1_bydnl"]
 [ext_resource type="PackedScene" uid="uid://4h2k7hgpa3f6" path="res://scenes/player.tscn" id="2_ltmva"]
 [ext_resource type="PackedScene" uid="uid://bgny3won8gbp5" path="res://scenes/saw.tscn" id="3_ntss6"]
 [ext_resource type="PackedScene" uid="uid://bg7l2tcmttfm" path="res://scenes/jump_pad.tscn" id="3_st5wa"]
 [ext_resource type="PackedScene" uid="uid://dtvpku8uhpd0r" path="res://scenes/spike_ball.tscn" id="4_3ed3t"]
+[ext_resource type="PackedScene" uid="uid://c8jrreecaoscb" path="res://scenes/tile_map.tscn" id="6_phr4a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lejwp"]
 size = Vector2(1638, 29)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_823c0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8ei3"]
-size = Vector2(476, 26)
-
-[sub_resource type="CurveTexture" id="CurveTexture_hmt05"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_bydnl")
@@ -28,49 +22,37 @@ position = Vector2(479, 358)
 shape = SubResource("RectangleShape2D_lejwp")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(238, 245)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(347, 258)
-physics_material_override = SubResource("PhysicsMaterial_823c0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-110, 0)
-shape = SubResource("RectangleShape2D_k8ei3")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-modulate = Color(0.00425925, 0.00117753, 2.3993e-06, 1)
-position = Vector2(-110, 1.43051e-06)
-scale = Vector2(1.85937, 26)
-texture = SubResource("CurveTexture_hmt05")
-metadata/_edit_lock_ = true
+position = Vector2(235, 256)
 
 [node name="Player" parent="." instance=ExtResource("2_ltmva")]
-position = Vector2(238, 245)
+position = Vector2(278, 222)
 collision_layer = 2
 
 [node name="Traps" type="Node2D" parent="."]
 
 [node name="Saw" parent="Traps" instance=ExtResource("3_ntss6")]
-position = Vector2(176, 225)
+position = Vector2(176, 237)
 
 [node name="Saw2" parent="Traps" instance=ExtResource("3_ntss6")]
-position = Vector2(177, 178)
+position = Vector2(177, 199)
 
 [node name="SpikeBall" parent="Traps" instance=ExtResource("4_3ed3t")]
-position = Vector2(387, 228)
+position = Vector2(455, 243)
 
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="JumpPad" parent="Objects" instance=ExtResource("3_st5wa")]
-position = Vector2(319, 245)
+position = Vector2(319, 256)
 
 [node name="JumpPad2" parent="Objects" instance=ExtResource("3_st5wa")]
-position = Vector2(294, 245)
+position = Vector2(294, 256)
 jump_velocity = 550
 
-[node name="SpikeBall" parent="." instance=ExtResource("4_3ed3t")]
-position = Vector2(387, 228)
+[node name="JumpPad3" parent="Objects" instance=ExtResource("3_st5wa")]
+position = Vector2(428, 192)
+jump_velocity = 550
+
+[node name="TileMap" parent="." instance=ExtResource("6_phr4a")]
+tile_map_data = PackedByteArray("AAABABAAAAAHAAAAAAABABEAAAAHAAEAAAABABIAAAAHAAIAAAACABAAAAAHAAAAAAACABEAAAAHAAEAAAACABIAAAAHAAIAAAADABAAAAAHAAAAAAADABEAAAAHAAEAAAADABIAAAAHAAIAAAAEABEAAAAHAAEAAAAEABIAAAAHAAIAAAAFABEAAAAHAAEAAAAFABIAAAAHAAIAAAAGABEAAAAHAAEAAAAGABIAAAAHAAIAAAAHABEAAAAHAAEAAAAHABIAAAAHAAIAAAAIABEAAAAHAAEAAAAIABIAAAAHAAIAAAAJABEAAAAHAAEAAAAJABIAAAAHAAIAAAAKABAAAAAHAAAAAAAKABEAAAAHAAEAAAAKABIAAAAHAAIAAAALABAAAAAHAAAAAAALABEAAAAHAAEAAAALABIAAAAHAAIAAAAMABAAAAAHAAAAAAAMABEAAAAHAAEAAAAMABIAAAAHAAIAAAANABAAAAAHAAAAAAANABEAAAAHAAEAAAANABIAAAAHAAIAAAAOABAAAAAHAAAAAAAOABEAAAAHAAEAAAAOABIAAAAHAAIAAAAPABAAAAAHAAAAAAAPABEAAAAHAAEAAAAPABIAAAAHAAIAAAAQABAAAAAHAAAAAAAQABEAAAAHAAEAAAAQABIAAAAHAAIAAAARABAAAAAHAAAAAAARABEAAAAHAAEAAAARABIAAAAHAAIAAAASABAAAAAHAAAAAAASABEAAAAHAAEAAAASABIAAAAHAAIAAAATABAAAAAHAAAAAAATABEAAAAHAAEAAAATABIAAAAHAAIAAAAUABAAAAAHAAAAAAAUABEAAAAHAAEAAAAUABIAAAAHAAIAAAAVABAAAAAHAAAAAAAVABEAAAAHAAEAAAAVABIAAAAHAAIAAAAWABAAAAAHAAAAAAAWABEAAAAHAAEAAAAWABIAAAAHAAIAAAAXABAAAAAHAAAAAAAXABEAAAAHAAEAAAAXABIAAAAHAAIAAAAYABAAAAAHAAAAAAAYABEAAAAHAAEAAAAYABIAAAAHAAIAAAAZABAAAAAHAAAAAAAZABEAAAAHAAEAAAAZABIAAAAHAAIAAAAaABAAAAAHAAAAAAAaABEAAAAHAAEAAAAaABIAAAAHAAIAAAAbABAAAAAHAAAAAAAbABEAAAAHAAEAAAAbABIAAAAHAAIAAAAcABAAAAAHAAAAAAAcABEAAAAHAAEAAAAcABIAAAAHAAIAAAAAABAAAAAGAAAAAAAAABEAAAAGAAEAAAAAABIAAAAGAAIAAAAdABAAAAAIAAAAAAAdABEAAAAIAAEAAAAdABIAAAAIAAIAAAAVAAwAAAARAAEAAAAWAAwAAAASAAEAAAAXAAwAAAATAAEAAAAYAAwAAAARAAEAAAAZAAwAAAASAAEAAAAaAAwAAAATAAEAAAAOAAwAAAARAAEAAAAPAAwAAAASAAEAAAAQAAwAAAATAAEAAAAFAA4AAAAHAAAAAAAFAA8AAAAHAAEAAAAFABAAAAAHAAEAAAAGAA4AAAAHAAAAAAAGAA8AAAAHAAEAAAAGABAAAAAHAAEAAAAHAA4AAAAHAAAAAAAHAA8AAAAHAAEAAAAHABAAAAAHAAEAAAAEAA4AAAAGAAAAAAAEAA8AAAAGAAEAAAAEABAAAAAHAAEAAAAIAA4AAAAIAAAAAAAIAA8AAAAIAAEAAAAIABAAAAAHAAEAAAAJABAAAAAHAAAAAAAgAAwAAAARAAAAAAAhAAwAAAASAAAAAAAiAAwAAAATAAAAAAAjAAwAAAARAAAAAAAkAAwAAAASAAAAAAAlAAwAAAATAAAAAAAmAAwAAAARAAAAAAAnAAwAAAASAAAAAAAoAAwAAAATAAAAAAA=")
 
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

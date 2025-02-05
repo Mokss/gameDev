@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	updateAnimation(direction)
 
 
-func updateAnimation(direction: int):
+func updateAnimation(direction: float):
 	if is_on_floor():
 		if direction == 0:
 			animationSprite.play("idle")
@@ -37,5 +37,5 @@ func updateAnimation(direction: int):
 			animationSprite.flip_h = direction == -1
 
 
-func jump(jump_velocity: int):
+func jump(jump_velocity: float):
 	velocity.y = -jump_velocity
