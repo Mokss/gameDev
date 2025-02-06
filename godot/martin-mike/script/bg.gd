@@ -1,0 +1,17 @@
+extends ParallaxBackground
+
+@export var bg_texture: CompressedTexture2D = preload("res://assets/textures/bg/Blue.png")
+@export var scroll_speed: int = 15
+
+@onready var sprite: Sprite2D = $ParallaxLayer/Sprite2D
+
+const dfVector: Vector2 = Vector2(64, 64)
+
+func _ready() -> void:
+	sprite.texture = bg_texture
+
+func  _process(delta: float) -> void:
+	sprite.region_rect.position += delta * Vector2(scroll_speed, scroll_speed)
+	
+	if sprite.region_rect.position >= dfVector:
+		sprite.region_rect.position = Vector2.ZERO
