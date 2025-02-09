@@ -43,4 +43,5 @@ func updateAnimation(direction: float):
 
 
 func jump(jump_velocity: float):
+	AudioPlayer.play_sfx("jump")
 	velocity.y = -jump_velocity

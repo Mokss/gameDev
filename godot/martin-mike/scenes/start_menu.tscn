@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6nq1jertrh2f"]
+
+[ext_resource type="Script" path="res://script/start_menu.gd" id="1_hh2e2"]
+[ext_resource type="PackedScene" uid="uid://b2fewfp8vhw0u" path="res://scenes/bg.tscn" id="1_lry7u"]
+[ext_resource type="Texture2D" uid="uid://d1ilfc2c8hu77" path="res://assets/textures/bg/Green.png" id="2_x2jig"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hh2e2")
+
+[node name="BG" parent="." instance=ExtResource("1_lry7u")]
+bg_texture = ExtResource("2_x2jig")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -171.0
+offset_right = 171.0
+offset_bottom = 135.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.907088, 0.000491704, 0.873733, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "MOKSS INDASTRY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.5
+offset_top = -136.0
+offset_right = 102.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/QuitButton" to="." method="_on_quit_button_pressed"]
