@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://eqrsb5ro71er"]
+[gd_scene load_steps=10 format=3 uid="uid://xs1xh3mv5dn7"]
 
-[ext_resource type="PackedScene" uid="uid://gq0wmpk6tsow" path="res://player.tscn" id="1_kylpf"]
-[ext_resource type="Script" path="res://Level/landing_pad.gd" id="1_lkqb6"]
+[ext_resource type="Script" path="res://Level/landing_pad.gd" id="1_vfomm"]
+[ext_resource type="PackedScene" uid="uid://gq0wmpk6tsow" path="res://player.tscn" id="2_qwc8k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wxb1a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -17,6 +17,9 @@ tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4fsn"]
 albedo_color = Color(0.948878, 0.48284, 0.143646, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2n8c"]
+albedo_color = Color(1, 0.110552, 0.831325, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwhwi"]
 albedo_color = Color(0.140365, 0.698065, 0.764211, 1)
@@ -41,6 +44,12 @@ size = Vector3(30, 8, 5)
 material = SubResource("StandardMaterial3D_u4fsn")
 metadata/_edit_lock_ = true
 
+[node name="Obstacle" type="CSGBox3D" parent="." groups=["Hazard"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0044229, 2.60349, -0.026722)
+use_collision = true
+size = Vector3(3, 2, 3)
+material = SubResource("StandardMaterial3D_m2n8c")
+
 [node name="LaunchPad" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.2, 0)
 use_collision = true
@@ -53,14 +62,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.2, 0)
 use_collision = true
 size = Vector3(2, 0.4, 2)
 material = SubResource("StandardMaterial3D_c2o5g")
-script = ExtResource("1_lkqb6")
-file_path = "res://Level/level_2.tscn"
-metadata/_edit_lock_ = true
+script = ExtResource("1_vfomm")
+file_path = "res://Level/level_3.tscn"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 4, 7)
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("1_kylpf")]
+[node name="Player" parent="." instance=ExtResource("2_qwc8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.4, 0)
 metadata/_edit_lock_ = true
