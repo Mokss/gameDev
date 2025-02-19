@@ -13,7 +13,9 @@ points = PackedVector3Array(1.5, 1.5, 1.5, 1.5, 1.5, -1.5, -1.5, 1.5, 1.5, 1.5, 
 
 [node name="MovingHazard" type="AnimatableBody3D" groups=["Hazard"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.26292, 0)
+sync_to_physics = false
 script = ExtResource("1_5la4t")
+duration = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.21676, 0)
