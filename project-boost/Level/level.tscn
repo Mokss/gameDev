@@ -1,5 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://eqrsb5ro71er"]
 
+[ext_resource type="PackedScene" uid="uid://n0ct2nt8vgjy" path="res://background.tscn" id="1_6b4x1"]
 [ext_resource type="PackedScene" uid="uid://gq0wmpk6tsow" path="res://player.tscn" id="1_kylpf"]
 [ext_resource type="Script" path="res://Level/landing_pad.gd" id="1_lkqb6"]
 
@@ -14,9 +15,6 @@ sky_material = SubResource("ProceduralSkyMaterial_wxb1a")
 background_mode = 2
 sky = SubResource("Sky_h4rlo")
 tonemap_mode = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4fsn"]
-albedo_color = Color(0.948878, 0.48284, 0.143646, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwhwi"]
 albedo_color = Color(0.140365, 0.698065, 0.764211, 1)
@@ -34,12 +32,7 @@ metadata/_edit_lock_ = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2dpmy")
 
-[node name="Floor" type="CSGBox3D" parent="." groups=["Hazard"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
-use_collision = true
-size = Vector3(30, 8, 5)
-material = SubResource("StandardMaterial3D_u4fsn")
-metadata/_edit_lock_ = true
+[node name="Floor" parent="." instance=ExtResource("1_6b4x1")]
 
 [node name="LaunchPad" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.2, 0)
@@ -58,7 +51,7 @@ file_path = "res://Level/level_2.tscn"
 metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 4, 7)
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 7, 10)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_kylpf")]

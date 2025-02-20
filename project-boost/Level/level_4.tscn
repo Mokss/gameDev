@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Level/landing_pad.gd" id="1_hxsma"]
 [ext_resource type="PackedScene" uid="uid://gq0wmpk6tsow" path="res://player.tscn" id="2_3l2fa"]
 [ext_resource type="PackedScene" uid="uid://cx8mpcergatwa" path="res://moving_hazard.tscn" id="3_r37gv"]
+[ext_resource type="PackedScene" uid="uid://n0ct2nt8vgjy" path="res://background.tscn" id="4_yf5px"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wxb1a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,9 +16,6 @@ sky_material = SubResource("ProceduralSkyMaterial_wxb1a")
 background_mode = 2
 sky = SubResource("Sky_h4rlo")
 tonemap_mode = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4fsn"]
-albedo_color = Color(0.948878, 0.48284, 0.143646, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwhwi"]
 albedo_color = Color(0.140365, 0.698065, 0.764211, 1)
@@ -35,13 +33,6 @@ metadata/_edit_lock_ = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2dpmy")
 
-[node name="Floor" type="CSGBox3D" parent="." groups=["Hazard"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
-use_collision = true
-size = Vector3(30, 8, 5)
-material = SubResource("StandardMaterial3D_u4fsn")
-metadata/_edit_lock_ = true
-
 [node name="LaunchPad" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.2, 0)
 use_collision = true
@@ -57,13 +48,15 @@ material = SubResource("StandardMaterial3D_c2o5g")
 script = ExtResource("1_hxsma")
 file_path = "res://Level/level.tscn"
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 4, 7)
-metadata/_edit_lock_ = true
-
 [node name="Player" parent="." instance=ExtResource("2_3l2fa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.4, 0)
 metadata/_edit_lock_ = true
 
 [node name="MovingHazard" parent="." instance=ExtResource("3_r37gv")]
 destination = Vector3(0, 3, 0)
+
+[node name="Floor" parent="." instance=ExtResource("4_yf5px")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 7, 10)
+metadata/_edit_lock_ = true
