@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8u7i3dhib1ya"]
+
+[ext_resource type="Script" uid="uid://bi8bug0tlvvid" path="res://RayPickerCamera/ray_picer_camera.gd" id="1_pd1kw"]
+
+[node name="RayPicerCamera" type="Camera3D"]
+script = ExtResource("1_pd1kw")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2)

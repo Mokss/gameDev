@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1ggwkllmbrtr"]
+[gd_scene load_steps=10 format=3 uid="uid://b1ggwkllmbrtr"]
 
 [ext_resource type="MeshLibrary" uid="uid://hpw6l7p7te6q" path="res://MeshLibraries/SpaceLibrary.tres" id="1_su7hd"]
 [ext_resource type="PackedScene" uid="uid://bg472eu76v3by" path="res://Enemy/enemy.tscn" id="2_pmq6i"]
 [ext_resource type="PackedScene" uid="uid://i3frx2puy50v" path="res://Base/base.tscn" id="3_xxd0p"]
+[ext_resource type="PackedScene" uid="uid://b8u7i3dhib1ya" path="res://RayPickerCamera/ray_picer_camera.tscn" id="4_4t1w6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kvjjn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -41,8 +42,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_pmq6i")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.159041, 2.0088, 0, -0.341064, 0.93672, 0, 14.5, 9.5)
+[node name="RayPicerCamera" parent="." instance=ExtResource("4_4t1w6")]
+transform = Transform3D(1, 0, 0, 0, 0.422619, 0.906308, 0, -0.906308, 0.422619, 0, 14.5, 9.5)
 metadata/_edit_lock_ = true
 
 [node name="GridMap" type="GridMap" parent="."]
