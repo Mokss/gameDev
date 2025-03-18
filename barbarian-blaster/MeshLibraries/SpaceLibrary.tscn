@@ -23,6 +23,7 @@ data = PackedVector3Array(-2, 0.05, 2, 2, 0.05, 2, -2, -0.05, 2, 2, 0.05, 2, 2, 
 [node name="SpaceLibrary" type="Node3D"]
 
 [node name="FreeSpace" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_e2761")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="FreeSpace"]
