@@ -101,6 +101,26 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="Enemy" parent="Path3D" instance=ExtResource("2_pmq6i")]
+transform = Transform3D(-0.0162455, -0.00202934, -0.999862, -2.3539e-05, 0.999995, -0.00202923, 0.999863, -9.4302e-06, -0.0162456, -4.00914, 0.0618543, 6.58646)
+progress = 20.0
+speed = 12.5
+
+[node name="Enemy2" parent="Path3D" instance=ExtResource("2_pmq6i")]
+transform = Transform3D(-0.0239408, -0.0026553, -0.999706, -4.15665e-05, 0.999994, -0.00265507, 0.999709, -2.20104e-05, -0.0239409, -9.0081, 0.0500594, 6.48496)
+progress = 15.0
+speed = 12.5
+
+[node name="Enemy3" parent="Path3D" instance=ExtResource("2_pmq6i")]
+transform = Transform3D(-0.0298187, -0.00313341, -0.999547, -5.85822e-05, 0.999992, -0.00313305, 0.999551, -3.48682e-05, -0.0298188, -14.0064, 0.035546, 6.35003)
+progress = 10.0
+speed = 12.5
+
+[node name="Enemy4" parent="Path3D" instance=ExtResource("2_pmq6i")]
+transform = Transform3D(-0.0348788, -0.003545, -0.999382, -7.54871e-05, 0.999991, -0.00354452, 0.999387, -4.81885e-05, -0.0348789, -19.0037, 0.0188398, 6.18813)
+progress = 5.0
+speed = 12.5
+
+[node name="Enemy5" parent="Path3D" instance=ExtResource("2_pmq6i")]
 transform = Transform3D(0.00209493, -0.00053751, -0.999994, 5.82074e-11, 0.999997, -0.000537511, 0.999993, 1.126e-06, 0.00209493, -24, 0, 6)
 speed = 12.5
 
