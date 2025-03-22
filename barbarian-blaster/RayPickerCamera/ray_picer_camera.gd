@@ -1,6 +1,7 @@
 extends Camera3D
 
 @export var gridmap: GridMap
+@export var turret_manager: TurretManager
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 
 func _process(_delta: float) -> void:
@@ -16,5 +17,7 @@ func _process(_delta: float) -> void:
 			var cell = gridmap.local_to_map(collision_point)
 			if gridmap.get_cell_item(cell) == 0:
 				gridmap.set_cell_item(cell, 1)
+				var tile_position = gridmap.map_to_local(cell)
+				turret_manager.build_turret(tile_position)
 	else:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)

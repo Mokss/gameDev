@@ -44,9 +44,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_pmq6i")
 
-[node name="RayPicerCamera" parent="." node_paths=PackedStringArray("gridmap") instance=ExtResource("4_4t1w6")]
+[node name="RayPicerCamera" parent="." node_paths=PackedStringArray("gridmap", "turret_manager") instance=ExtResource("4_4t1w6")]
 transform = Transform3D(1, 0, 0, 0, 0.422619, 0.906308, 0, -0.906308, 0.422619, 0, 14.5, 9.5)
 gridmap = NodePath("../GridMap")
+turret_manager = NodePath("../TurretManager")
 metadata/_edit_lock_ = true
 
 [node name="GridMap" type="GridMap" parent="."]
@@ -129,6 +130,6 @@ speed = 12.5
 [node name="Base" parent="." instance=ExtResource("3_xxd0p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6)
 
-[node name="TurrelManager" type="Node3D" parent="."]
+[node name="TurretManager" type="Node3D" parent="."]
 script = ExtResource("5_ou2gr")
 turret = ExtResource("6_p7vae")
