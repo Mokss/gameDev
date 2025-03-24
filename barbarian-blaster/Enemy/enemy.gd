@@ -1,4 +1,4 @@
-extends PathFollow3D
+class_name Enemy extends PathFollow3D
 
 @export var speed: float = 2.5
 
