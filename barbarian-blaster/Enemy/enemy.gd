@@ -1,6 +1,6 @@
 class_name Enemy extends PathFollow3D
 
-@export var speed: float = 2.5
+@export var speed: float = 5
 @export var max_health: int = 50
 
 var current_health: int:
