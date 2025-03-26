@@ -4,11 +4,12 @@ class_name Turret extends Node3D
 @export var turret_range:  float = 10.0
 
 @onready var turret_top: MeshInstance3D = $TurretBase/TurretTop
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var enemy_path: Path3D
 var target: Enemy = null
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	target = find_best_target()
 	if target:
 		look_at(target.global_position, Vector3.UP, true)
@@ -19,6 +20,7 @@ func _on_timer_timeout() -> void:
 		add_child(shot)
 		shot.global_position = turret_top.global_position
 		shot.direction = global_transform.basis.z
+		animation_player.play("Fire")
 
 
 func find_best_target() -> Enemy:

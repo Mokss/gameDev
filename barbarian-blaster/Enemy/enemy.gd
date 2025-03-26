@@ -3,8 +3,13 @@ class_name Enemy extends PathFollow3D
 @export var speed: float = 5
 @export var max_health: int = 50
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 var current_health: int:
 	set(health_in):
+		if health_in < current_health:
+			animation_player.play("TakeDamage")
+		
 		current_health = health_in
 		if current_health < 1:
 			queue_free()
