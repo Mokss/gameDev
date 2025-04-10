@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1ggwkllmbrtr"]
+[gd_scene load_steps=16 format=3 uid="uid://b1ggwkllmbrtr"]
 
 [ext_resource type="MeshLibrary" uid="uid://hpw6l7p7te6q" path="res://MeshLibraries/SpaceLibrary.tres" id="1_su7hd"]
 [ext_resource type="PackedScene" uid="uid://bg472eu76v3by" path="res://Enemy/enemy.tscn" id="2_pmq6i"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b8u7i3dhib1ya" path="res://RayPickerCamera/ray_picer_camera.tscn" id="4_4t1w6"]
 [ext_resource type="Script" uid="uid://7kdloba5ud30" path="res://turrel_manager.gd" id="5_ou2gr"]
 [ext_resource type="PackedScene" uid="uid://ba0ujn3qg7ghq" path="res://Turret/turret.tscn" id="6_p7vae"]
+[ext_resource type="Script" uid="uid://28ci07m4fmpo" path="res://bank.gd" id="8_vgbdo"]
+[ext_resource type="PackedScene" uid="uid://bmbrq8ogh88in" path="res://DifficultyManager/difficulty_manager.tscn" id="9_adohh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kvjjn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,6 +32,11 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_dtr17"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
 
 [node name="BaseLevel" type="Node3D"]
 
@@ -59,10 +66,11 @@ data = {
 "cells": PackedInt32Array(65535, 65534, 0, 65535, 0, 0, 65535, 2, 0, 65532, 65535, 0, 65531, 65535, 0, 4, 65535, 0, 65531, 65534, 0, 65531, 0, 0, 65531, 2, 0, 65532, 65534, 0, 65532, 0, 0, 65532, 2, 0, 65533, 0, 0, 65533, 2, 0, 65534, 65534, 0, 65534, 0, 0, 65534, 2, 0, 0, 65534, 0, 0, 0, 0, 0, 2, 0, 1, 65534, 0, 1, 0, 0, 1, 2, 0, 2, 65534, 0, 2, 0, 0, 2, 2, 0, 3, 65534, 0, 3, 2, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0)
 }
 
-[node name="EnemyParth" type="Path3D" parent="."]
+[node name="EnemyParth" type="Path3D" parent="." node_paths=PackedStringArray("difficulty_manager")]
 curve = SubResource("Curve3D_su7hd")
 script = ExtResource("3_p7vae")
 enemy_scene = ExtResource("2_pmq6i")
+difficulty_manager = NodePath("../DifficultyManager")
 
 [node name="Road" type="CSGPolygon3D" parent="EnemyParth"]
 polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
@@ -117,5 +125,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6)
 script = ExtResource("5_ou2gr")
 turret = ExtResource("6_p7vae")
 enemy_path = NodePath("../EnemyParth")
+
+[node name="Bank" type="MarginContainer" parent="." groups=["bank"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+script = ExtResource("8_vgbdo")
+
+[node name="Label" type="Label" parent="Bank"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "label in left bottom"
+label_settings = SubResource("LabelSettings_dtr17")
+
+[node name="DifficultyManager" parent="." instance=ExtResource("9_adohh")]
+game_length = 30.0
 
 [connection signal="timeout" from="EnemyParth/Timer" to="EnemyParth" method="spawn_enemy"]

@@ -15,6 +15,11 @@ run/main_scene="uid://b1ggwkllmbrtr"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[global_group]
+
+bank=""
+base=""
+
 [input]
 
 click={
