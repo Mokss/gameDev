@@ -2,7 +2,7 @@ class_name Enemy extends PathFollow3D
 
 @export var speed: float = 5
 @export var max_health: int = 50
-@export var reward: int = 10
+@export var reward: int = 15
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bank: Bank = get_tree().get_first_node_in_group('bank')

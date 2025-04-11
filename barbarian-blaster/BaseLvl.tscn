@@ -120,6 +120,7 @@ autostart = true
 
 [node name="Base" parent="." instance=ExtResource("3_xxd0p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6)
+max_health = 50
 
 [node name="TurretManager" type="Node3D" parent="." node_paths=PackedStringArray("enemy_path")]
 script = ExtResource("5_ou2gr")
@@ -147,6 +148,6 @@ text = "label in left bottom"
 label_settings = SubResource("LabelSettings_dtr17")
 
 [node name="DifficultyManager" parent="." instance=ExtResource("9_adohh")]
-game_length = 30.0
 
 [connection signal="timeout" from="EnemyParth/Timer" to="EnemyParth" method="spawn_enemy"]
+[connection signal="stop_spawning_enemies" from="DifficultyManager" to="EnemyParth" method="_on_difficulty_manager_stop_spawning_enemies"]
