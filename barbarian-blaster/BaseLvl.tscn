@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1ggwkllmbrtr"]
+[gd_scene load_steps=17 format=3 uid="uid://b1ggwkllmbrtr"]
 
 [ext_resource type="MeshLibrary" uid="uid://hpw6l7p7te6q" path="res://MeshLibraries/SpaceLibrary.tres" id="1_su7hd"]
 [ext_resource type="PackedScene" uid="uid://bg472eu76v3by" path="res://Enemy/enemy.tscn" id="2_pmq6i"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ba0ujn3qg7ghq" path="res://Turret/turret.tscn" id="6_p7vae"]
 [ext_resource type="Script" uid="uid://28ci07m4fmpo" path="res://bank.gd" id="8_vgbdo"]
 [ext_resource type="PackedScene" uid="uid://bmbrq8ogh88in" path="res://DifficultyManager/difficulty_manager.tscn" id="9_adohh"]
+[ext_resource type="PackedScene" uid="uid://cqj5ss2tnpdsf" path="res://UserInteface/victory_layer.tscn" id="10_bmyyr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kvjjn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -150,16 +151,8 @@ label_settings = SubResource("LabelSettings_dtr17")
 
 [node name="DifficultyManager" parent="." instance=ExtResource("9_adohh")]
 
-[node name="VictoryLayer" type="CanvasLayer" parent="."]
+[node name="VictoryLayer" parent="." instance=ExtResource("10_bmyyr")]
 visible = false
-
-[node name="ColorRect" type="ColorRect" parent="VictoryLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.560784)
 
 [connection signal="timeout" from="EnemyParth/Timer" to="EnemyParth" method="spawn_enemy"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="EnemyParth" method="_on_difficulty_manager_stop_spawning_enemies"]
