@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqj5ss2tnpdsf"]
+[gd_scene load_steps=4 format=3 uid="uid://cqj5ss2tnpdsf"]
 
 [ext_resource type="Script" uid="uid://cduj8ogr4b86o" path="res://UserInteface/victory_layer.gd" id="1_s4dii"]
+[ext_resource type="Texture2D" uid="uid://du207vmqtlv76" path="res://assets/star.png" id="2_k6ut8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_07mw0"]
 font_size = 96
@@ -35,6 +36,33 @@ layout_mode = 2
 text = "Victory"
 label_settings = SubResource("LabelSettings_07mw0")
 horizontal_alignment = 1
+
+[node name="StarContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Star" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/StarContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_k6ut8")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Star2" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/StarContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_k6ut8")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Star3" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/StarContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_k6ut8")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
