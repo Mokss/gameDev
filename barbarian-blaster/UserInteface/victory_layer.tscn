@@ -40,7 +40,8 @@ horizontal_alignment = 1
 [node name="StarContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Star" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/StarContainer"]
+[node name="Star1" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/StarContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -49,6 +50,8 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Star2" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/StarContainer"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -57,12 +60,31 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Star3" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer/StarContainer"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_k6ut8")
 expand_mode = 2
 stretch_mode = 5
+
+[node name="SurvivedLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Survived +1"
+horizontal_alignment = 1
+
+[node name="HealthLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Health +1"
+horizontal_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Money +1"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
