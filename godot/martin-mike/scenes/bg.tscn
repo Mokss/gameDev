@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2fewfp8vhw0u"]
 
-[ext_resource type="Script" path="res://script/bg.gd" id="1_i0eet"]
+[ext_resource type="Script" uid="uid://fe2tcdsgecvj" path="res://script/bg.gd" id="1_i0eet"]
 [ext_resource type="Texture2D" uid="uid://2nal6yhvjpp1" path="res://assets/textures/bg/Blue.png" id="1_nbtg1"]
 
 [node name="BG" type="ParallaxBackground"]

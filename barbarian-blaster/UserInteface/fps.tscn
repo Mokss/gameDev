@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d06y8cp3e7kok"]
+
+[ext_resource type="Script" uid="uid://dyn11qskyetcp" path="res://UserInteface/fps.gd" id="1_0weqi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bmyyr"]
+font_size = 24
+font_color = Color(3.1285e-06, 0.692907, 0.267209, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FPS" type="Label"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 124.0
+offset_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "FPS: 9999"
+label_settings = SubResource("LabelSettings_bmyyr")
+script = ExtResource("1_0weqi")

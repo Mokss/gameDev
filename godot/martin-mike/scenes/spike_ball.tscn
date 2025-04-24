@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtvpku8uhpd0r"]
 
-[ext_resource type="Script" path="res://script/spike_ball.gd" id="1_2hjix"]
+[ext_resource type="Script" uid="uid://cphwk07n5nn8c" path="res://script/spike_ball.gd" id="1_2hjix"]
 [ext_resource type="Texture2D" uid="uid://b232ve762gcx" path="res://assets/textures/other/Spiked Ball.png" id="1_jqq5t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmcas"]

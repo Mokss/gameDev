@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1ggwkllmbrtr"]
+[gd_scene load_steps=19 format=3 uid="uid://b1ggwkllmbrtr"]
 
 [ext_resource type="MeshLibrary" uid="uid://hpw6l7p7te6q" path="res://MeshLibraries/SpaceLibrary.tres" id="1_su7hd"]
 [ext_resource type="PackedScene" uid="uid://bg472eu76v3by" path="res://Enemy/enemy.tscn" id="2_pmq6i"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://28ci07m4fmpo" path="res://bank.gd" id="8_vgbdo"]
 [ext_resource type="PackedScene" uid="uid://bmbrq8ogh88in" path="res://DifficultyManager/difficulty_manager.tscn" id="9_adohh"]
 [ext_resource type="PackedScene" uid="uid://cqj5ss2tnpdsf" path="res://UserInteface/victory_layer.tscn" id="10_bmyyr"]
+[ext_resource type="PackedScene" uid="uid://d06y8cp3e7kok" path="res://UserInteface/fps.tscn" id="11_7rexj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kvjjn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -146,6 +147,10 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 script = ExtResource("8_vgbdo")
 starting_gold = 1000
+
+[node name="FPS" parent="Bank" instance=ExtResource("11_7rexj")]
+layout_mode = 2
+onVsync = false
 
 [node name="Label" type="Label" parent="Bank"]
 layout_mode = 2

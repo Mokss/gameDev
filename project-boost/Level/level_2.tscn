@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://xs1xh3mv5dn7"]
 
 [ext_resource type="PackedScene" uid="uid://n0ct2nt8vgjy" path="res://background.tscn" id="1_5kcnn"]
-[ext_resource type="Script" path="res://Level/landing_pad.gd" id="1_vfomm"]
+[ext_resource type="Script" uid="uid://dwhk000vj7ktk" path="res://Level/landing_pad.gd" id="1_vfomm"]
 [ext_resource type="PackedScene" uid="uid://gq0wmpk6tsow" path="res://player.tscn" id="2_qwc8k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2n8c"]

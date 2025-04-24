@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b30b4ix7cshd2"]
 
-[ext_resource type="Script" path="res://script/win_screen.gd" id="1_isqlm"]
+[ext_resource type="Script" uid="uid://cbq0b4vhky7u1" path="res://script/win_screen.gd" id="1_isqlm"]
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3

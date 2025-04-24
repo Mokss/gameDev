@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://gq0wmpk6tsow"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_ubgq6"]
+[ext_resource type="Script" uid="uid://dgqvnq3g2kdn2" path="res://player.gd" id="1_ubgq6"]
 [ext_resource type="Material" uid="uid://bv8os4kkqnis0" path="res://red_material.tres" id="2_b7mxn"]
 [ext_resource type="PackedScene" uid="uid://ux6ivcx1ovdp" path="res://Paricals/booster_particles.tscn" id="2_lhnsj"]
 [ext_resource type="AudioStream" uid="uid://xdbee1ydsjxa" path="res://assets/audio/SFX - Death Explosion.ogg" id="2_ub13o"]
