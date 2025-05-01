@@ -1,8 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1746039102
+::res://::1746115873
 icon.svg::CompressedTexture2D/CompressedTexture2D::8097451820241664336::1745779256::1745779259::1::::<><><>0<>0<>23d1aa2ee5b77bb22caa4ec2760e8599<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://Levels/::1746039099
-SandeBox.tscn::PackedScene::5510431158602952987::1746039099::0::1::::<><><>0<>0<><>::
-::res://Player/::1746039099
-player.gd::GDScript/GDScript::6917945073991701518::1746037861::0::1::::<>CharacterBody3D<><>0<>0<><>::
-Player.tscn::PackedScene::4800514535748464865::1746039099::0::1::::<><><>0<>0<><>::uid://c5tdsruxxaltm::::res://Player/player.gd
+::res://Levels/::1746115828
+SandeBox.tscn::PackedScene::5510431158602952987::1746115828::0::1::::<><><>0<>0<><>::uid://cann1jvs7i5x2::::res://Player/Player.tscn
+::res://Player/::1746115828
+player.gd::GDScript::6917945073991701518::1746115111::0::1::::Player<>CharacterBody3D<><>0<>0<><>::
+Player.tscn::PackedScene::4800514535748464865::1746115321::0::1::::<><><>0<>0<><>::uid://c5tdsruxxaltm::::res://Player/player.gd<>uid://bf0b72re0anob::::res://Player/smooth_camera.gd
+smooth_camera.gd::GDScript::2789093652739775073::1746115828::0::1::::<>Camera3D<><>0<>0<><>::
