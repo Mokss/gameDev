@@ -1,3 +1,3 @@
-res://Levels/SandeBox.tscn
-res://Player/smooth_camera.gd
 res://Player/Player.tscn
+res://Player/crosshair.gd
+res://Levels/SandeBox.tscn
