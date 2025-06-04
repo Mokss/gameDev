@@ -1,7 +1,9 @@
+CSGCylinder3D
+CSGPolygon3D
 CSGBox3D
+Node3D
 Control
 CenterContainer
-Node3D
 Camera3D
 CollisionShape3D
 MeshInstance3D
