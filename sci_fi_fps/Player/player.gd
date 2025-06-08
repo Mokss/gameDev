@@ -35,20 +35,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	# warning-ignore-:return_value_discarded
 	move_and_slide()
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton && Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion &&  Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			mouse_motion = -event.relative * 0.001
-	
-	if Input.is_action_just_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func handle_camera_rotation() -> void:

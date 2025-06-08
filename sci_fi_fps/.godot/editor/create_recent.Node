@@ -1,4 +1,7 @@
 CSGCylinder3D
+NavigationAgent3D
+CharacterBody3D
+NavigationRegion3D
 CSGPolygon3D
 CSGBox3D
 Node3D
@@ -7,4 +10,3 @@ CenterContainer
 Camera3D
 CollisionShape3D
 MeshInstance3D
-CharacterBody3D
