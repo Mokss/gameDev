@@ -35,10 +35,14 @@ shadow_enabled = true
 directional_shadow_pancake_size = 2.0
 
 [node name="Player" parent="." instance=ExtResource("1_tlqvm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99362, 1.5, 10.4449)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_xgerk")
+
+[node name="NavigationLink3D" type="NavigationLink3D" parent="NavigationRegion3D"]
+transform = Transform3D(0.726917, 0, 0, 0, 0.356617, 0, 0, 0, 0.543113, -0.0258003, 2.99636, 26.3668)
+end_position = Vector3(-0.281388, 2.55009, 2.51796)
 
 [node name="LevelObjects" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0825176, 1.90735e-06, 0.000709534)
@@ -258,4 +262,4 @@ size = Vector3(64, 1, 64)
 material = ExtResource("2_xgerk")
 
 [node name="Enemy" parent="NavigationRegion3D" instance=ExtResource("4_r5sn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76821, 1.49743, -17.3952)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76821, 1.49743, 2.7259)

@@ -24,6 +24,11 @@ func _physics_process(delta: float) -> void:
 
 	var direction: Vector3 = global_position.direction_to(next_position);
 	var distance: float  = global_position.distance_to(player.global_position);
+	var delta_pos: float = next_position.y - global_position.y;
+	
+	print(is_on_floor());
+	if delta_pos > 0.5 and is_on_floor():
+		velocity.y = sqrt(1.0 * 2.0 * -get_gravity().y);
 
 	if distance <= agro_range:
 		provoked = true;
