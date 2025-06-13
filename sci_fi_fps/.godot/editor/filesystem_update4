@@ -1,6 +1,8 @@
-res://Enemy/enemy.tscn
+res://Player/Player.tscn
 res://Levels/Materials/OrangeMaterial.tres
 res://Levels/Materials/GreyMaterial.tres
-res://Enemy/enemy.gd
-res://Player/Player.tscn
+res://Enemy/enemy.tscn
 res://Levels/SandeBox.tscn
+res://Weapons/hit_scan_weapon.tscn
+res://Weapons/hit_scan_weapon.gd
+res://Weapons/SMG.tscn
