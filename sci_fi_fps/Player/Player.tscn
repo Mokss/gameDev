@@ -27,6 +27,7 @@ top_level = true
 script = ExtResource("2_q3lat")
 
 [node name="SMG" parent="CameraPivot/SmoothCamera" instance=ExtResource("3_ddoul")]
+fire_rate = 14.0
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15

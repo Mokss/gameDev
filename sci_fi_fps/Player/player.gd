@@ -4,9 +4,16 @@ const SPEED = 5.0
 
 @export var jump_height: float = 1.0
 @export var fall_multiplier: float = 2.0
+@export var max_hitpoints: int = 100
 @onready var camera_pivot: Node3D = $CameraPivot
 
 var mouse_motion: Vector2 = Vector2.ZERO
+var hitpoints: int = max_hitpoints:
+	set(value):
+		hitpoints = value
+		print("PLayer " + str(hitpoints))
+		if hitpoints <= 0:
+			get_tree().reload_current_scene() 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
