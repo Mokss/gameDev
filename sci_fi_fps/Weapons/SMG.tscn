@@ -1,14 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl4rpv3xtaj70"]
+[gd_scene load_steps=8 format=3 uid="uid://bl4rpv3xtaj70"]
 
 [ext_resource type="PackedScene" uid="uid://qexjmha4mfec" path="res://Weapons/hit_scan_weapon.tscn" id="1_hrtej"]
 [ext_resource type="PackedScene" uid="uid://dce2v0e0o6him" path="res://Weapons/SMG.glb" id="2_ops1r"]
 
-[node name="SMG" node_paths=PackedStringArray("weapon_mesh") instance=ExtResource("1_hrtej")]
+[sub_resource type="Curve" id="Curve_ops1r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_i2xpi"]
+curve = SubResource("Curve_ops1r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ops1r"]
+direction = Vector3(0, 0, -1)
+spread = 5.0
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_i2xpi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ops1r"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ops1r"]
+material = SubResource("StandardMaterial3D_ops1r")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="SMG" node_paths=PackedStringArray("weapon_mesh", "muzzle_flash") instance=ExtResource("1_hrtej")]
+fire_rate = 14.0
 recoil = 0.1
 weapon_mesh = NodePath("SMG")
+muzzle_flash = NodePath("GPUParticles3D")
 
 [node name="SMG" parent="." index="1" instance=ExtResource("2_ops1r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.35, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.35, -0.9)
 
 [node name="RayCast3D" parent="." index="2"]
 target_position = Vector3(0, 0, -100)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698266, -0.302497, -1.98821)
+emitting = false
+lifetime = 0.07
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ops1r")
+draw_pass_1 = SubResource("BoxMesh_ops1r")

@@ -1,3 +1,6 @@
+GPUParticles3D
+CPUParticles3D
+SubViewport
 RayCast3D
 Timer
 AnimationPlayer
@@ -10,6 +13,3 @@ NavigationRegion3D
 CSGPolygon3D
 CSGBox3D
 Node3D
-Control
-CenterContainer
-Camera3D

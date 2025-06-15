@@ -13,6 +13,7 @@ var hitpoints: int = max_hitpoints:
 		hitpoints = value
 		print("PLayer " + str(hitpoints))
 		if hitpoints <= 0:
+			@warning_ignore("return_value_discarded")
 			get_tree().reload_current_scene() 
 
 func _ready() -> void:
