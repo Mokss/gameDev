@@ -28,7 +28,6 @@ material = SubResource("StandardMaterial3D_ops1r")
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="SMG" node_paths=PackedStringArray("weapon_mesh", "muzzle_flash") instance=ExtResource("1_hrtej")]
-fire_rate = 14.0
 recoil = 0.1
 weapon_mesh = NodePath("SMG")
 muzzle_flash = NodePath("GPUParticles3D")
@@ -41,6 +40,7 @@ target_position = Vector3(0, 0, -100)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.698266, -0.302497, -1.98821)
+cast_shadow = 0
 emitting = false
 lifetime = 0.07
 one_shot = true
