@@ -1,8 +1,9 @@
 res://Player/Player.tscn
 res://Levels/Materials/OrangeMaterial.tres
 res://Levels/Materials/GreyMaterial.tres
-res://Weapons/SMG.tscn
 res://Enemy/enemy.tscn
+res://Weapons/SMG.tscn
 res://Levels/SandeBox.tscn
 res://Weapons/sparks.tscn
 res://Weapons/hit_scan_weapon.tscn
+res://Weapons/hit_scan_weapon.gd
