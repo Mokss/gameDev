@@ -6,10 +6,14 @@ const SPEED = 5.0
 @export var fall_multiplier: float = 2.0
 @export var max_hitpoints: int = 100
 @onready var camera_pivot: Node3D = $CameraPivot
+@onready var animation_player: AnimationPlayer = $DamageTexture/AnimationPlayer
 
 var mouse_motion: Vector2 = Vector2.ZERO
 var hitpoints: int = max_hitpoints:
 	set(value):
+		if value < hitpoints:
+			animation_player.stop(false)
+			animation_player.play('TakeDamage')
 		hitpoints = value
 		print("PLayer " + str(hitpoints))
 		if hitpoints <= 0:

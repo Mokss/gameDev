@@ -1,8 +1,9 @@
+AnimationPlayer
+TextureRect
 RemoteTransform3D
 Camera3D
 SubViewport
 SubViewportContainer
-AnimationPlayer
 GPUParticles3D
 CPUParticles3D
 RayCast3D
@@ -11,5 +12,3 @@ MeshInstance3D
 NavigationLink3D
 CSGCylinder3D
 NavigationAgent3D
-CharacterBody3D
-NavigationRegion3D
