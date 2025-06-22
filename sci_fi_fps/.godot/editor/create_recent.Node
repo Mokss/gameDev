@@ -1,3 +1,7 @@
+Button
+Label
+VBoxContainer
+CenterContainer
 AnimationPlayer
 TextureRect
 RemoteTransform3D
@@ -9,6 +13,3 @@ CPUParticles3D
 RayCast3D
 Timer
 MeshInstance3D
-NavigationLink3D
-CSGCylinder3D
-NavigationAgent3D

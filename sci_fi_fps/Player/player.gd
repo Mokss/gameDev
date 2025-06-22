@@ -7,6 +7,7 @@ const SPEED = 5.0
 @export var max_hitpoints: int = 100
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var animation_player: AnimationPlayer = $DamageTexture/AnimationPlayer
+@onready var game_over_menu: GameOverMeny = $GameOverMenu
 
 var mouse_motion: Vector2 = Vector2.ZERO
 var hitpoints: int = max_hitpoints:
@@ -18,7 +19,7 @@ var hitpoints: int = max_hitpoints:
 		print("PLayer " + str(hitpoints))
 		if hitpoints <= 0:
 			@warning_ignore("return_value_discarded")
-			get_tree().reload_current_scene() 
+			game_over_menu.game_over()
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
