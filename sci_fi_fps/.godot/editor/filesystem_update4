@@ -1,10 +1,10 @@
+res://Player/game_over_menu.tscn
 res://Levels/Materials/OrangeMaterial.tres
 res://Levels/Materials/GreyMaterial.tres
-res://Player/game_over_menu.tscn
-res://Player/game_over_menu.gd
-res://Player/player.gd
+res://Player/game_over_menu.tres
 res://Player/Player.tscn
 res://Enemy/enemy.tscn
 res://Levels/SandeBox.tscn
 res://Weapons/sparks.tscn
 res://Weapons/hit_scan_weapon.tscn
+res://Player/game_over_menu.gd
