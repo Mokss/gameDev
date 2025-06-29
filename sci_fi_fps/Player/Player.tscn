@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c5tdsruxxaltm" path="res://Player/player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://bf0b72re0anob" path="res://Player/smooth_camera.gd" id="2_q3lat"]
-[ext_resource type="PackedScene" uid="uid://bl4rpv3xtaj70" path="res://Weapons/SMG.tscn" id="3_ddoul"]
 [ext_resource type="Script" uid="uid://bpudoxpae2lyh" path="res://Player/crosshair.gd" id="3_tok1r"]
+[ext_resource type="PackedScene" uid="uid://bg8bi48v1dcg" path="res://Weapons/Rifle.tscn" id="4_vlldt"]
 [ext_resource type="Texture2D" uid="uid://b54s58s3u6wv8" path="res://Player/damage.png" id="5_8g4oa"]
 [ext_resource type="PackedScene" uid="uid://mmak74glptke" path="res://Player/game_over_menu.tscn" id="6_6ysni"]
 
@@ -89,7 +89,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.632319, 0)
 top_level = true
 script = ExtResource("2_q3lat")
 
-[node name="SMG" parent="CameraPivot/SmoothCamera" instance=ExtResource("3_ddoul")]
+[node name="Rifle" parent="CameraPivot/SmoothCamera" instance=ExtResource("4_vlldt")]
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraPivot/SmoothCamera"]
 remote_path = NodePath("../../../SubViewportContainer/SubViewport/WeaponCamera")
