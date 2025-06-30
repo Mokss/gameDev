@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cann1jvs7i5x2"]
+[gd_scene load_steps=14 format=3 uid="uid://cann1jvs7i5x2"]
 
 [ext_resource type="Script" uid="uid://c5tdsruxxaltm" path="res://Player/player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://bf0b72re0anob" path="res://Player/smooth_camera.gd" id="2_q3lat"]
+[ext_resource type="Script" uid="uid://blxkxbhhw0blx" path="res://Player/weapon_handler.gd" id="3_s1rgi"]
 [ext_resource type="Script" uid="uid://bpudoxpae2lyh" path="res://Player/crosshair.gd" id="3_tok1r"]
 [ext_resource type="PackedScene" uid="uid://bg8bi48v1dcg" path="res://Weapons/Rifle.tscn" id="4_vlldt"]
 [ext_resource type="Texture2D" uid="uid://b54s58s3u6wv8" path="res://Player/damage.png" id="5_8g4oa"]
+[ext_resource type="PackedScene" uid="uid://bl4rpv3xtaj70" path="res://Weapons/SMG.tscn" id="5_j23h2"]
 [ext_resource type="PackedScene" uid="uid://mmak74glptke" path="res://Player/game_over_menu.tscn" id="6_6ysni"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bu0v1"]
@@ -89,10 +91,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.632319, 0)
 top_level = true
 script = ExtResource("2_q3lat")
 
-[node name="Rifle" parent="CameraPivot/SmoothCamera" instance=ExtResource("4_vlldt")]
-
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraPivot/SmoothCamera"]
 remote_path = NodePath("../../../SubViewportContainer/SubViewport/WeaponCamera")
+
+[node name="WeaponHandler" type="Node3D" parent="CameraPivot/SmoothCamera" node_paths=PackedStringArray("weapon_1", "weapon_2")]
+script = ExtResource("3_s1rgi")
+weapon_1 = NodePath("Rifle")
+weapon_2 = NodePath("SMG")
+
+[node name="Rifle" parent="CameraPivot/SmoothCamera/WeaponHandler" instance=ExtResource("4_vlldt")]
+
+[node name="SMG" parent="CameraPivot/SmoothCamera/WeaponHandler" instance=ExtResource("5_j23h2")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15

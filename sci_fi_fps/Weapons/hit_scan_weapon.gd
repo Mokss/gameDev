@@ -1,4 +1,5 @@
 extends Node3D
+class_name Weapon
 
 # выстрелы в минуту
 @export var fire_rate: float = 14.0

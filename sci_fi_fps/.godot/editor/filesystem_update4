@@ -1,9 +1,9 @@
-res://Weapons/Rifle.tscn
-res://Player/game_over_menu.tres
-res://Player/game_over_menu.gd
-res://Weapons/hit_scan_weapon.gd
 res://Player/Player.tscn
+res://Player/game_over_menu.tres
 res://Levels/Materials/OrangeMaterial.tres
 res://Levels/Materials/GreyMaterial.tres
+res://Weapons/Rifle.tscn
 res://Enemy/enemy.tscn
 res://Levels/SandeBox.tscn
+res://Weapons/hit_scan_weapon.gd
+res://Player/weapon_handler.gd
