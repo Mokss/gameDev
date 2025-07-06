@@ -1,10 +1,12 @@
-res://Weapons/Rifle.tscn
+res://Player/Player.tscn
 res://Player/game_over_menu.tres
 res://Levels/Materials/OrangeMaterial.tres
 res://Levels/Materials/GreyMaterial.tres
-res://Player/Player.tscn
-res://Enemy/enemy.tscn
-res://Levels/SandeBox.tscn
 res://Player/ammo_handler.gd
-res://Weapons/hit_scan_weapon.gd
+res://Pickups/pickup.tscn
+res://Pickups/pickup.gd
+res://Levels/SandeBox.tscn
+res://Weapons/Rifle.tscn
+res://Enemy/enemy.tscn
 res://Weapons/hit_scan_weapon.tscn
+res://Player/weapon_handler.gd

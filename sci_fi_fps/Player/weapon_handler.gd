@@ -4,7 +4,6 @@ extends Node3D
 @export var weapon_1: Weapon
 @export var weapon_2: Weapon 
 
-
 func  _ready() -> void:
 	equip(weapon_1)
 
@@ -12,8 +11,14 @@ func  _ready() -> void:
 func equip(active_weapon: Weapon) -> void:
 	for child in get_children():
 		if child == active_weapon:
-			child.visible = true
-			child.set_process(true)
+			if child is Weapon:
+				child.visible = true
+				child.set_process(true)
+				child.ammo_handler.update_ammo_label(child.ammo_type)
+				child.ammo_handler.last_ammo_type = child.ammo_type
+				
+			else:
+				push_error("В WeaponHandler в качестве дочерних компонентов оказался не объект Weapon")
 		else:
 			child.visible = false
 			child.set_process(false)

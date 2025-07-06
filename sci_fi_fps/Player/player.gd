@@ -8,6 +8,8 @@ const SPEED = 5.0
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var animation_player: AnimationPlayer = $DamageTexture/AnimationPlayer
 @onready var game_over_menu: GameOverMeny = $GameOverMenu
+@onready var ammo_handler: AmmoHandler = %AmmoHandler
+
 
 var mouse_motion: Vector2 = Vector2.ZERO
 var hitpoints: int = max_hitpoints:
