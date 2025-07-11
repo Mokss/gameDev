@@ -269,7 +269,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76821, 1.49743, -15.6157)
 [node name="Pickups" type="Node3D" parent="."]
 
 [node name="BulletPickup" parent="Pickups" instance=ExtResource("6_65nru")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.81416, 1, -1.53695)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04176, 1, -1.40919)
+metadata/_edit_group_ = true
 
 [node name="SmallBulletPickup" parent="Pickups" instance=ExtResource("7_8lh77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6186, 1, -1.65031)
