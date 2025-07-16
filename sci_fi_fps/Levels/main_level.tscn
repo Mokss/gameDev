@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://co5n3qjqsrk2x"]
+
+[ext_resource type="Material" uid="uid://byrixue8nkxxb" path="res://Levels/Materials/GreyMaterial.tres" id="1_8xii8"]
+
+[node name="MainLevel" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = ExtResource("1_8xii8")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGBox3D"]
+operation = 2
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244362, 0.50467, 0.254137)
+material_override = ExtResource("1_8xii8")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.396242, -0.185227, -0.311279)
+material_override = ExtResource("1_8xii8")

@@ -1,3 +1,5 @@
+CSGCombiner3D
+CSGBox3D
 Node3D
 MeshInstance3D
 AnimationPlayer
@@ -11,4 +13,3 @@ Button
 VBoxContainer
 CenterContainer
 RemoteTransform3D
-Camera3D
