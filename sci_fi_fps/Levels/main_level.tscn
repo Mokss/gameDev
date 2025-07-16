@@ -1,19 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://co5n3qjqsrk2x"]
+[gd_scene load_steps=5 format=3 uid="uid://co5n3qjqsrk2x"]
 
 [ext_resource type="Material" uid="uid://byrixue8nkxxb" path="res://Levels/Materials/GreyMaterial.tres" id="1_8xii8"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xii8"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_k0okc"]
+sky_material = SubResource("ProceduralSkyMaterial_8xii8")
+
+[sub_resource type="Environment" id="Environment_6x3q2"]
+background_mode = 2
+sky = SubResource("Sky_k0okc")
+tonemap_mode = 2
+glow_enabled = true
+
 [node name="MainLevel" type="Node3D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-material_override = ExtResource("1_8xii8")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGBox3D"]
-operation = 2
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6x3q2")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244362, 0.50467, 0.254137)
+[node name="Room" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 material_override = ExtResource("1_8xii8")
+flip_faces = true
+size = Vector3(8, 4, 8)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.396242, -0.185227, -0.311279)
-material_override = ExtResource("1_8xii8")
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Room"]
+
+[node name="Corridor" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -6)
+flip_faces = true
+size = Vector3(2, 2, 4)
+metadata/_edit_group_ = true
+
+[node name="Corridor2" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, -1, -11)
+flip_faces = true
+size = Vector3(2, 2, 4)
+metadata/_edit_group_ = true
+
+[node name="Corridor3" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -1, -11)
+flip_faces = true
+size = Vector3(2, 2, 4)
+metadata/_edit_group_ = true
+
+[node name="Room2" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.4092)
+flip_faces = true
+size = Vector3(8, 4, 8)
+metadata/_edit_group_ = true
+
+[node name="Room3" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4831, 0, -11.4092)
+flip_faces = true
+size = Vector3(8, 4, 8)
+metadata/_edit_group_ = true
+
+[node name="Room4" type="CSGBox3D" parent="Room/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5169, 0, -11.4092)
+flip_faces = true
+size = Vector3(8, 4, 8)
+metadata/_edit_group_ = true

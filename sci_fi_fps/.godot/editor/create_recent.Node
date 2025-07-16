@@ -1,5 +1,5 @@
-CSGCombiner3D
 CSGBox3D
+CSGCombiner3D
 Node3D
 MeshInstance3D
 AnimationPlayer
@@ -12,4 +12,3 @@ TextureRect
 Button
 VBoxContainer
 CenterContainer
-RemoteTransform3D
