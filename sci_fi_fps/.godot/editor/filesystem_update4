@@ -1,6 +1,5 @@
-res://Levels/SandeBox.tscn
+res://Levels/main_level.tscn
 res://Player/game_over_menu.tres
 res://Pickups/FresnelAura.tres
 res://Levels/Materials/OrangeMaterial.tres
 res://Levels/Materials/GreyMaterial.tres
-res://Levels/main_level.tscn

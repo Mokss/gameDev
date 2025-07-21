@@ -1,7 +1,8 @@
+CSGPolygon3D
+Node3D
 Sprite3D
 CSGBox3D
 CSGCombiner3D
-Node3D
 MeshInstance3D
 AnimationPlayer
 Node
@@ -12,4 +13,3 @@ MarginContainer
 TextureRect
 Button
 VBoxContainer
-CenterContainer
