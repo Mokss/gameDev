@@ -1,5 +1,7 @@
-CSGPolygon3D
+NavigationRegion3D
+Enemy
 Node3D
+CSGPolygon3D
 Sprite3D
 CSGBox3D
 CSGCombiner3D
@@ -11,5 +13,3 @@ Area3D
 Label
 MarginContainer
 TextureRect
-Button
-VBoxContainer

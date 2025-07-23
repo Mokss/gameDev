@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="SCI_FI_FPS"
-run/main_scene="uid://ckrj84qv1s1c6"
+run/main_scene="uid://co5n3qjqsrk2x"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GobalInput="*res://global_scripts/gobal_input.gd"
 
 [debug]
 
