@@ -1,10 +1,8 @@
+res://Levels/main_level.tscn
+res://Levels/Materials/GreyMaterial.tres
 res://Player/game_over_menu.tres
 res://Pickups/FresnelAura.tres
-res://Levels/Materials/GreyMaterial.tres
-res://lava.tres
-res://lava.tscn
-res://lava_matearial.tres
 res://lava_material.tres
-res://lava.gd
+res://lava.tscn
 res://Player/Player.tscn
-res://Levels/main_level.tscn
+res://Enemy/enemy.tscn
