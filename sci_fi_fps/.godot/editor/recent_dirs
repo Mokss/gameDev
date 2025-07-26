@@ -1,3 +1,4 @@
+res://
 res://Levels
 res://global_scripts
 C:/Users/mokss/Documents/gameDev/sci_fi_fps/Levels
@@ -6,6 +7,5 @@ C:/Users/mokss/Documents/gameDev/godot-minimal-theme-2.3.1
 res://Pickups
 res://Player
 res://Weapons
-res://
 res://Enemy
 res://Levels/Materials

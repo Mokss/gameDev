@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3kwj7b8h4yjk"]
+
+[ext_resource type="Shader" uid="uid://cvo6hyufegbih" path="res://lava_material.tres" id="1_34hvj"]
+[ext_resource type="Script" uid="uid://diw1v66qulqgg" path="res://lava.gd" id="1_gil3p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_34hvj"]
+render_priority = 0
+shader = ExtResource("1_34hvj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gil3p"]
+resource_local_to_scene = true
+size = Vector2(10, 10)
+
+[node name="Lava" type="Area3D"]
+script = ExtResource("1_gil3p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_34hvj")
+mesh = SubResource("PlaneMesh_gil3p")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+light_color = Color(1, 0.501961, 0, 1)
+light_energy = 2.0
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

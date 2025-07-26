@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://co5n3qjqsrk2x"]
+[gd_scene load_steps=13 format=3 uid="uid://co5n3qjqsrk2x"]
 
 [ext_resource type="Material" uid="uid://byrixue8nkxxb" path="res://Levels/Materials/GreyMaterial.tres" id="1_8xii8"]
 [ext_resource type="PackedScene" uid="uid://cann1jvs7i5x2" path="res://Player/Player.tscn" id="3_6x3q2"]
 [ext_resource type="PackedScene" uid="uid://cuc22byten6bw" path="res://Enemy/enemy.tscn" id="4_13urm"]
 [ext_resource type="PackedScene" uid="uid://blm8j8heidhrb" path="res://Pickups/bullet_pickup.tscn" id="5_6opdx"]
 [ext_resource type="PackedScene" uid="uid://dn02rm1il415u" path="res://Pickups/small_bullet_pickup.tscn" id="6_k6a8t"]
+[ext_resource type="PackedScene" uid="uid://d3kwj7b8h4yjk" path="res://lava.tscn" id="6_wcg7u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6x3q2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -25,6 +26,13 @@ vertices = PackedVector3Array(-11.0778, 0.438672, -18.917, -10.3278, 0.438672, -
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 4, 1), PackedInt32Array(1, 4, 0), PackedInt32Array(7, 6, 5), PackedInt32Array(4, 3, 8), PackedInt32Array(10, 2, 9), PackedInt32Array(9, 2, 0), PackedInt32Array(7, 5, 8), PackedInt32Array(8, 5, 4), PackedInt32Array(11, 10, 9), PackedInt32Array(6, 11, 5), PackedInt32Array(5, 11, 9), PackedInt32Array(14, 13, 15), PackedInt32Array(15, 13, 16), PackedInt32Array(16, 13, 12), PackedInt32Array(19, 18, 17), PackedInt32Array(17, 18, 15), PackedInt32Array(20, 18, 19), PackedInt32Array(16, 21, 15), PackedInt32Array(15, 21, 22), PackedInt32Array(15, 22, 17), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 26), PackedInt32Array(20, 19, 27), PackedInt32Array(27, 19, 26), PackedInt32Array(26, 23, 27), PackedInt32Array(22, 21, 28), PackedInt32Array(28, 21, 29), PackedInt32Array(33, 32, 30), PackedInt32Array(30, 32, 31), PackedInt32Array(37, 36, 34), PackedInt32Array(34, 36, 35), PackedInt32Array(38, 43, 39), PackedInt32Array(39, 43, 40), PackedInt32Array(40, 43, 41), PackedInt32Array(41, 43, 42), PackedInt32Array(43, 44, 42), PackedInt32Array(41, 45, 40), PackedInt32Array(48, 47, 46), PackedInt32Array(24, 25, 49), PackedInt32Array(48, 46, 49), PackedInt32Array(49, 46, 24), PackedInt32Array(51, 38, 50), PackedInt32Array(50, 38, 39), PackedInt32Array(50, 48, 51), PackedInt32Array(51, 48, 49), PackedInt32Array(54, 53, 52), PackedInt32Array(56, 55, 57), PackedInt32Array(57, 55, 58), PackedInt32Array(61, 60, 59), PackedInt32Array(58, 55, 62), PackedInt32Array(66, 54, 63), PackedInt32Array(63, 54, 64), PackedInt32Array(64, 54, 65), PackedInt32Array(65, 54, 52), PackedInt32Array(67, 69, 68), PackedInt32Array(69, 67, 60), PackedInt32Array(60, 67, 59), PackedInt32Array(63, 61, 66), PackedInt32Array(66, 61, 59), PackedInt32Array(62, 68, 58), PackedInt32Array(58, 68, 69), PackedInt32Array(72, 71, 70), PackedInt32Array(29, 76, 28), PackedInt32Array(28, 76, 73), PackedInt32Array(73, 76, 74), PackedInt32Array(74, 76, 75), PackedInt32Array(76, 77, 75), PackedInt32Array(70, 79, 72), PackedInt32Array(72, 79, 74), PackedInt32Array(74, 79, 73), PackedInt32Array(73, 79, 78), PackedInt32Array(83, 82, 80), PackedInt32Array(80, 82, 81), PackedInt32Array(13, 14, 84), PackedInt32Array(84, 14, 85), PackedInt32Array(85, 14, 86), PackedInt32Array(88, 87, 89), PackedInt32Array(89, 87, 90), PackedInt32Array(46, 47, 91), PackedInt32Array(91, 47, 92), PackedInt32Array(90, 87, 93), PackedInt32Array(84, 85, 93), PackedInt32Array(93, 85, 90), PackedInt32Array(94, 91, 92), PackedInt32Array(92, 86, 94), PackedInt32Array(94, 86, 14), PackedInt32Array(95, 100, 96), PackedInt32Array(96, 100, 97), PackedInt32Array(97, 102, 98), PackedInt32Array(98, 103, 41), PackedInt32Array(41, 101, 45), PackedInt32Array(45, 101, 99), PackedInt32Array(99, 102, 100), PackedInt32Array(100, 102, 97), PackedInt32Array(102, 103, 98), PackedInt32Array(103, 101, 41), PackedInt32Array(101, 102, 99), PackedInt32Array(102, 101, 103), PackedInt32Array(107, 106, 104), PackedInt32Array(104, 106, 105), PackedInt32Array(108, 111, 109), PackedInt32Array(109, 111, 110), PackedInt32Array(113, 112, 111), PackedInt32Array(111, 112, 110), PackedInt32Array(116, 115, 114), PackedInt32Array(120, 119, 117), PackedInt32Array(117, 119, 118), PackedInt32Array(123, 122, 121), PackedInt32Array(120, 116, 119), PackedInt32Array(119, 116, 124), PackedInt32Array(89, 123, 88), PackedInt32Array(88, 123, 121), PackedInt32Array(124, 116, 114), PackedInt32Array(122, 124, 121), PackedInt32Array(121, 124, 114), PackedInt32Array(128, 127, 125), PackedInt32Array(125, 127, 126), PackedInt32Array(129, 52, 53), PackedInt32Array(133, 132, 130), PackedInt32Array(130, 132, 131), PackedInt32Array(136, 135, 134), PackedInt32Array(133, 130, 134), PackedInt32Array(137, 117, 118), PackedInt32Array(133, 134, 138), PackedInt32Array(138, 134, 137), PackedInt32Array(137, 134, 135), PackedInt32Array(137, 135, 117), PackedInt32Array(129, 53, 139), PackedInt32Array(139, 53, 140), PackedInt32Array(139, 140, 138), PackedInt32Array(137, 139, 138), PackedInt32Array(142, 141, 143), PackedInt32Array(143, 141, 144), PackedInt32Array(136, 134, 141), PackedInt32Array(141, 134, 144), PackedInt32Array(146, 145, 132), PackedInt32Array(132, 145, 131), PackedInt32Array(146, 150, 145), PackedInt32Array(145, 150, 147), PackedInt32Array(147, 150, 149), PackedInt32Array(147, 149, 148), PackedInt32Array(148, 151, 147), PackedInt32Array(150, 152, 149), PackedInt32Array(156, 155, 153), PackedInt32Array(153, 155, 154)]
 agent_radius = 1.0
 filter_ledge_spans = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k6a8t"]
+resource_local_to_scene = true
+size = Vector2(21, 15)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k6a8t"]
+points = PackedVector3Array(-10.5, 0, -7.5, -10.5, 0, 7.5, 10.4979, 0, -7.5, 10.4979, 0, 7.5)
 
 [node name="MainLevel" type="Node3D"]
 
@@ -244,3 +252,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4366, 3.5, -3.8098)
 
 [node name="SmallBulletPickup3" parent="Pickups" instance=ExtResource("6_k6a8t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.585981, 3.5, -18.949)
+
+[node name="LavaPools" type="Node3D" parent="."]
+
+[node name="Lava" parent="LavaPools" instance=ExtResource("6_wcg7u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -11.4299)
+
+[node name="MeshInstance3D" parent="LavaPools/Lava" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21194, 1, 1.1311)
+mesh = SubResource("PlaneMesh_k6a8t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaPools/Lava"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21194, 1, 1.1311)
+shape = SubResource("ConvexPolygonShape3D_k6a8t")
+
+[node name="OmniLight3D" parent="LavaPools/Lava" index="2"]
+omni_range = 20.0
+
+[editable path="LavaPools/Lava"]

@@ -24,6 +24,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-504, -88)
 nodes/fragment/2/node = SubResource("VisualShaderNodeFresnel_6hayq")
 nodes/fragment/2/position = Vector2(-980, 360)
 nodes/fragment/connections = PackedInt32Array(2, 0, 0, 1, 2, 0, 0, 5, 2, 0, 0, 0)
