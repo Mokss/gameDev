@@ -6,3 +6,4 @@ res://lava_material.tres
 res://lava.tscn
 res://Player/Player.tscn
 res://Enemy/enemy.tscn
+res://lava.gd
