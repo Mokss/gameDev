@@ -1,5 +1,6 @@
-Node3D
 OmniLight3D
+SpotLight3D
+Node3D
 MeshInstance3D
 Area3D
 AnimationTree
@@ -11,4 +12,3 @@ CSGBox3D
 CSGCombiner3D
 AnimationPlayer
 Node
-CollisionShape3D

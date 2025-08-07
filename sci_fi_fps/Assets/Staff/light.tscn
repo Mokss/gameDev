@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://qlwdpl2at7gq"]
+
+[ext_resource type="PackedScene" uid="uid://c4x66rqvqx4uc" path="res://Assets/Staff/Light.glb" id="1_jvmv2"]
+
+[node name="Light" instance=ExtResource("1_jvmv2")]

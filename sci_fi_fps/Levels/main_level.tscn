@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://co5n3qjqsrk2x"]
+[gd_scene load_steps=24 format=3 uid="uid://co5n3qjqsrk2x"]
 
 [ext_resource type="Material" uid="uid://byrixue8nkxxb" path="res://Levels/Materials/GreyMaterial.tres" id="1_8xii8"]
 [ext_resource type="PackedScene" uid="uid://5od7w30dfq0l" path="res://Assets/Staff/Support.glb" id="2_5aiwm"]
 [ext_resource type="PackedScene" uid="uid://cann1jvs7i5x2" path="res://Player/Player.tscn" id="3_6x3q2"]
+[ext_resource type="PackedScene" uid="uid://hcuskfnfw1hn" path="res://Assets/Staff/Generator.glb" id="3_utf87"]
 [ext_resource type="PackedScene" uid="uid://cuc22byten6bw" path="res://Enemy/enemy.tscn" id="4_13urm"]
+[ext_resource type="PackedScene" uid="uid://de3jpmkjm8g1v" path="res://Assets/Staff/Screen.glb" id="4_vn64n"]
 [ext_resource type="PackedScene" uid="uid://blm8j8heidhrb" path="res://Pickups/bullet_pickup.tscn" id="5_6opdx"]
 [ext_resource type="PackedScene" uid="uid://dn02rm1il415u" path="res://Pickups/small_bullet_pickup.tscn" id="6_k6a8t"]
 [ext_resource type="PackedScene" uid="uid://d3kwj7b8h4yjk" path="res://lava.tscn" id="6_wcg7u"]
@@ -11,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bj6b641ppbusp" path="res://Assets/Staff/FloorTile.glb" id="8_2clls"]
 [ext_resource type="PackedScene" uid="uid://dfwrsagalrstf" path="res://Assets/Staff/Cap.glb" id="9_3d006"]
 [ext_resource type="PackedScene" uid="uid://4uxfbcxmads8" path="res://Assets/Staff/Vent.glb" id="11_8b1du"]
+[ext_resource type="PackedScene" uid="uid://c4x66rqvqx4uc" path="res://Assets/Staff/Light.glb" id="11_vte7q"]
 [ext_resource type="PackedScene" uid="uid://bqfmksob5atb3" path="res://Assets/Staff/Pipes.glb" id="12_vte7q"]
+[ext_resource type="PackedScene" uid="uid://cs14dk4v0cqtj" path="res://Assets/Staff/Monitor.glb" id="14_oi8lg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6x3q2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -28,14 +32,14 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_k6a8t"]
-vertices = PackedVector3Array(-11.1718, 0.393517, -18.917, -10.4218, 0.393517, -17.167, -9.67177, 0.393517, -17.917, -10.4218, 0.393517, -3.917, -11.1718, 0.393517, -2.167, 13.3282, 0.393517, -2.167, 12.3282, 0.393517, -3.917, 11.5782, 0.393517, -3.167, -9.67177, 0.393517, -3.167, 11.5782, 0.393517, -17.917, 13.3282, 0.393517, -18.917, 12.3282, 0.393517, -17.167, 3.57823, 3.39352, -18.167, 2.82823, 3.39352, -18.667, 2.57823, 3.39352, -18.167, 1.07823, 3.39352, -18.167, 0.328232, 3.39352, -18.667, 0.0782318, 3.39352, -18.167, -3.42177, 3.39352, -18.167, -4.17177, 3.39352, -18.667, -4.42177, 3.39352, -18.167, 9.32823, 3.39352, -18.167, 8.82823, 3.39352, -18.917, 8.07823, 3.39352, -18.167, -8.92177, 3.39352, -1.917, -8.67177, 3.39352, -3.167, -9.42177, 3.39352, -3.167, 6.57823, 3.39352, -18.167, 6.07823, 3.39352, -18.917, 5.07823, 3.39352, -18.167, 11.0782, 3.39352, -17.917, 10.8282, 3.39352, -18.167, -11.1718, 3.39352, -3.917, -11.1718, 3.39352, -2.167, -10.4218, 3.39352, -4.167, -5.92177, 3.39352, -18.167, -9.42177, 3.39352, -17.917, -8.67177, 3.39352, -18.167, -11.9218, 3.39352, -4.667, -11.1718, 3.39352, -7.417, -11.9218, 3.39352, -6.667, -6.42177, 3.39352, -18.917, -8.17177, 3.39352, -18.917, -18.9218, 3.39352, -6.667, -18.9218, 3.39352, -4.667, -10.1718, 3.39352, -18.167, -10.4218, 3.39352, -16.917, -10.9218, 3.39352, -18.667, 11.3282, 3.39352, -18.917, 12.3282, 3.39352, -16.917, 13.3282, 3.39352, -18.167, 12.5782, 3.39352, -18.917, 12.3282, 3.39352, -4.167, 11.3282, 3.39352, -3.167, 11.3282, 3.39352, -2.667, 13.3282, 3.39352, -2.667, 14.0782, 3.39352, -10.417, 22.5782, 3.39352, -10.417, 22.5782, 3.39352, -12.667, 14.0782, 3.39352, -12.667, 13.3282, 3.39352, -9.667, 13.3282, 3.39352, -13.417, 23.3282, 0.393517, -16.167, 23.3282, 0.393517, -4.917, 30.8282, 0.393517, -4.917, 30.8282, 0.393517, -16.167, 24.0782, 3.39352, -16.167, 23.3282, 3.39352, -15.417, 23.3282, 3.39352, -13.417, 23.3282, 3.39352, -9.667, 30.8282, 3.39352, -15.667, 30.3282, 3.39352, -16.167, 23.3282, 3.39352, -7.667, 30.8282, 3.39352, -7.667, -8.17177, 0.393517, -15.667, -8.17177, 0.393517, -5.417, 10.0782, 0.393517, -5.417, 10.0782, 0.393517, -15.667, -23.1718, 0.393517, 9.083, -22.9218, 0.393517, 7.333, -24.4218, 0.393517, 7.333, -26.1718, 0.393517, 6.583, -27.1718, 0.393517, 7.333, -27.1718, 0.393517, 9.083, -25.1718, 0.393517, 6.583, -31.1718, 0.393517, -7.667, -31.6718, 0.393517, -10.167, -31.9218, 0.393517, -2.667, -31.1718, 0.393517, -3.917, -30.1718, 0.393517, -2.917, -25.1718, 0.393517, -2.917, -26.9218, 0.393517, -2.167, -26.1718, 0.393517, -1.417, -31.4218, 0.393517, -2.167, -30.4218, 0.643517, -8.417, -23.6718, 3.39352, -8.167, -23.6718, 3.39352, -10.167, -25.9218, 0.393517, -10.167, -25.9218, 0.393517, -8.417, -25.1718, 0.393517, -8.417, -25.1718, 0.393517, -10.167, -19.9218, 3.39352, -7.417, -19.9218, 3.39352, -9.667, -20.4218, 3.39352, -10.167, -22.9218, 3.39352, -7.417, -22.9218, 3.39352, -2.167, -20.1718, 3.39352, -2.167, -19.9218, 3.39352, -3.917, -22.9218, 0.393517, -10.167, -22.9218, 0.393517, -2.167, -19.9218, 0.393517, -2.167, -19.9218, 0.393517, -10.167, 23.3282, 0.643517, 4.083, 30.8282, 0.643517, 4.083, 30.8282, 3.39352, -3.26075, 23.3282, 3.39352, -3.26075, -28.9218, -0.356483, -6.167, -28.9218, -0.356483, -5.167, -25.1718, -0.356483, -5.167, -25.1718, -0.356483, -6.167, -1.42177, 3.39352, -2.667, -1.17177, 3.39352, -2.167, -0.421768, 3.39352, -2.667, 1.07823, 3.39352, -2.667, 1.32823, 3.39352, -2.167, 2.07823, 3.39352, -2.667, -4.17177, 3.39352, -2.667, -3.92177, 3.39352, -2.167, -3.17177, 3.39352, -2.167, -2.92177, 3.39352, -2.667, 10.8282, 3.39352, -2.167, 9.57823, 3.39352, -2.667, 9.82823, 3.39352, -2.167, 3.57823, 3.39352, -2.667, 3.82823, 3.39352, -2.167, 5.07823, 3.39352, -2.167, 5.32823, 3.39352, -2.667, -5.67177, 3.39352, -2.667, -8.42177, 3.39352, -1.417, -6.42177, 3.39352, -1.917, -9.17177, 3.39352, 5.083, -8.92177, 3.39352, 5.583, -6.92177, 3.39352, 5.583, -6.42177, 3.39352, 5.083, -8.42177, 3.39352, 2.833, -9.17177, 3.39352, 3.583, -11.1718, 3.39352, 3.583, -11.1718, 3.39352, 5.083, 6.82823, 3.39352, -2.667, 7.07823, 3.39352, -2.167, 23.3282, 0.393517, -2.667, 23.3282, 0.393517, -0.917, 30.8282, 0.393517, -0.917, 30.8282, 0.393517, -2.667, -28.4218, 0.393517, 5.083, -28.4218, 0.393517, 3.583, -30.1718, 0.393517, 3.583, -29.4218, 0.393517, 5.833, -30.1718, 0.393517, 16.333, -29.4218, 0.393517, 16.333, -30.1718, 3.39352, 15.833, -29.4218, 3.39352, 16.333, -29.4218, 3.39352, 14.083, -21.9218, 0.643517, 13.083, -21.9218, 0.643517, 11.333, -28.4218, 3.39352, 11.333, -28.4218, 3.39352, 13.083, -28.4218, 3.39352, 5.083, -29.6718, 3.39352, 3.583, -29.4218, 3.39352, 10.333, -30.1718, 3.39352, 4.083, -29.4218, 3.39352, 6.083, -22.9218, 0.393517, 3.583, -22.9218, 0.393517, 5.083, -10.6718, 0.393517, 5.083, -10.6718, 0.393517, 3.583, 23.3282, -0.356483, 6.333, 23.3282, -0.356483, 7.333, 30.8282, -0.356483, 7.333, 30.8282, -0.356483, 6.333, -21.9218, 0.393517, 9.083, -9.92177, 0.393517, 12.833, -7.92177, 0.393517, 12.833, -7.92177, 0.393517, 11.333, -9.92177, 0.393517, 11.333, -21.1718, 0.393517, 14.583, -21.9218, 0.393517, 15.333, -11.1718, 0.393517, 16.333, -10.6718, 0.393517, 13.583, -10.6718, 0.393517, 10.583, -21.1718, 0.393517, 10.583, -21.1718, 0.393517, 13.833, -10.6718, 0.393517, 15.833, -21.1718, 0.393517, 9.833, -11.1718, 0.393517, 7.333, -10.6718, 0.393517, 7.833, -27.1718, 0.393517, 15.333, -27.1718, 0.393517, 16.333, -1.67177, 0.393517, 12.833, -1.67177, 0.393517, 11.333, -0.921768, 0.393517, 13.583, -0.671768, 0.393517, 16.833, 8.82823, 0.393517, 16.833, 8.82823, 0.393517, 7.333, -0.671768, 0.393517, 7.333, -0.921768, 0.393517, 10.583, 23.3282, 0.393517, 9.583, 23.3282, 0.393517, 12.333, 30.8282, 0.393517, 12.333, 30.8282, 0.393517, 9.583, -27.1718, 0.393517, 11.333, -27.1718, 0.393517, 13.083, -26.4218, 0.393517, 13.083, -26.4218, 0.393517, 11.333)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 4, 1), PackedInt32Array(1, 4, 0), PackedInt32Array(7, 6, 5), PackedInt32Array(4, 3, 8), PackedInt32Array(2, 0, 9), PackedInt32Array(9, 0, 10), PackedInt32Array(8, 7, 4), PackedInt32Array(4, 7, 5), PackedInt32Array(11, 9, 10), PackedInt32Array(6, 11, 5), PackedInt32Array(5, 11, 10), PackedInt32Array(14, 13, 12), PackedInt32Array(17, 16, 15), PackedInt32Array(20, 19, 18), PackedInt32Array(21, 23, 22), PackedInt32Array(26, 25, 24), PackedInt32Array(29, 28, 27), PackedInt32Array(21, 31, 30), PackedInt32Array(34, 26, 32), PackedInt32Array(32, 26, 33), PackedInt32Array(33, 26, 24), PackedInt32Array(36, 35, 20), PackedInt32Array(35, 36, 37), PackedInt32Array(32, 38, 34), PackedInt32Array(34, 38, 40), PackedInt32Array(34, 40, 39), PackedInt32Array(41, 35, 42), PackedInt32Array(42, 35, 37), PackedInt32Array(36, 20, 18), PackedInt32Array(23, 21, 30), PackedInt32Array(27, 23, 30), PackedInt32Array(29, 27, 30), PackedInt32Array(40, 38, 43), PackedInt32Array(43, 38, 44), PackedInt32Array(15, 14, 30), PackedInt32Array(37, 36, 45), PackedInt32Array(36, 18, 17), PackedInt32Array(12, 29, 30), PackedInt32Array(14, 12, 30), PackedInt32Array(47, 46, 39), PackedInt32Array(39, 46, 34), PackedInt32Array(17, 15, 36), PackedInt32Array(36, 15, 30), PackedInt32Array(46, 47, 45), PackedInt32Array(36, 46, 45), PackedInt32Array(31, 48, 30), PackedInt32Array(30, 48, 51), PackedInt32Array(30, 51, 50), PackedInt32Array(30, 50, 49), PackedInt32Array(53, 52, 54), PackedInt32Array(54, 52, 55), PackedInt32Array(59, 58, 56), PackedInt32Array(56, 58, 57), PackedInt32Array(60, 55, 52), PackedInt32Array(61, 60, 49), PackedInt32Array(49, 60, 52), PackedInt32Array(56, 60, 59), PackedInt32Array(59, 60, 61), PackedInt32Array(49, 50, 61), PackedInt32Array(65, 64, 62), PackedInt32Array(62, 64, 63), PackedInt32Array(68, 67, 66), PackedInt32Array(58, 68, 57), PackedInt32Array(57, 68, 69), PackedInt32Array(71, 70, 66), PackedInt32Array(66, 70, 69), PackedInt32Array(69, 70, 72), PackedInt32Array(72, 70, 73), PackedInt32Array(69, 68, 66), PackedInt32Array(77, 76, 74), PackedInt32Array(74, 76, 75), PackedInt32Array(80, 79, 78), PackedInt32Array(84, 80, 81), PackedInt32Array(81, 80, 82), PackedInt32Array(82, 80, 83), PackedInt32Array(83, 80, 78), PackedInt32Array(88, 87, 85), PackedInt32Array(85, 87, 86), PackedInt32Array(87, 88, 89), PackedInt32Array(92, 91, 90), PackedInt32Array(87, 89, 93), PackedInt32Array(93, 89, 91), PackedInt32Array(91, 89, 90), PackedInt32Array(95, 94, 96), PackedInt32Array(96, 94, 86), PackedInt32Array(81, 92, 84), PackedInt32Array(84, 92, 90), PackedInt32Array(85, 86, 94), PackedInt32Array(100, 99, 97), PackedInt32Array(97, 99, 98), PackedInt32Array(102, 101, 103), PackedInt32Array(103, 101, 104), PackedInt32Array(103, 104, 95), PackedInt32Array(103, 95, 96), PackedInt32Array(107, 106, 105), PackedInt32Array(44, 107, 43), PackedInt32Array(43, 107, 101), PackedInt32Array(101, 107, 104), PackedInt32Array(104, 107, 105), PackedInt32Array(111, 110, 108), PackedInt32Array(108, 110, 109), PackedInt32Array(73, 114, 72), PackedInt32Array(72, 114, 115), PackedInt32Array(115, 114, 113), PackedInt32Array(115, 113, 112), PackedInt32Array(119, 118, 116), PackedInt32Array(116, 118, 117), PackedInt32Array(122, 121, 120), PackedInt32Array(125, 124, 123), PackedInt32Array(127, 126, 128), PackedInt32Array(128, 126, 129), PackedInt32Array(54, 130, 53), PackedInt32Array(53, 130, 132), PackedInt32Array(53, 132, 131), PackedInt32Array(129, 126, 25), PackedInt32Array(125, 123, 53), PackedInt32Array(53, 123, 25), PackedInt32Array(134, 133, 135), PackedInt32Array(135, 133, 136), PackedInt32Array(126, 137, 25), PackedInt32Array(24, 25, 138), PackedInt32Array(138, 25, 139), PackedInt32Array(139, 25, 137), PackedInt32Array(122, 120, 25), PackedInt32Array(140, 145, 141), PackedInt32Array(141, 145, 144), PackedInt32Array(141, 144, 142), PackedInt32Array(142, 144, 143), PackedInt32Array(140, 147, 145), PackedInt32Array(145, 147, 146), PackedInt32Array(53, 136, 133), PackedInt32Array(53, 148, 136), PackedInt32Array(120, 129, 25), PackedInt32Array(149, 148, 131), PackedInt32Array(131, 148, 53), PackedInt32Array(123, 122, 25), PackedInt32Array(53, 133, 125), PackedInt32Array(138, 139, 144), PackedInt32Array(144, 139, 143), PackedInt32Array(153, 152, 150), PackedInt32Array(150, 152, 151), PackedInt32Array(154, 157, 155), PackedInt32Array(155, 157, 156), PackedInt32Array(159, 158, 157), PackedInt32Array(157, 158, 156), PackedInt32Array(162, 161, 160), PackedInt32Array(166, 165, 163), PackedInt32Array(163, 165, 164), PackedInt32Array(147, 167, 146), PackedInt32Array(146, 167, 168), PackedInt32Array(162, 165, 166), PackedInt32Array(165, 162, 169), PackedInt32Array(169, 162, 160), PackedInt32Array(168, 167, 170), PackedInt32Array(170, 167, 171), PackedInt32Array(171, 169, 170), PackedInt32Array(170, 169, 160), PackedInt32Array(175, 174, 172), PackedInt32Array(172, 174, 173), PackedInt32Array(179, 178, 176), PackedInt32Array(176, 178, 177), PackedInt32Array(180, 78, 79), PackedInt32Array(184, 183, 181), PackedInt32Array(181, 183, 182), PackedInt32Array(187, 186, 185), PackedInt32Array(181, 188, 184), PackedInt32Array(184, 188, 189), PackedInt32Array(164, 190, 163), PackedInt32Array(163, 190, 191), PackedInt32Array(188, 192, 187), PackedInt32Array(187, 185, 191), PackedInt32Array(180, 79, 193), PackedInt32Array(193, 79, 194), PackedInt32Array(190, 193, 194), PackedInt32Array(194, 195, 189), PackedInt32Array(196, 186, 197), PackedInt32Array(197, 186, 187), PackedInt32Array(188, 187, 189), PackedInt32Array(189, 187, 194), PackedInt32Array(194, 187, 190), PackedInt32Array(190, 187, 191), PackedInt32Array(199, 198, 183), PackedInt32Array(183, 198, 182), PackedInt32Array(205, 204, 200), PackedInt32Array(200, 204, 201), PackedInt32Array(201, 204, 203), PackedInt32Array(201, 203, 202), PackedInt32Array(199, 205, 198), PackedInt32Array(198, 205, 200), PackedInt32Array(209, 208, 206), PackedInt32Array(206, 208, 207), PackedInt32Array(213, 212, 210), PackedInt32Array(210, 212, 211)]
+vertices = PackedVector3Array(-11.1718, 0.40978, -18.9251, -10.4218, 0.40978, -17.1751, -9.67181, 0.40978, -17.9251, -10.4218, 0.40978, -3.9251, -11.1718, 0.40978, -2.1751, 13.3282, 0.40978, -2.1751, 12.3282, 0.40978, -3.9251, 11.5782, 0.40978, -3.1751, -9.67181, 0.40978, -3.1751, 11.5782, 0.40978, -17.9251, 13.3282, 0.40978, -18.9251, 12.3282, 0.40978, -17.1751, 3.57819, 3.40978, -18.1751, 2.82819, 3.40978, -18.6751, 2.57819, 3.40978, -18.1751, 1.07819, 3.40978, -18.1751, 0.328194, 3.40978, -18.6751, 0.0781937, 3.40978, -18.1751, -3.42181, 3.40978, -18.1751, -4.17181, 3.40978, -18.6751, -4.42181, 3.40978, -18.1751, 9.32819, 3.40978, -18.1751, 8.82819, 3.40978, -18.9251, 8.07819, 3.40978, -18.1751, -8.92181, 3.40978, -1.9251, -8.67181, 3.40978, -3.1751, -9.42181, 3.40978, -3.1751, 6.57819, 3.40978, -18.1751, 6.07819, 3.40978, -18.9251, 5.07819, 3.40978, -18.1751, 11.0782, 3.40978, -17.9251, 10.8282, 3.40978, -18.1751, -10.9218, 3.40978, -2.1751, -10.4218, 3.40978, -4.1751, -11.1718, 3.40978, -3.9251, -10.1718, 3.40978, -18.1751, -9.42181, 3.40978, -17.9251, -11.9218, 3.40978, -4.6751, -11.1718, 3.40978, -7.4251, -11.9218, 3.40978, -6.6751, -18.9218, 3.40978, -6.6751, -18.9218, 3.40978, -4.6751, -10.4218, 3.40978, -16.9251, -10.9218, 3.40978, -18.6751, 11.3282, 3.40978, -18.9251, 12.3282, 3.40978, -16.9251, 13.3282, 3.40978, -18.1751, 12.5782, 3.40978, -18.9251, 13.3282, 3.40978, -13.4251, 12.3282, 3.40978, -10.1751, 22.5782, 3.40978, -10.4251, 22.5782, 3.40978, -12.6751, 14.0782, 3.40978, -12.6751, 13.8282, 3.40978, -10.1751, 23.3282, 0.40978, -16.1751, 23.3282, 0.40978, -4.9251, 30.8282, 0.40978, -4.9251, 30.8282, 0.40978, -16.1751, 24.0782, 3.40978, -16.1751, 23.3282, 3.40978, -15.4251, 23.3282, 3.40978, -13.4251, 23.3282, 3.40978, -9.6751, 30.8282, 3.40978, -15.6751, 30.3282, 3.40978, -16.1751, 23.3282, 3.40978, -7.6751, 30.8282, 3.40978, -7.6751, -8.17181, 0.40978, -15.6751, -8.17181, 0.40978, -5.4251, 10.0782, 0.40978, -5.4251, 10.0782, 0.40978, -15.6751, -20.6718, 3.40978, -3.1751, -19.9218, 3.40978, -2.4251, -19.9218, 3.40978, -3.9251, -31.6718, 0.40978, -10.1751, -31.9218, 0.40978, -8.4251, -30.4218, 0.65978, -8.4251, -19.9218, 3.40978, -7.4251, -19.9218, 3.40978, -9.6751, -20.4218, 3.40978, -10.1751, -23.9218, 3.40978, -8.4251, -22.9218, 3.40978, -7.4251, -22.9218, 3.40978, -3.1751, -24.6406, 3.15978, -10.1751, -30.2656, 0.65978, -10.1751, -25.9218, 0.40978, -10.1751, -25.9218, 0.40978, -8.4251, -25.1718, 0.40978, -8.4251, -25.1718, 0.40978, -10.1751, -22.9218, 0.40978, -10.1751, -22.9218, 0.40978, -2.1751, -19.9218, 0.40978, -2.1751, -19.9218, 0.40978, -10.1751, 13.3282, 3.40978, -9.6751, 12.3282, 3.40978, -4.1751, 13.3282, 3.40978, -2.9251, -5.92181, 3.40978, -1.9251, 12.5782, 3.40978, -2.1751, 11.3282, 3.40978, -3.1751, -6.17181, 3.40978, -3.1751, -31.1718, 0.40978, -7.6751, -23.1718, 0.40978, 9.0749, -22.9218, 0.40978, 7.3249, -24.4218, 0.40978, 7.3249, -26.1718, 0.40978, 6.5749, -27.1718, 0.40978, 7.3249, -27.1718, 0.40978, 9.0749, -25.1718, 0.40978, 6.5749, -31.9218, 0.40978, -2.6751, -31.4218, 0.40978, -2.1751, -30.1718, 0.40978, -2.9251, -31.1718, 0.40978, -3.9251, -25.1718, 0.40978, -2.9251, -26.9218, 0.40978, -2.1751, -26.1718, 0.40978, -1.4251, 23.3282, 0.65978, 4.0749, 30.8282, 0.65978, 4.0749, 30.8282, 3.15978, -3.26885, 23.3282, 3.15978, -3.26885, -28.9218, -0.34022, -6.1751, -28.9218, -0.34022, -5.1751, -25.1718, -0.34022, -5.1751, -25.1718, -0.34022, -6.1751, -8.42181, 3.40978, -1.4251, -6.42181, 3.40978, -1.4251, -9.17181, 3.40978, 3.5749, -26.4218, 3.40978, 3.5749, -26.4218, 3.40978, 5.0749, -9.17181, 3.40978, 5.0749, -8.92181, 3.40978, 5.5749, -6.92181, 3.40978, 5.5749, -6.42181, 3.40978, 5.0749, -8.42181, 3.40978, 2.8249, 23.3282, 0.40978, -2.6751, 23.3282, 0.40978, -0.925098, 30.8282, 0.40978, -0.925098, 30.8282, 0.40978, -2.6751, -28.4218, 0.40978, 5.0749, -28.4218, 0.40978, 3.5749, -30.1718, 0.40978, 3.5749, -29.4218, 0.40978, 5.8249, -30.1718, 0.40978, 16.3249, -29.4218, 0.40978, 16.3249, -30.1718, 3.40978, 15.3249, -29.4218, 3.40978, 15.3249, -29.4218, 3.40978, 14.0749, -28.4218, 3.40978, 5.0749, -29.6718, 3.40978, 3.5749, -28.4218, 3.40978, 11.3249, -28.4218, 3.40978, 13.0749, -30.1718, 3.40978, 4.0749, -29.4218, 3.40978, 6.0749, -29.4218, 3.40978, 10.3249, -21.9218, 0.65978, 13.0749, -21.9218, 0.65978, 11.3249, -22.9218, 0.40978, 3.5749, -22.9218, 0.40978, 5.0749, -10.6718, 0.40978, 5.0749, -10.6718, 0.40978, 3.5749, 23.3282, -0.34022, 6.3249, 23.3282, -0.34022, 7.3249, 30.8282, -0.34022, 7.3249, 30.8282, -0.34022, 6.3249, -21.9218, 0.40978, 9.0749, -9.92181, 0.40978, 12.8249, -7.92181, 0.40978, 12.8249, -7.92181, 0.40978, 11.3249, -9.92181, 0.40978, 11.3249, -21.1718, 0.40978, 14.5749, -21.9218, 0.40978, 15.3249, -11.1718, 0.40978, 16.3249, -10.6718, 0.40978, 13.5749, -10.6718, 0.40978, 10.5749, -21.1718, 0.40978, 10.5749, -21.1718, 0.40978, 13.8249, -10.6718, 0.40978, 15.8249, -21.1718, 0.40978, 9.8249, -11.1718, 0.40978, 7.3249, -10.6718, 0.40978, 7.8249, -25.6718, 0.40978, 15.3249, -25.4218, 0.40978, 16.3249, -0.671806, 0.40978, 16.8249, 0.328194, 0.40978, 16.8249, 1.07819, 0.40978, 15.8249, -0.921806, 0.40978, 13.5749, -0.671806, 0.40978, 7.3249, -0.921806, 0.40978, 10.5749, 3.57819, 0.40978, 15.8249, 8.82819, 0.40978, 16.8249, 8.82819, 0.40978, 7.3249, 4.32819, 0.40978, 16.8249, -1.67181, 0.40978, 12.8249, -1.67181, 0.40978, 11.3249, 26.0782, 0.40978, 12.3249, 30.8282, 0.40978, 12.3249, 30.8282, 0.40978, 9.5749, 24.0782, 0.40978, 9.5749, -27.1718, 0.40978, 11.3249, -27.1718, 0.40978, 13.0749, -26.4218, 0.40978, 13.0749, -26.4218, 0.40978, 11.3249)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 4, 1), PackedInt32Array(1, 4, 0), PackedInt32Array(7, 6, 5), PackedInt32Array(4, 3, 8), PackedInt32Array(2, 0, 9), PackedInt32Array(9, 0, 10), PackedInt32Array(8, 7, 4), PackedInt32Array(4, 7, 5), PackedInt32Array(11, 9, 10), PackedInt32Array(6, 11, 5), PackedInt32Array(5, 11, 10), PackedInt32Array(14, 13, 12), PackedInt32Array(17, 16, 15), PackedInt32Array(20, 19, 18), PackedInt32Array(21, 23, 22), PackedInt32Array(26, 25, 24), PackedInt32Array(29, 28, 27), PackedInt32Array(21, 31, 30), PackedInt32Array(33, 26, 34), PackedInt32Array(34, 26, 32), PackedInt32Array(32, 26, 24), PackedInt32Array(36, 35, 20), PackedInt32Array(36, 20, 18), PackedInt32Array(34, 37, 33), PackedInt32Array(33, 37, 39), PackedInt32Array(33, 39, 38), PackedInt32Array(23, 21, 30), PackedInt32Array(27, 23, 30), PackedInt32Array(29, 27, 30), PackedInt32Array(39, 37, 40), PackedInt32Array(40, 37, 41), PackedInt32Array(15, 14, 30), PackedInt32Array(36, 42, 35), PackedInt32Array(36, 18, 17), PackedInt32Array(12, 29, 30), PackedInt32Array(14, 12, 30), PackedInt32Array(43, 42, 38), PackedInt32Array(38, 42, 33), PackedInt32Array(17, 15, 36), PackedInt32Array(36, 15, 30), PackedInt32Array(42, 43, 35), PackedInt32Array(31, 44, 30), PackedInt32Array(30, 44, 47), PackedInt32Array(30, 47, 46), PackedInt32Array(30, 46, 45), PackedInt32Array(46, 48, 45), PackedInt32Array(45, 48, 49), PackedInt32Array(51, 50, 52), PackedInt32Array(52, 50, 53), PackedInt32Array(52, 53, 48), PackedInt32Array(48, 53, 49), PackedInt32Array(57, 56, 54), PackedInt32Array(54, 56, 55), PackedInt32Array(60, 59, 58), PackedInt32Array(51, 60, 50), PackedInt32Array(50, 60, 61), PackedInt32Array(63, 62, 58), PackedInt32Array(58, 62, 61), PackedInt32Array(61, 62, 64), PackedInt32Array(64, 62, 65), PackedInt32Array(61, 60, 58), PackedInt32Array(69, 68, 66), PackedInt32Array(66, 68, 67), PackedInt32Array(72, 71, 70), PackedInt32Array(75, 74, 73), PackedInt32Array(77, 76, 78), PackedInt32Array(78, 76, 80), PackedInt32Array(78, 80, 79), PackedInt32Array(40, 41, 72), PackedInt32Array(70, 81, 72), PackedInt32Array(72, 81, 40), PackedInt32Array(40, 81, 76), PackedInt32Array(76, 81, 80), PackedInt32Array(73, 83, 75), PackedInt32Array(75, 83, 82), PackedInt32Array(75, 82, 79), PackedInt32Array(79, 82, 78), PackedInt32Array(87, 86, 84), PackedInt32Array(84, 86, 85), PackedInt32Array(91, 90, 88), PackedInt32Array(88, 90, 89), PackedInt32Array(49, 53, 92), PackedInt32Array(49, 92, 93), PackedInt32Array(93, 92, 94), PackedInt32Array(98, 97, 95), PackedInt32Array(95, 97, 96), PackedInt32Array(96, 97, 94), PackedInt32Array(94, 97, 93), PackedInt32Array(74, 75, 99), PackedInt32Array(102, 101, 100), PackedInt32Array(106, 102, 103), PackedInt32Array(103, 102, 104), PackedInt32Array(104, 102, 105), PackedInt32Array(105, 102, 100), PackedInt32Array(107, 110, 108), PackedInt32Array(108, 110, 109), PackedInt32Array(113, 112, 111), PackedInt32Array(108, 109, 112), PackedInt32Array(112, 109, 111), PackedInt32Array(99, 110, 74), PackedInt32Array(74, 110, 107), PackedInt32Array(103, 113, 106), PackedInt32Array(106, 113, 111), PackedInt32Array(65, 116, 64), PackedInt32Array(64, 116, 117), PackedInt32Array(117, 116, 115), PackedInt32Array(117, 115, 114), PackedInt32Array(121, 120, 118), PackedInt32Array(118, 120, 119), PackedInt32Array(24, 25, 122), PackedInt32Array(122, 25, 123), PackedInt32Array(123, 25, 95), PackedInt32Array(95, 25, 98), PackedInt32Array(127, 126, 124), PackedInt32Array(124, 126, 125), PackedInt32Array(127, 124, 128), PackedInt32Array(128, 124, 131), PackedInt32Array(128, 131, 129), PackedInt32Array(129, 131, 130), PackedInt32Array(122, 123, 131), PackedInt32Array(131, 123, 130), PackedInt32Array(135, 134, 132), PackedInt32Array(132, 134, 133), PackedInt32Array(136, 139, 137), PackedInt32Array(137, 139, 138), PackedInt32Array(141, 140, 139), PackedInt32Array(139, 140, 138), PackedInt32Array(144, 143, 142), PackedInt32Array(126, 145, 125), PackedInt32Array(125, 145, 146), PackedInt32Array(148, 144, 147), PackedInt32Array(146, 145, 149), PackedInt32Array(149, 145, 150), PackedInt32Array(147, 144, 151), PackedInt32Array(151, 144, 142), PackedInt32Array(150, 151, 149), PackedInt32Array(149, 151, 142), PackedInt32Array(148, 147, 152), PackedInt32Array(152, 147, 153), PackedInt32Array(157, 156, 154), PackedInt32Array(154, 156, 155), PackedInt32Array(161, 160, 158), PackedInt32Array(158, 160, 159), PackedInt32Array(162, 100, 101), PackedInt32Array(166, 165, 163), PackedInt32Array(163, 165, 164), PackedInt32Array(169, 168, 167), PackedInt32Array(163, 170, 166), PackedInt32Array(166, 170, 171), PackedInt32Array(153, 172, 152), PackedInt32Array(152, 172, 173), PackedInt32Array(170, 174, 169), PackedInt32Array(169, 167, 173), PackedInt32Array(162, 101, 175), PackedInt32Array(175, 101, 176), PackedInt32Array(172, 175, 176), PackedInt32Array(176, 177, 171), PackedInt32Array(178, 168, 179), PackedInt32Array(179, 168, 169), PackedInt32Array(170, 169, 171), PackedInt32Array(171, 169, 176), PackedInt32Array(176, 169, 172), PackedInt32Array(172, 169, 173), PackedInt32Array(181, 180, 182), PackedInt32Array(182, 180, 183), PackedInt32Array(185, 184, 186), PackedInt32Array(186, 184, 187), PackedInt32Array(187, 184, 188), PackedInt32Array(186, 182, 183), PackedInt32Array(187, 189, 186), PackedInt32Array(191, 185, 190), PackedInt32Array(190, 185, 183), PackedInt32Array(183, 185, 186), PackedInt32Array(191, 190, 165), PackedInt32Array(165, 190, 164), PackedInt32Array(193, 192, 194), PackedInt32Array(194, 192, 195), PackedInt32Array(199, 198, 196), PackedInt32Array(196, 198, 197)]
 agent_radius = 1.0
 filter_ledge_spans = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_k6a8t"]
 resource_local_to_scene = true
-size = Vector2(20, 19)
+size = Vector2(21, 19)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k6a8t"]
 points = PackedVector3Array(-10.5, 0, -7.5, -10.5, 0, 7.5, 10.4979, 0, -7.5, 10.4979, 0, 7.5)
@@ -50,6 +54,7 @@ environment = SubResource("Environment_6opdx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
 light_energy = 1.5
 light_indirect_energy = 1.5
 light_volumetric_fog_energy = 1.5
@@ -115,7 +120,7 @@ operation = 2
 size = Vector3(9.72, 3, 17.0936)
 
 [node name="Room" type="CSGBox3D" parent="NavigationRegion3D/LevelContents"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01339, 1.51091, 12.0772)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01343, 1.51113, 12.0773)
 material_override = ExtResource("1_8xii8")
 use_collision = true
 flip_faces = true
@@ -310,6 +315,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.7768, 1.57823, -11.0321)
 
 [node name="Support9" parent="NavigationRegion3D/Decorations" instance=ExtResource("2_5aiwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6459, 4.42408, 6.46778)
+
+[node name="Generator" parent="NavigationRegion3D/Decorations" instance=ExtResource("3_utf87")]
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, -27.4311, 1.67, 16.2435)
+
+[node name="Generator2" parent="NavigationRegion3D/Decorations" instance=ExtResource("3_utf87")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 23.4992, 1.66805, 11.9007)
+
+[node name="Screen" parent="NavigationRegion3D/Decorations" instance=ExtResource("4_vn64n")]
+transform = Transform3D(3.89414e-07, 0, 2, 0, 2, 0, -2, 0, 3.89414e-07, 2.43084, 1.37147, 17.3053)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/Decorations/Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0937462, 0.10108, 0)
+light_color = Color(0.439216, 1, 1, 1)
+omni_range = 2.0
+omni_attenuation = 0.1
+
+[node name="Screen2" parent="NavigationRegion3D/Decorations" instance=ExtResource("4_vn64n")]
+transform = Transform3D(3.89414e-07, 0, 2, 0, 2, 0, -2, 0, 3.89414e-07, -29.2484, 4.35151, 16.8546)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/Decorations/Screen2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0937462, 0.10108, 0)
+light_color = Color(0.439216, 1, 1, 1)
+omni_range = 2.0
+omni_attenuation = 0.1
+
+[node name="Screen3" parent="NavigationRegion3D/Decorations" instance=ExtResource("4_vn64n")]
+transform = Transform3D(3.89414e-07, 0, 2, 0, 2, 0, -2, 0, 3.89414e-07, -21.9394, 4.35151, -1.63281)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/Decorations/Screen3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0937462, 0.10108, 0)
+light_color = Color(0.439216, 1, 1, 1)
+omni_range = 2.0
+omni_attenuation = 0.1
+
+[node name="Screen4" parent="NavigationRegion3D/Decorations" instance=ExtResource("4_vn64n")]
+transform = Transform3D(-5.6426e-07, 0, -2, 0, 2, 0, 2, 0, -5.6426e-07, -7.25802, 4.35151, -19.6968)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/Decorations/Screen4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0937462, 0.10108, 0)
+light_color = Color(0.439216, 1, 1, 1)
+omni_range = 2.0
+omni_attenuation = 0.1
 
 [node name="Player" parent="." instance=ExtResource("3_6x3q2")]
 transform = Transform3D(0.107565, 0, 0.994198, 0, 1, 0, -0.994198, 0, 0.107565, 3.9493, 1.06133, 12.3598)
@@ -564,10 +611,544 @@ transform = Transform3D(-8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0, 0, 2, -25.85
 [node name="Cap5" parent="Decoration/Ceiling" instance=ExtResource("9_3d006")]
 transform = Transform3D(-8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0, 0, 2, 26.9109, 5.99845, -12.0544)
 
+[node name="Light" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.119, 3.01242, 7.388)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="Light14" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 6.93318, 3.01242, 12.3922)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="Light2" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.119, 3.01242, 16.0618)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="Light3" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.04254, 2.52293, 12.0005)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 4.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 4.0
+omni_attenuation = 0.1
+
+[node name="Light11" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -25.5177, 2.52293, 2.29324)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 4.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 4.0
+omni_attenuation = 0.1
+
+[node name="Light4" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -12.3108, 6.01628, 12.0005)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="Light5" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -20.2628, 6.01628, 12.0005)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="Light6" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -29.0754, 6.01628, 12.0005)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="Light7" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -24.7906, 6.01628, 5.03116)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="Light8" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -17.0796, 6.01628, 5.03116)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="Light9" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -10.6215, 6.01628, 5.03116)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 0.1
+
+[node name="Light10" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(2.62268e-07, 0, -2, 0, 2, 0, 2, 0, 2.62268e-07, -21.8374, 6.01628, -6.23907)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="Light12" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(-4.74853e-07, 0, 2, 0, 2, 0, -2, 0, -4.74853e-07, 27.1565, 6.01628, 5.42426)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="Light13" parent="Decoration/Ceiling" instance=ExtResource("11_vte7q")]
+transform = Transform3D(-2, 0, -5.62276e-07, 0, 2, 0, 5.62276e-07, 0, -2, 26.662, 6.01628, -6.27374)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902872, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Decoration/Ceiling/Light13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329021, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Decoration/Ceiling/Light13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30694, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Decoration/Ceiling/Light13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891531, -0.152964, 0)
+light_color = Color(0.568627, 0.909804, 0.956863, 1)
+light_energy = 1.7
+light_specular = 0.65
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.1
+
 [node name="Wall" type="Node3D" parent="Decoration"]
 
 [node name="Vent" parent="Decoration/Wall" instance=ExtResource("11_8b1du")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.637755, 2.30863, 5.95355)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.637755, 2.30863, 6.04207)
 
 [node name="Vent5" parent="Decoration/Wall" instance=ExtResource("11_8b1du")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.38293, 5.23658, 9.0238)
@@ -627,22 +1208,22 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.382
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.38293, 5.23658, 15.1811)
 
 [node name="Vent2" parent="Decoration/Wall" instance=ExtResource("11_8b1du")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.83039, 2.30863, 5.95355)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.83039, 2.30863, 6.10081)
 
 [node name="Vent3" parent="Decoration/Wall" instance=ExtResource("11_8b1du")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.96644, 2.30863, 5.95355)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.96644, 2.30863, 6.05461)
 
 [node name="Vent4" parent="Decoration/Wall" instance=ExtResource("11_8b1du")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.20213, 2.30863, 5.95355)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.20213, 2.30863, 6.05317)
 
 [node name="Pipes" parent="Decoration/Wall" instance=ExtResource("12_vte7q")]
-transform = Transform3D(3.55271e-15, 1, 8.74228e-08, 3.82137e-15, -8.74228e-08, 1, 1, -3.55271e-15, -1.55294e-22, -1.59522, 2.5443, 9.51984)
+transform = Transform3D(3.55271e-15, 1, 8.74228e-08, 3.82137e-15, -8.74228e-08, 1, 1, -3.55271e-15, -1.55294e-22, -1.59522, 2.5443, 8.1204)
 
 [node name="Pipes7" parent="Decoration/Wall" instance=ExtResource("12_vte7q")]
 transform = Transform3D(0.258819, 2.98023e-08, -0.965926, -0.965926, -4.37114e-08, -0.258819, -4.99354e-08, 1, 1.74735e-08, 2.49082, 1.10048, 6.35486)
 
 [node name="Pipes2" parent="Decoration/Wall" instance=ExtResource("12_vte7q")]
-transform = Transform3D(3.55271e-15, 1, 8.74228e-08, 3.82137e-15, -8.74228e-08, 1, 1, -3.55271e-15, -1.55294e-22, -1.59522, 2.5443, 14.3064)
+transform = Transform3D(3.55271e-15, 1, 8.74228e-08, 3.82137e-15, -8.74228e-08, 1, 1, -3.55271e-15, -1.55294e-22, -1.59522, 2.5443, 16.0035)
 
 [node name="Pipes3" parent="Decoration/Wall" instance=ExtResource("12_vte7q")]
 transform = Transform3D(-8.74228e-08, -1, 8.74228e-08, 1.14641e-14, 8.74228e-08, 1, -1, 8.74228e-08, 1.55294e-22, -9.83493, 2.40614, 15.3884)
@@ -655,6 +1236,18 @@ transform = Transform3D(0.718745, -4.37114e-08, 0.695273, -0.695273, 0, 0.718745
 
 [node name="Pipes4" parent="Decoration/Wall" instance=ExtResource("12_vte7q")]
 transform = Transform3D(-8.74228e-08, -1, 8.74228e-08, 1.14641e-14, 8.74228e-08, 1, -1, 8.74228e-08, 1.55294e-22, -9.83493, 2.40614, 9.29827)
+
+[node name="Monitor" parent="Decoration/Wall" instance=ExtResource("14_oi8lg")]
+transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -1.9372, 1.56831, 14.6534)
+
+[node name="Monitor2" parent="Decoration/Wall" instance=ExtResource("14_oi8lg")]
+transform = Transform3D(-1, 0, -1.03316e-07, 0, 1, 0, 1.03316e-07, 0, -1, -18.3114, 1.56831, 17.467)
+
+[node name="Monitor3" parent="Decoration/Wall" instance=ExtResource("14_oi8lg")]
+transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -33.1481, 1.56831, -3.79058)
+
+[node name="Monitor4" parent="Decoration/Wall" instance=ExtResource("14_oi8lg")]
+transform = Transform3D(1.03316e-07, 0, -1, 0, 1, 0, 1, 0, 1.03316e-07, 14.302, 4.58411, -8.34743)
 
 [editable path="LavaPools/Lava"]
 [editable path="LavaPools/Lava2"]
