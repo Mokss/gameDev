@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://7y5kiuuxihik"]
+[gd_scene load_steps=5 format=3 uid="uid://7y5kiuuxihik"]
 
+[ext_resource type="Script" uid="uid://35yf55x26a0f" path="res://Basic Course/101/shader_101.gd" id="1_0wlan"]
 [ext_resource type="Shader" uid="uid://b034jv7sc0g3e" path="res://Basic Course/101/101.gdshader" id="1_n1tb1"]
 [ext_resource type="Texture2D" uid="uid://c8kyoh4lex6fk" path="res://icon.svg" id="2_0wlan"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5oeq4"]
 shader = ExtResource("1_n1tb1")
+shader_parameter/my_float = 6.1
+shader_parameter/my_int = 4
+shader_parameter/my_bool = false
+shader_parameter/my_range_int = 0
+shader_parameter/my_range_float = 10.0
+shader_parameter/my_color = Color(0, 0, 0, 1)
 
 [node name="Shader101" type="Node2D"]
+script = ExtResource("1_0wlan")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5oeq4")
