@@ -234,7 +234,6 @@ _data = {
 script = ExtResource("1_ticyv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 100
 material = SubResource("ShaderMaterial_fjrip")
 position = Vector2(0, -48)
 scale = Vector2(3, 3)
