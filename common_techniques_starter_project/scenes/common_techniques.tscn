@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bw86fsv6rvi5h"]
+[gd_scene load_steps=43 format=3 uid="uid://bw86fsv6rvi5h"]
 
 [ext_resource type="Texture2D" uid="uid://dw27ks2iy6r18" path="res://assets/other/Terrain (16x16).png" id="2_4ntks"]
 [ext_resource type="PackedScene" uid="uid://cf8ow35myt7tq" path="res://scenes/player.tscn" id="2_ttseq"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://daw35yrqwa2a5" path="res://assets/other/Spike Head.png" id="11_ux0nb"]
 [ext_resource type="Texture2D" uid="uid://c1wof04tffjsa" path="res://assets/other/circle_mask2.png" id="12_432xp"]
 [ext_resource type="Shader" uid="uid://cj828on5lcfo" path="res://shaders/distortion.gdshader" id="15_v7i2p"]
+[ext_resource type="Shader" uid="uid://cqj6pnpqfy1bg" path="res://shaders/distortion2.gdshader" id="16_ir1eb"]
 
 [sub_resource type="GDScript" id="GDScript_xth1f"]
 script/source = "extends Node2D
@@ -301,11 +302,19 @@ shader_parameter/noise_text1 = SubResource("NoiseTexture2D_ow30b")
 shader_parameter/offset2 = Vector2(0.1, 0.1)
 shader_parameter/noise_text2 = SubResource("NoiseTexture2D_ir1eb")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ow30b"]
+shader = ExtResource("16_ir1eb")
+shader_parameter/distortion_streng = 0.02
+shader_parameter/offset1 = Vector2(0.2, 0.2)
+shader_parameter/noise_text1 = SubResource("NoiseTexture2D_ow30b")
+shader_parameter/offset2 = Vector2(0.1, 0.1)
+shader_parameter/noise_text2 = SubResource("NoiseTexture2D_ir1eb")
+
 [node name="CommonTechniques" type="Node2D"]
 script = SubResource("GDScript_xth1f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -10
+layer = -1
 
 [node name="ScrollBackground" type="Sprite2D" parent="CanvasLayer"]
 texture_repeat = 2
@@ -336,9 +345,9 @@ texture = ExtResource("6_mfsxn")
 script = SubResource("GDScript_jqsh0")
 
 [node name="ScreenReading" type="Sprite2D" parent="."]
-z_index = 999
+z_index = 10
 material = SubResource("ShaderMaterial_pqqsy")
-position = Vector2(1432, 593)
+position = Vector2(1161, 667)
 scale = Vector2(7.1958, 4.40381)
 texture = ExtResource("9_pqqsy")
 
@@ -367,5 +376,12 @@ position = Vector2(776, 464)
 [node name="Distortion" type="Sprite2D" parent="."]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ir1eb")
-position = Vector2(508, 103)
+position = Vector2(-146, 610)
+texture = ExtResource("9_pqqsy")
+
+[node name="Distortion2" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ow30b")
+position = Vector2(7, 720)
+scale = Vector2(5.21094, 2.81641)
 texture = ExtResource("9_pqqsy")
