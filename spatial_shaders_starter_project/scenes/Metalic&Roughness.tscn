@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://bteaowghgvt7c"]
+
+[ext_resource type="PackedScene" uid="uid://twg0tri4g6hr" path="res://scenes/camera_controller.tscn" id="1_lgouo"]
+[ext_resource type="Shader" uid="uid://yka4hjls070q" path="res://shaders/Metalic&Roughness.gdshader" id="2_a6c1s"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_axwv3"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_lgouo"]
+sky_material = SubResource("ProceduralSkyMaterial_axwv3")
+
+[sub_resource type="Environment" id="Environment_a6c1s"]
+background_mode = 2
+sky = SubResource("Sky_lgouo")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lgouo"]
+render_priority = 0
+shader = ExtResource("2_a6c1s")
+shader_parameter/albedo = Color(0.78125, 0.0457764, 0.0457764, 1)
+shader_parameter/metallic = 0.8
+shader_parameter/roughness = 0.1
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_lgouo"]
+next_pass = SubResource("ShaderMaterial_lgouo")
+
+[sub_resource type="SphereMesh" id="SphereMesh_lgouo"]
+material = SubResource("ORMMaterial3D_lgouo")
+
+[node name="Metalic&roughness" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a6c1s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CameraController" parent="." instance=ExtResource("1_lgouo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.03332)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_lgouo")
+skeleton = NodePath("../CameraController")

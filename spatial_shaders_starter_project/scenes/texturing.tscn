@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfxc5pi4rbl5y"]
+
+[ext_resource type="PackedScene" uid="uid://twg0tri4g6hr" path="res://scenes/camera_controller.tscn" id="1_5ankj"]
+[ext_resource type="Shader" uid="uid://dqmrchvstsrvn" path="res://shaders/texturing.gdshader" id="2_5g8fq"]
+[ext_resource type="Texture2D" uid="uid://boi4xvuulvgb1" path="res://photo_2025-08-31_22-44-09.jpg" id="3_ipp7s"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dj7wh"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_yysu6"]
+sky_material = SubResource("ProceduralSkyMaterial_dj7wh")
+
+[sub_resource type="Environment" id="Environment_3aiak"]
+background_mode = 2
+sky = SubResource("Sky_yysu6")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5g8fq"]
+render_priority = 0
+shader = ExtResource("2_5g8fq")
+shader_parameter/my_texture = ExtResource("3_ipp7s")
+
+[sub_resource type="SphereMesh" id="SphereMesh_dj7wh"]
+material = SubResource("ShaderMaterial_5g8fq")
+
+[node name="Texturing" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3aiak")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 17.2472, 0)
+shadow_enabled = true
+
+[node name="CameraController" parent="." instance=ExtResource("1_5ankj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.54793)
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.570658, -0.0401369, -0.820206, -0.373723, 0.90207, 0.215875, 0.731219, 0.42972, -0.529773, -0.0596179, 0, 0)
+mesh = SubResource("SphereMesh_dj7wh")
