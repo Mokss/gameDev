@@ -9,3 +9,4 @@ func _process(delta: float) -> void:
 	
 	if progress_ratio > 0.98:
 		base.take_damage()
+		set_process(false)
