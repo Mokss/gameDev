@@ -38,5 +38,5 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.54793)
 
 [node name="Sphere" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.570658, -0.0401369, -0.820206, -0.373723, 0.90207, 0.215875, 0.731219, 0.42972, -0.529773, -0.0596179, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("SphereMesh_dj7wh")

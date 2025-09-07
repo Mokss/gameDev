@@ -2,6 +2,11 @@ shader_type spatial;
 
 uniform sampler2D my_texture;
 
+void vertex() {
+	//VERTEX.x += sin(TIME + VERTEX.y);
+	VERTEX.x += sin(TIME * 10.0 + VERTEX.y * 10.) * 0.1;
+}
+
 void fragment() {
 	vec2 adj_UV = UV * 1.5;
 	vec2 original = vec2(UV);
@@ -11,5 +16,5 @@ void fragment() {
     vec4 texture_color = texture(my_texture, adj_UV);
 
     ALBEDO = texture_color.rgb;
-	ALPHA = 0.3;
+	//ALPHA = 0.3;
 }

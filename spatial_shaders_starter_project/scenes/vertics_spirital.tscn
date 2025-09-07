@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bteaowghgvt7c"]
+[gd_scene load_steps=8 format=3 uid="uid://c3v5snt7aejmv"]
 
-[ext_resource type="PackedScene" uid="uid://twg0tri4g6hr" path="res://scenes/camera_controller.tscn" id="1_lgouo"]
-[ext_resource type="Shader" uid="uid://yka4hjls070q" path="res://shaders/Metalic&Roughness.gdshader" id="2_a6c1s"]
+[ext_resource type="PackedScene" uid="uid://twg0tri4g6hr" path="res://scenes/camera_controller.tscn" id="1_vbpv2"]
+[ext_resource type="Shader" uid="uid://baud136j36u4m" path="res://shaders/vertics_spirital.gdshader" id="2_vbpv2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_axwv3"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -18,15 +18,12 @@ glow_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a6c1s"]
 render_priority = 0
-shader = ExtResource("2_a6c1s")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/metallic = 0.9
-shader_parameter/roughness = 0.1
+shader = ExtResource("2_vbpv2")
 
 [sub_resource type="SphereMesh" id="SphereMesh_8euyp"]
 material = SubResource("ShaderMaterial_a6c1s")
 
-[node name="Metalic&roughness" type="Node3D"]
+[node name="VerticsSpirital" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a6c1s")
@@ -35,7 +32,7 @@ environment = SubResource("Environment_a6c1s")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CameraController" parent="." instance=ExtResource("1_lgouo")]
+[node name="CameraController" parent="." instance=ExtResource("1_vbpv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.03332)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
