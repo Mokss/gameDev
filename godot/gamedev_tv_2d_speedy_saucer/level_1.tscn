@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnfiavoa4oq2f"]
 
-[ext_resource type="Script" path="res://level_1.gd" id="1_e3lu5"]
+[ext_resource type="Script" uid="uid://brwpxo2junriu" path="res://level_1.gd" id="1_e3lu5"]
 [ext_resource type="Texture2D" uid="uid://c05mk0pdmgmli" path="res://speedy_saucer_assets/purple.png" id="1_ogolp"]
 [ext_resource type="PackedScene" uid="uid://c3cbo8qrt4hc3" path="res://player.tscn" id="2_fc73s"]
 [ext_resource type="PackedScene" uid="uid://cut2kn5ch7p61" path="res://Muzy.tscn" id="3_sy31s"]

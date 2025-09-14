@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2velwh4xqfxe"]
+
+[ext_resource type="PackedScene" uid="uid://twg0tri4g6hr" path="res://scenes/camera_controller.tscn" id="1_mp82w"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t1a55"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_mp82w"]
+sky_material = SubResource("ProceduralSkyMaterial_t1a55")
+
+[sub_resource type="Environment" id="Environment_51bik"]
+background_mode = 2
+sky = SubResource("Sky_mp82w")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Shader" id="Shader_mp82w"]
+code = "shader_type spatial;
+
+uniform sampler2D normalmap_tex;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	vec3 normal_map = texture(normalmap_tex, UV * 10.0).rgb;
+
+	NORMAL_MAP = normal_map;
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the material.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mp82w"]
+noise_type = 0
+seed = 4
+frequency = 0.0206
+fractal_octaves = 8
+domain_warp_enabled = true
+domain_warp_amplitude = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_51bik"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_mp82w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gsgra"]
+render_priority = 0
+shader = SubResource("Shader_mp82w")
+shader_parameter/normalmap_tex = SubResource("NoiseTexture2D_51bik")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mp82w"]
+material = SubResource("ShaderMaterial_gsgra")
+size = Vector2(10, 10)
+
+[node name="NormalMaps" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_51bik")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="CameraController" parent="." instance=ExtResource("1_mp82w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.75583)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64859, 0.265372)
+omni_range = 6.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_mp82w")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15704, -14.3215)
+omni_range = 6.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.6337)
+mesh = SubResource("PlaneMesh_mp82w")
