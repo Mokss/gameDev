@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0xmhg0ju5hv5"]
+
+[ext_resource type="PackedScene" uid="uid://twg0tri4g6hr" path="res://scenes/camera_controller.tscn" id="1_bdk6y"]
+[ext_resource type="Shader" uid="uid://w27yaud0hkw8" path="res://shaders/water.gdshader" id="2_s3811"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t1a55"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_mp82w"]
+sky_material = SubResource("ProceduralSkyMaterial_t1a55")
+
+[sub_resource type="Environment" id="Environment_51bik"]
+background_mode = 2
+sky = SubResource("Sky_mp82w")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s3811"]
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p1n2c"]
+noise = SubResource("FastNoiseLite_s3811")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_p1n2c"]
+seed = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ewrsg"]
+noise = SubResource("FastNoiseLite_p1n2c")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ewrsg"]
+render_priority = 0
+shader = ExtResource("2_s3811")
+shader_parameter/normalmap_tex1 = SubResource("NoiseTexture2D_p1n2c")
+shader_parameter/normalmap_tex2 = SubResource("NoiseTexture2D_ewrsg")
+shader_parameter/albedo = Color(0.49012756, 0.8595636, 0.97265625, 1)
+shader_parameter/direction1 = Vector2(1, 0)
+shader_parameter/scroll_speed1 = 0.1
+shader_parameter/direction2 = Vector2(1, 0)
+shader_parameter/scroll_speed2 = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fiwy5"]
+material = SubResource("ShaderMaterial_ewrsg")
+size = Vector2(10, 10)
+
+[node name="NormalMaps" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_51bik")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.3218996, 0.21638364, 0.92171514, -0.73813903, -0.6670157, -0.101197645, 0.59290093, -0.71292937, 0.37443322, 0, 13.788325, 0)
+shadow_enabled = true
+
+[node name="CameraController" parent="." instance=ExtResource("1_bdk6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.75583)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014009833, 3.364677, 0.06107536)
+omni_range = 6.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006854534, -0.024756193, -0.018002868)
+mesh = SubResource("PlaneMesh_fiwy5")
