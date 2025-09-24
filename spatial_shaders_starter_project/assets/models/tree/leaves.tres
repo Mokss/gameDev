@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dbly4rqpx1n5"]
+
+[ext_resource type="Texture2D" uid="uid://cckssw2u8yyuh" path="res://assets/models/tree/tree_2.png" id="1_42grl"]
+[ext_resource type="Texture2D" uid="uid://dp1wqmedidisa" path="res://assets/models/tree/tree_3.png" id="2_ak85a"]
+
+[resource]
+resource_name = "leaves"
+transparency = 2
+alpha_scissor_threshold = 0.2761052
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_42grl")
+roughness = 0.9556021
+normal_enabled = true
+normal_texture = ExtResource("2_ak85a")

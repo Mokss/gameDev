@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cxqks1jn8w6pe"]
+
+[ext_resource type="Texture2D" uid="uid://wosq8vfinnrl" path="res://assets/models/tree/tree_4.png" id="1_77ckx"]
+[ext_resource type="Texture2D" uid="uid://ca0aq7dguw6lq" path="res://assets/models/tree/tree_5.png" id="2_wm7oj"]
+
+[resource]
+resource_name = "material"
+cull_mode = 2
+albedo_texture = ExtResource("1_77ckx")
+roughness = 0.6
+normal_enabled = true
+normal_texture = ExtResource("2_wm7oj")

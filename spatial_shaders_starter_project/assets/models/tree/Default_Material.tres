@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://tj85m6g52fk8"]
+
+[ext_resource type="Texture2D" uid="uid://saqbfcdyen5e" path="res://assets/models/tree/tree_1.png" id="1_oe2fo"]
+
+[resource]
+resource_name = "Default_Material"
+cull_mode = 2
+albedo_color = Color(0.735357, 0.735357, 0.735357, 1)
+roughness = 0.27877286
+normal_enabled = true
+normal_texture = ExtResource("1_oe2fo")
