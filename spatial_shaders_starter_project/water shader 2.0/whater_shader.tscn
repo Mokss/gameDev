@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbf5aaugp57ds"]
+
+[ext_resource type="PackedScene" uid="uid://twg0tri4g6hr" path="res://scenes/camera_controller.tscn" id="1_ceaac"]
+[ext_resource type="Shader" uid="uid://djwl634evotm6" path="res://water shader 2.0/whater_shader_2_0.gdshader" id="2_nkd68"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ceaac"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_nkd68"]
+sky_material = SubResource("ProceduralSkyMaterial_ceaac")
+
+[sub_resource type="Environment" id="Environment_oeut7"]
+background_mode = 2
+sky = SubResource("Sky_nkd68")
+glow_enabled = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nkd68"]
+noise_type = 2
+frequency = 0.015
+fractal_type = 0
+cellular_distance_function = 1
+domain_warp_amplitude = 18.0
+domain_warp_fractal_octaves = 9
+domain_warp_fractal_lacunarity = 10.0
+domain_warp_fractal_gain = 5.5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oeut7"]
+noise = SubResource("FastNoiseLite_nkd68")
+seamless = true
+normalize = false
+seamless_blend_skirt = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oeut7"]
+noise_type = 2
+seed = 6
+frequency = 0.015
+fractal_type = 0
+cellular_distance_function = 1
+domain_warp_amplitude = 18.0
+domain_warp_fractal_octaves = 9
+domain_warp_fractal_lacunarity = 10.0
+domain_warp_fractal_gain = 5.5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nkd68"]
+noise = SubResource("FastNoiseLite_oeut7")
+seamless = true
+normalize = false
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oeut7"]
+render_priority = 0
+shader = ExtResource("2_nkd68")
+shader_parameter/color = Color(0.0032196045, 0.36324802, 0.82421875, 1)
+shader_parameter/noise_txr = SubResource("NoiseTexture2D_oeut7")
+shader_parameter/noise_txr2 = SubResource("NoiseTexture2D_nkd68")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3pou1"]
+material = SubResource("ShaderMaterial_oeut7")
+size = Vector2(10, 10)
+subdivide_width = 20
+subdivide_depth = 20
+
+[node name="WhaterShader" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oeut7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="CameraController" parent="." instance=ExtResource("1_ceaac")]
+transform = Transform3D(1, 0, 0, 0, 0.8359894, 0.5487456, 0, -0.5487456, 0.8359894, 0, 2.567829, 7.309619)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_3pou1")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5.6365356, 0)
+spot_range = 8.198
+spot_attenuation = -2.0
+spot_angle = 41.870476
