@@ -6,14 +6,17 @@ uniform sampler2D noise_txr2: filter_nearest;
 
 void vertex() {
 	vec3 txr_color = texture(noise_txr, UV + TIME * 0.05).rgb;
-	VERTEX += txr_color * vec3(0.2, 0.2 , 0.2);
+	VERTEX += txr_color * vec3(0, 0.5, 0);
 }
 
 void fragment() {
 	vec3 txr_color = texture(noise_txr, UV + TIME * 0.05).rgb;
 	vec3 txr_color2 = texture(noise_txr2, UV + TIME * -0.05).rgb;
-	vec3 final_color = color.rgb + (txr_color * txr_color2);
+	vec3 tmp = txr_color * txr_color2;
+	vec3 powvec = pow(tmp, vec3(1.2));
+	vec3 final_color = color.rgb + powvec;
 	ALBEDO = final_color;
+	EMISSION = powvec;
 	ALPHA = 0.8;
 	ROUGHNESS = 0.0;
 }

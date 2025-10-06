@@ -58,8 +58,8 @@ shader_parameter/noise_txr2 = SubResource("NoiseTexture2D_nkd68")
 [sub_resource type="PlaneMesh" id="PlaneMesh_3pou1"]
 material = SubResource("ShaderMaterial_oeut7")
 size = Vector2(10, 10)
-subdivide_width = 50
-subdivide_depth = 50
+subdivide_width = 100
+subdivide_depth = 100
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fd78a"]
 albedo_color = Color(0.76171875, 0.37235808, 0.080337524, 1)
