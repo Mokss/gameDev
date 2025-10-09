@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbf5aaugp57ds"]
+[gd_scene load_steps=16 format=3 uid="uid://dbf5aaugp57ds"]
 
 [ext_resource type="PackedScene" uid="uid://twg0tri4g6hr" path="res://scenes/camera_controller.tscn" id="1_fd78a"]
 [ext_resource type="Shader" uid="uid://djwl634evotm6" path="res://water shader 2.0/water_shader_2_0.gdshader" id="2_2m760"]
@@ -54,18 +54,29 @@ shader = ExtResource("2_2m760")
 shader_parameter/color = Color(0.0032196045, 0.36324802, 0.82421875, 1)
 shader_parameter/noise_txr = SubResource("NoiseTexture2D_oeut7")
 shader_parameter/noise_txr2 = SubResource("NoiseTexture2D_nkd68")
+shader_parameter/fade_distance = 0.15
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3pou1"]
 material = SubResource("ShaderMaterial_oeut7")
-size = Vector2(10, 10)
+size = Vector2(30, 30)
 subdivide_width = 100
 subdivide_depth = 100
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fd78a"]
 albedo_color = Color(0.76171875, 0.37235808, 0.080337524, 1)
 
+[sub_resource type="SphereMesh" id="SphereMesh_fd78a"]
+material = SubResource("StandardMaterial3D_fd78a")
+radius = 1.0
+height = 2.0
+
 [sub_resource type="BoxMesh" id="BoxMesh_2m760"]
 material = SubResource("StandardMaterial3D_fd78a")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_fd78a"]
+material = SubResource("StandardMaterial3D_fd78a")
+left_to_right = 0.7
 size = Vector3(2, 2, 2)
 
 [node name="WaterShader" type="Node3D"]
@@ -83,5 +94,15 @@ transform = Transform3D(1, 0, 0, 0, 0.8359894, 0.5487456, 0, -0.5487456, 0.83598
 [node name="Water2_0" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_3pou1")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8627644, -0.14173865, 0.9975066)
+mesh = SubResource("SphereMesh_fd78a")
+skeleton = NodePath("../MeshInstance3D2")
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.643136, 0.00095260143, -1.4699428)
 mesh = SubResource("BoxMesh_2m760")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8839652, 0.4666906, 0.028379055, -0.41192928, 0.8060796, -0.42491153, -0.22117795, 0.36391693, 0.90478987, 1.7306387, 0.00095307827, 0.6613536)
+mesh = SubResource("PrismMesh_fd78a")
