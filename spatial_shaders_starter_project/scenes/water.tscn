@@ -41,7 +41,7 @@ shader_parameter/albedo = Color(0.49012756, 0.8595636, 0.97265625, 1)
 shader_parameter/direction1 = Vector2(1, 0)
 shader_parameter/scroll_speed1 = 0.1
 shader_parameter/direction2 = Vector2(1, 0)
-shader_parameter/scroll_speed2 = 0.1
+shader_parameter/scroll_speed2 = 0.130000006175
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fiwy5"]
 material = SubResource("ShaderMaterial_ewrsg")
