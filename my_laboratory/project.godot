@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="my_laboratory"
+config/tags=PackedStringArray("2d", "3d", "animation", "demo", "performance", "physics", "procedural", "rendering", "shaders")
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
-config/tags=PackedStringArray("2d", "3d", "animation", "demo", "my_laboratory", "physics", "procedural", "rendering", "shaders", "visualization")
 
 [input]
 

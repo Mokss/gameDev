@@ -1,0 +1,55 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://bhy56nmm01pkt"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_fek5h"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_mdpp1"]
+output_port_for_preview = 1
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_4v1mo"]
+output_port_for_preview = 0
+function = 31
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_1ph2s"]
+input_name = "uv"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_toon, specular_schlick_ggx;
+
+
+
+
+void fragment() {
+// Input:2
+	vec2 n_out2p0 = UV;
+
+
+// VectorDecompose:3
+	float n_out3p0 = n_out2p0.x;
+	float n_out3p1 = n_out2p0.y;
+
+
+// FloatFunc:4
+	float n_out4p0 = 1.0 - n_out3p1;
+
+
+// Output:0
+	ALBEDO = vec3(n_out4p0);
+
+
+}
+"
+modes/diffuse = 3
+nodes/vertex/0/position = Vector2(540, 180)
+nodes/vertex/2/node = SubResource("VisualShaderNodeInput_1ph2s")
+nodes/vertex/2/position = Vector2(-900, 80)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_fek5h")
+nodes/fragment/2/position = Vector2(-1560, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVectorDecompose_mdpp1")
+nodes/fragment/3/position = Vector2(-1020, 160)
+nodes/fragment/4/node = SubResource("VisualShaderNodeFloatFunc_4v1mo")
+nodes/fragment/4/position = Vector2(-720, 200)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 3, 1, 4, 0, 4, 0, 0, 0)
