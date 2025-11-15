@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhypmobglfwon"]
+
+[ext_resource type="Texture2D" path="res://assets/citrus_orchard_road_puresky_8k.hdr" id="1_43x6d"]
+[ext_resource type="Texture2D" uid="uid://dpru45cypg4pa" path="res://assets/wood_floor_deck_4k/textures/wood_floor_deck_diff_4k.png" id="2_5fq60"]
+[ext_resource type="Texture2D" uid="uid://bl3klraa4pinb" path="res://assets/wood_floor_deck_4k/textures/wood_floor_deck_ao_4k.png" id="3_l7x23"]
+[ext_resource type="Texture2D" uid="uid://bip7qxdvrjqbu" path="res://assets/wood_floor_deck_4k/textures/wood_floor_deck_nor_gl_4k.png" id="4_r1sgi"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_43x6d"]
+panorama = ExtResource("1_43x6d")
+
+[sub_resource type="Sky" id="Sky_ot6tk"]
+sky_material = SubResource("PanoramaSkyMaterial_43x6d")
+
+[sub_resource type="Environment" id="Environment_jvkij"]
+background_mode = 2
+sky = SubResource("Sky_ot6tk")
+ambient_light_source = 3
+tonemap_mode = 4
+tonemap_exposure = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ot6tk"]
+albedo_texture = ExtResource("2_5fq60")
+roughness_texture = ExtResource("3_l7x23")
+normal_enabled = true
+normal_texture = ExtResource("4_r1sgi")
+ao_enabled = true
+ao_texture = ExtResource("3_l7x23")
+uv1_scale = Vector3(64, 64, 64)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_43x6d"]
+material = SubResource("StandardMaterial3D_ot6tk")
+size = Vector2(300, 300)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j6ghb"]
+points = PackedVector3Array(-150, 0, -150, -150, 0, 150, 150, 0, -150, 150, 0, 150)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jvkij")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.83221817, -0.548333, -0.08212138, 0.41946447, -0.71952295, 0.5534765, -0.36257765, 0.42616618, 0.8288063, 0, 3.561122, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_43x6d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_j6ghb")
