@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhypmobglfwon"]
+[gd_scene load_steps=12 format=3 uid="uid://bhypmobglfwon"]
 
-[ext_resource type="Texture2D" path="res://assets/citrus_orchard_road_puresky_8k.hdr" id="1_43x6d"]
+[ext_resource type="Texture2D" uid="uid://bdg8bfekevipr" path="res://assets/kloppenheim_07_puresky_8k.hdr" id="1_5fq60"]
 [ext_resource type="Texture2D" uid="uid://dpru45cypg4pa" path="res://assets/wood_floor_deck_4k/textures/wood_floor_deck_diff_4k.png" id="2_5fq60"]
 [ext_resource type="Texture2D" uid="uid://bl3klraa4pinb" path="res://assets/wood_floor_deck_4k/textures/wood_floor_deck_ao_4k.png" id="3_l7x23"]
 [ext_resource type="Texture2D" uid="uid://bip7qxdvrjqbu" path="res://assets/wood_floor_deck_4k/textures/wood_floor_deck_nor_gl_4k.png" id="4_r1sgi"]
+[ext_resource type="PackedScene" uid="uid://38vro7jidaif" path="res://physics/domino sandbox/domino/domino.tscn" id="5_5fq60"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_43x6d"]
-panorama = ExtResource("1_43x6d")
+panorama = ExtResource("1_5fq60")
 
 [sub_resource type="Sky" id="Sky_ot6tk"]
 sky_material = SubResource("PanoramaSkyMaterial_43x6d")
@@ -52,3 +53,21 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_j6ghb")
+
+[node name="DominoSpawner" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.1780484, 1.3385859)
+
+[node name="Camera3D" type="Camera3D" parent="DominoSpawner"]
+transform = Transform3D(1, 0, 0, 0, 0.9915516, 0.12971286, 0, -0.12971286, 0.9915516, 0, -0.7073746, 0)
+
+[node name="Domino" parent="." instance=ExtResource("5_5fq60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7615814, 0.617089, 1.5527484)
+
+[node name="Domino3" parent="." instance=ExtResource("5_5fq60")]
+transform = Transform3D(0.81441945, 0, 0.5802766, 0, 1, 0, -0.5802766, 0, 0.81441945, -1.7615814, 1.4038439, 1.5527484)
+
+[node name="Domino4" parent="." instance=ExtResource("5_5fq60")]
+transform = Transform3D(0.4895832, -0.42392576, 0.761968, 0.6545957, 0.7559792, 0, -0.576032, 0.49878097, 0.64761466, -1.3378595, 1.053061, 1.9638195)
+
+[node name="Domino2" parent="." instance=ExtResource("5_5fq60")]
+transform = Transform3D(0.7488979, 0, 0.6626854, 0, 1, 0, -0.6626854, 0, 0.7488979, -0.93388546, 0.56599706, 1.5527484)
