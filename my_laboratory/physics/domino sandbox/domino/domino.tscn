@@ -704,7 +704,6 @@ transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 
 [node name="6_6" type="Node3D" parent="Variants"]
 process_mode = 4
-visible = false
 
 [node name="6_6_Dominos_0" type="MeshInstance3D" parent="Variants/6_6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
