@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxgnay7o2kabp"]
+
+[ext_resource type="Script" uid="uid://dl24b74ooyfkm" path="res://components/fps_2d_component/fps.gd" id="1_hc5ev"]
+
+[node name="FPSLabel" type="Label"]
+offset_right = 41.0
+offset_bottom = 26.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.006866455, 0.87890625, 0.081807375, 1)
+theme_override_colors/font_outline_color = Color(0.0625, 0.049560547, 0.049560547, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "FPS:  "
+script = ExtResource("1_hc5ev")

@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://onlap88wgl6s"]
-
-[node name="DominoSpawner" type="Node3D"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9915516, 0.12971286, 0, -0.12971286, 0.9915516, 0, -0.7073746, 0)

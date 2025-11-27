@@ -7,18 +7,18 @@ var right_button_down = false
 var camera_rotation := Vector2.ZERO
 
 func _process(delta):
-	if Input.is_action_just_pressed("camera_move_mode"):
+	if Input.is_action_just_pressed("right_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	if Input.is_action_just_released("camera_move_mode"):
+	if Input.is_action_just_released("right_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	if Input.is_action_just_pressed("camera_speed_up"):
+	if Input.is_action_just_pressed("speed_up"):
 		move_speed = 4
-	if Input.is_action_just_released("camera_speed_up"):
+	if Input.is_action_just_released("speed_up"):
 		move_speed = 2
 	
-	if Input.is_action_pressed("camera_move_mode"):
-		if Input.is_action_pressed("move_forward"):
+	if Input.is_action_pressed("right_click"):
+		if Input.is_action_pressed("move_forward"): 
 			translate(Vector3.FORWARD * delta * move_speed)
 		if Input.is_action_pressed("move_backward"):
 			translate(Vector3.BACK * delta * move_speed)
