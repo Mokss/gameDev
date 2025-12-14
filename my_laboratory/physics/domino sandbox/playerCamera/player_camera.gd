@@ -1,12 +1,22 @@
-extends CharacterBody3D
+class_name PlayerCamera extends CharacterBody3D
 
-@export var DominoSpawner: Node3D;
 @export_range(0.02, 0.1) var lookaround_speed: float = 0.02
 @export_range(1.0, 10.0, 0.5) var SPEED:  = 5.0
+
+@onready var ray_cast_3d: RayCast3D = $RayCast3D
 
 var gi: GLOBAL_INPUT
 var yaw: float = 0.0
 var pitch: float = 0.0
+
+enum Action { LEFT_CLICK, RIGHT_CLICK }
+
+signal onPlayerAction(target: Node3D, ray_cast_3d: RayCast3D, action: Action)
+
+func playerAction(event: Action) -> void:
+	if ray_cast_3d.is_colliding():
+		var collider: Node3D = ray_cast_3d.get_collider()
+		emit_signal("onPlayerAction", collider, ray_cast_3d, event)
 
 func _ready() -> void:
 	gi = GLOBAL_INPUT.new(get_tree())
@@ -26,6 +36,11 @@ func _input(event):
 		rotation.x = deg_to_rad(pitch)
 
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_pressed('left_click'):
+		playerAction(Action.LEFT_CLICK)
+	elif Input.is_action_pressed('right_click'):
+		playerAction(Action.RIGHT_CLICK)
+
 	var curr_speed = SPEED
 	if Input.is_action_pressed("speed_up"):
 		curr_speed = curr_speed * 2

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://rdrqw8apwa3j"]
+
+[ext_resource type="Script" uid="uid://c3ksl4b0uvycy" path="res://physics/domino sandbox/spawnManager/spawn_manager.gd" id="1_bj8h1"]
+
+[node name="SpawnManager" type="Node"]
+script = ExtResource("1_bj8h1")

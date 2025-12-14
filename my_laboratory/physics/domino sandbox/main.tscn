@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bhypmobglfwon"]
+[gd_scene load_steps=15 format=3 uid="uid://bhypmobglfwon"]
 
 [ext_resource type="Texture2D" uid="uid://bdg8bfekevipr" path="res://assets/kloppenheim_07_puresky_8k.hdr" id="1_5fq60"]
 [ext_resource type="Texture2D" uid="uid://dpru45cypg4pa" path="res://assets/wood_floor_deck_4k/textures/wood_floor_deck_diff_4k.png" id="2_5fq60"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bip7qxdvrjqbu" path="res://assets/wood_floor_deck_4k/textures/wood_floor_deck_nor_gl_4k.png" id="4_r1sgi"]
 [ext_resource type="PackedScene" uid="uid://38vro7jidaif" path="res://physics/domino sandbox/domino/domino.tscn" id="5_5fq60"]
 [ext_resource type="PackedScene" uid="uid://onlap88wgl6s" path="res://physics/domino sandbox/playerCamera/player_camera.tscn" id="5_l7x23"]
+[ext_resource type="PackedScene" uid="uid://rdrqw8apwa3j" path="res://physics/domino sandbox/spawnManager/spawnManager.tscn" id="7_723ac"]
 [ext_resource type="PackedScene" uid="uid://bxgnay7o2kabp" path="res://components/fps_2d_component/fps.tscn" id="7_r1sgi"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_43x6d"]
@@ -47,13 +48,14 @@ transform = Transform3D(-0.83221817, -0.548333, -0.08212138, 0.41946447, -0.7195
 shadow_enabled = true
 directional_shadow_max_distance = 1.0
 
-[node name="floor" type="MeshInstance3D" parent="."]
+[node name="floor" type="StaticBody3D" parent="." groups=["Floor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0041410923, 0, 0.002064705)
+
+[node name="mesh" type="MeshInstance3D" parent="floor"]
 mesh = SubResource("PlaneMesh_43x6d")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
 shape = SubResource("ConvexPolygonShape3D_j6ghb")
 
 [node name="PlayerCamera" parent="." instance=ExtResource("5_l7x23")]
@@ -73,6 +75,11 @@ transform = Transform3D(0.4895832, -0.42392576, 0.761968, 0.6545957, 0.7559792, 
 transform = Transform3D(0.7488979, 0, 0.6626854, 0, 1, 0, -0.6626854, 0, 0.7488979, -0.93388546, 0.56599706, -0.08526766)
 
 [node name="DominoSpawner" type="Node3D" parent="."]
+
+[node name="SpawnManager" parent="." node_paths=PackedStringArray("player", "DominoSpawner") instance=ExtResource("7_723ac")]
+player = NodePath("../PlayerCamera")
+DominoSpawner = NodePath("../DominoSpawner")
+domino_scene = ExtResource("5_5fq60")
 
 [node name="Fps" type="CanvasLayer" parent="."]
 
