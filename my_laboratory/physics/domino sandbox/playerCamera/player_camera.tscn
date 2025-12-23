@@ -4,7 +4,6 @@
 [ext_resource type="Shader" uid="uid://b3cvh2drpts2e" path="res://physics/domino sandbox/playerCamera/player_camera_cross.gdshader" id="2_7dcq0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f8l4l"]
-radius = 2.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q8qlb"]
 shader = ExtResource("2_7dcq0")
